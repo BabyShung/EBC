@@ -8,10 +8,27 @@
 
 #import "AppDelegate.h"
 
+
+#import "SQLHelper.h"
+
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    
+    SQLHelper *sqlh=[[SQLHelper alloc] init];
+    [sqlh openDB];  //open sql connection
+    
+    //Tables
+    [sqlh createUserTable:@"User" withUid:@"Uid" withUsername:@"Uname" withPassword:@"Upwd" withSelfIE:@"Selfie" withExecuteDateTime:@"ts"];
+    
+    
+    
+    [sqlh closeDB];//close db
+
+    
     // Override point for customization after application launch.
     return YES;
 }

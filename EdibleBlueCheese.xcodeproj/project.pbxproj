@@ -27,6 +27,9 @@
 		B8AAF32418F4820000D287A3 /* LoginDemo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8AAF32318F4820000D287A3 /* LoginDemo.jpg */; };
 		B8AAF32718F4846100D287A3 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF32618F4846100D287A3 /* ProfileViewController.m */; };
 		B8AAF36E18F488E500D287A3 /* ATLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF36D18F488E500D287A3 /* ATLabel.m */; };
+		B8AAF37318F48CC400D287A3 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF37218F48CC400D287A3 /* User.m */; };
+		B8AAF37618F48E4C00D287A3 /* SQLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF37518F48E4C00D287A3 /* SQLHelper.m */; };
+		B8AAF37818F48E8D00D287A3 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AAF37718F48E8D00D287A3 /* libsqlite3.0.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +72,11 @@
 		B8AAF32618F4846100D287A3 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		B8AAF36C18F488E500D287A3 /* ATLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLabel.h; sourceTree = "<group>"; };
 		B8AAF36D18F488E500D287A3 /* ATLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLabel.m; sourceTree = "<group>"; };
+		B8AAF37118F48CC400D287A3 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		B8AAF37218F48CC400D287A3 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		B8AAF37418F48E4C00D287A3 /* SQLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLHelper.h; sourceTree = "<group>"; };
+		B8AAF37518F48E4C00D287A3 /* SQLHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLHelper.m; sourceTree = "<group>"; };
+		B8AAF37718F48E8D00D287A3 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8AAF37818F48E8D00D287A3 /* libsqlite3.0.dylib in Frameworks */,
 				B8AAF2E218F4547900D287A3 /* CoreGraphics.framework in Frameworks */,
 				B8AAF2E418F4547900D287A3 /* UIKit.framework in Frameworks */,
 				B8AAF2E018F4547900D287A3 /* Foundation.framework in Frameworks */,
@@ -117,6 +126,7 @@
 		B8AAF2DE18F4547900D287A3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B8AAF37718F48E8D00D287A3 /* libsqlite3.0.dylib */,
 				B8AAF2DF18F4547900D287A3 /* Foundation.framework */,
 				B8AAF2E118F4547900D287A3 /* CoreGraphics.framework */,
 				B8AAF2E318F4547900D287A3 /* UIKit.framework */,
@@ -128,6 +138,8 @@
 		B8AAF2E518F4547900D287A3 /* EdibleBlueCheese */ = {
 			isa = PBXGroup;
 			children = (
+				B8AAF37018F48CA900D287A3 /* Classes */,
+				B8AAF36F18F48CA000D287A3 /* Database */,
 				B8AAF32218F481F700D287A3 /* Images */,
 				B8AAF31718F47F3200D287A3 /* LoginRegister */,
 				B8AAF2F118F4547900D287A3 /* Main_iPhone.storyboard */,
@@ -200,6 +212,24 @@
 				B8AAF32318F4820000D287A3 /* LoginDemo.jpg */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		B8AAF36F18F48CA000D287A3 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				B8AAF37418F48E4C00D287A3 /* SQLHelper.h */,
+				B8AAF37518F48E4C00D287A3 /* SQLHelper.m */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+		B8AAF37018F48CA900D287A3 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B8AAF37118F48CC400D287A3 /* User.h */,
+				B8AAF37218F48CC400D287A3 /* User.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,12 +331,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8AAF37318F48CC400D287A3 /* User.m in Sources */,
 				B8AAF32018F4803000D287A3 /* LoginRegisterViewController.m in Sources */,
 				B8AAF36E18F488E500D287A3 /* ATLabel.m in Sources */,
 				B8AAF31D18F47F5B00D287A3 /* UIImage+ImageEffects.m in Sources */,
 				B8AAF2F018F4547900D287A3 /* AppDelegate.m in Sources */,
 				B8AAF2EC18F4547900D287A3 /* main.m in Sources */,
 				B8AAF32718F4846100D287A3 /* ProfileViewController.m in Sources */,
+				B8AAF37618F48E4C00D287A3 /* SQLHelper.m in Sources */,
 				B8AAF31C18F47F5B00D287A3 /* WCActionSheet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,6 +558,7 @@
 				B8AAF31318F4547A00D287A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B8AAF31418F4547A00D287A3 /* Build configuration list for PBXNativeTarget "EdibleBlueCheeseTests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +567,7 @@
 				B8AAF31618F4547A00D287A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
