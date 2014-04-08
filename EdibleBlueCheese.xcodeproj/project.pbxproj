@@ -15,13 +15,18 @@
 		B8AAF2F018F4547900D287A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF2EF18F4547900D287A3 /* AppDelegate.m */; };
 		B8AAF2F318F4547900D287A3 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8AAF2F118F4547900D287A3 /* Main_iPhone.storyboard */; };
 		B8AAF2F618F4547900D287A3 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8AAF2F418F4547900D287A3 /* Main_iPad.storyboard */; };
-		B8AAF2F918F4547900D287A3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF2F818F4547900D287A3 /* ViewController.m */; };
 		B8AAF2FB18F4547900D287A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8AAF2FA18F4547900D287A3 /* Images.xcassets */; };
 		B8AAF30218F4547900D287A3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AAF30118F4547900D287A3 /* XCTest.framework */; };
 		B8AAF30318F4547900D287A3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AAF2DF18F4547900D287A3 /* Foundation.framework */; };
 		B8AAF30418F4547900D287A3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AAF2E318F4547900D287A3 /* UIKit.framework */; };
 		B8AAF30C18F4547A00D287A3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B8AAF30A18F4547A00D287A3 /* InfoPlist.strings */; };
 		B8AAF30E18F4547A00D287A3 /* EdibleBlueCheeseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF30D18F4547A00D287A3 /* EdibleBlueCheeseTests.m */; };
+		B8AAF31C18F47F5B00D287A3 /* WCActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF31918F47F5B00D287A3 /* WCActionSheet.m */; };
+		B8AAF31D18F47F5B00D287A3 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF31B18F47F5B00D287A3 /* UIImage+ImageEffects.m */; };
+		B8AAF32018F4803000D287A3 /* LoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF31F18F4803000D287A3 /* LoginRegisterViewController.m */; };
+		B8AAF32418F4820000D287A3 /* LoginDemo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8AAF32318F4820000D287A3 /* LoginDemo.jpg */; };
+		B8AAF32718F4846100D287A3 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF32618F4846100D287A3 /* ProfileViewController.m */; };
+		B8AAF36E18F488E500D287A3 /* ATLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF36D18F488E500D287A3 /* ATLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,14 +52,23 @@
 		B8AAF2EF18F4547900D287A3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B8AAF2F218F4547900D287A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		B8AAF2F518F4547900D287A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		B8AAF2F718F4547900D287A3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B8AAF2F818F4547900D287A3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B8AAF2FA18F4547900D287A3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B8AAF30018F4547900D287A3 /* EdibleBlueCheeseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EdibleBlueCheeseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8AAF30118F4547900D287A3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		B8AAF30918F4547900D287A3 /* EdibleBlueCheeseTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EdibleBlueCheeseTests-Info.plist"; sourceTree = "<group>"; };
 		B8AAF30B18F4547A00D287A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B8AAF30D18F4547A00D287A3 /* EdibleBlueCheeseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EdibleBlueCheeseTests.m; sourceTree = "<group>"; };
+		B8AAF31818F47F5B00D287A3 /* WCActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCActionSheet.h; sourceTree = "<group>"; };
+		B8AAF31918F47F5B00D287A3 /* WCActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCActionSheet.m; sourceTree = "<group>"; };
+		B8AAF31A18F47F5B00D287A3 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		B8AAF31B18F47F5B00D287A3 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		B8AAF31E18F4803000D287A3 /* LoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginRegisterViewController.h; path = ../LoginRegisterViewController.h; sourceTree = "<group>"; };
+		B8AAF31F18F4803000D287A3 /* LoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginRegisterViewController.m; path = ../LoginRegisterViewController.m; sourceTree = "<group>"; };
+		B8AAF32318F4820000D287A3 /* LoginDemo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LoginDemo.jpg; sourceTree = "<group>"; };
+		B8AAF32518F4846100D287A3 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		B8AAF32618F4846100D287A3 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		B8AAF36C18F488E500D287A3 /* ATLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLabel.h; sourceTree = "<group>"; };
+		B8AAF36D18F488E500D287A3 /* ATLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,12 +128,11 @@
 		B8AAF2E518F4547900D287A3 /* EdibleBlueCheese */ = {
 			isa = PBXGroup;
 			children = (
-				B8AAF2EE18F4547900D287A3 /* AppDelegate.h */,
-				B8AAF2EF18F4547900D287A3 /* AppDelegate.m */,
+				B8AAF32218F481F700D287A3 /* Images */,
+				B8AAF31718F47F3200D287A3 /* LoginRegister */,
 				B8AAF2F118F4547900D287A3 /* Main_iPhone.storyboard */,
-				B8AAF2F418F4547900D287A3 /* Main_iPad.storyboard */,
-				B8AAF2F718F4547900D287A3 /* ViewController.h */,
-				B8AAF2F818F4547900D287A3 /* ViewController.m */,
+				B8AAF32518F4846100D287A3 /* ProfileViewController.h */,
+				B8AAF32618F4846100D287A3 /* ProfileViewController.m */,
 				B8AAF2FA18F4547900D287A3 /* Images.xcassets */,
 				B8AAF2E618F4547900D287A3 /* Supporting Files */,
 			);
@@ -129,6 +142,9 @@
 		B8AAF2E618F4547900D287A3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B8AAF2F418F4547900D287A3 /* Main_iPad.storyboard */,
+				B8AAF2EE18F4547900D287A3 /* AppDelegate.h */,
+				B8AAF2EF18F4547900D287A3 /* AppDelegate.m */,
 				B8AAF2E718F4547900D287A3 /* EdibleBlueCheese-Info.plist */,
 				B8AAF2E818F4547900D287A3 /* InfoPlist.strings */,
 				B8AAF2EB18F4547900D287A3 /* main.m */,
@@ -153,6 +169,37 @@
 				B8AAF30A18F4547A00D287A3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B8AAF31718F47F3200D287A3 /* LoginRegister */ = {
+			isa = PBXGroup;
+			children = (
+				B8AAF32118F4804100D287A3 /* HelperClasses */,
+				B8AAF31E18F4803000D287A3 /* LoginRegisterViewController.h */,
+				B8AAF31F18F4803000D287A3 /* LoginRegisterViewController.m */,
+			);
+			name = LoginRegister;
+			sourceTree = "<group>";
+		};
+		B8AAF32118F4804100D287A3 /* HelperClasses */ = {
+			isa = PBXGroup;
+			children = (
+				B8AAF36C18F488E500D287A3 /* ATLabel.h */,
+				B8AAF36D18F488E500D287A3 /* ATLabel.m */,
+				B8AAF31818F47F5B00D287A3 /* WCActionSheet.h */,
+				B8AAF31918F47F5B00D287A3 /* WCActionSheet.m */,
+				B8AAF31A18F47F5B00D287A3 /* UIImage+ImageEffects.h */,
+				B8AAF31B18F47F5B00D287A3 /* UIImage+ImageEffects.m */,
+			);
+			name = HelperClasses;
+			sourceTree = "<group>";
+		};
+		B8AAF32218F481F700D287A3 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B8AAF32318F4820000D287A3 /* LoginDemo.jpg */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8AAF2F618F4547900D287A3 /* Main_iPad.storyboard in Resources */,
+				B8AAF32418F4820000D287A3 /* LoginDemo.jpg in Resources */,
 				B8AAF2FB18F4547900D287A3 /* Images.xcassets in Resources */,
 				B8AAF2F318F4547900D287A3 /* Main_iPhone.storyboard in Resources */,
 				B8AAF2EA18F4547900D287A3 /* InfoPlist.strings in Resources */,
@@ -253,9 +301,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8AAF2F918F4547900D287A3 /* ViewController.m in Sources */,
+				B8AAF32018F4803000D287A3 /* LoginRegisterViewController.m in Sources */,
+				B8AAF36E18F488E500D287A3 /* ATLabel.m in Sources */,
+				B8AAF31D18F47F5B00D287A3 /* UIImage+ImageEffects.m in Sources */,
 				B8AAF2F018F4547900D287A3 /* AppDelegate.m in Sources */,
 				B8AAF2EC18F4547900D287A3 /* main.m in Sources */,
+				B8AAF32718F4846100D287A3 /* ProfileViewController.m in Sources */,
+				B8AAF31C18F47F5B00D287A3 /* WCActionSheet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
