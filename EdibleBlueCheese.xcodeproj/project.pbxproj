@@ -24,12 +24,12 @@
 		B8AAF31C18F47F5B00D287A3 /* WCActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF31918F47F5B00D287A3 /* WCActionSheet.m */; };
 		B8AAF31D18F47F5B00D287A3 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF31B18F47F5B00D287A3 /* UIImage+ImageEffects.m */; };
 		B8AAF32018F4803000D287A3 /* LoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF31F18F4803000D287A3 /* LoginRegisterViewController.m */; };
-		B8AAF32418F4820000D287A3 /* LoginDemo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8AAF32318F4820000D287A3 /* LoginDemo.jpg */; };
 		B8AAF32718F4846100D287A3 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF32618F4846100D287A3 /* ProfileViewController.m */; };
 		B8AAF36E18F488E500D287A3 /* ATLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF36D18F488E500D287A3 /* ATLabel.m */; };
 		B8AAF37318F48CC400D287A3 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF37218F48CC400D287A3 /* User.m */; };
 		B8AAF37618F48E4C00D287A3 /* SQLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF37518F48E4C00D287A3 /* SQLHelper.m */; };
 		B8AAF37818F48E8D00D287A3 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AAF37718F48E8D00D287A3 /* libsqlite3.0.dylib */; };
+		B8AAF37E18F49F4100D287A3 /* LoginDemo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8AAF37D18F49F4100D287A3 /* LoginDemo.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +67,6 @@
 		B8AAF31B18F47F5B00D287A3 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		B8AAF31E18F4803000D287A3 /* LoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginRegisterViewController.h; path = ../LoginRegisterViewController.h; sourceTree = "<group>"; };
 		B8AAF31F18F4803000D287A3 /* LoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginRegisterViewController.m; path = ../LoginRegisterViewController.m; sourceTree = "<group>"; };
-		B8AAF32318F4820000D287A3 /* LoginDemo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LoginDemo.jpg; sourceTree = "<group>"; };
 		B8AAF32518F4846100D287A3 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		B8AAF32618F4846100D287A3 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		B8AAF36C18F488E500D287A3 /* ATLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLabel.h; sourceTree = "<group>"; };
@@ -77,6 +76,7 @@
 		B8AAF37418F48E4C00D287A3 /* SQLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLHelper.h; sourceTree = "<group>"; };
 		B8AAF37518F48E4C00D287A3 /* SQLHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLHelper.m; sourceTree = "<group>"; };
 		B8AAF37718F48E8D00D287A3 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		B8AAF37D18F49F4100D287A3 /* LoginDemo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LoginDemo.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,7 +209,7 @@
 		B8AAF32218F481F700D287A3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				B8AAF32318F4820000D287A3 /* LoginDemo.jpg */,
+				B8AAF37D18F49F4100D287A3 /* LoginDemo.jpg */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -308,8 +308,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8AAF37E18F49F4100D287A3 /* LoginDemo.jpg in Resources */,
 				B8AAF2F618F4547900D287A3 /* Main_iPad.storyboard in Resources */,
-				B8AAF32418F4820000D287A3 /* LoginDemo.jpg in Resources */,
 				B8AAF2FB18F4547900D287A3 /* Images.xcassets in Resources */,
 				B8AAF2F318F4547900D287A3 /* Main_iPhone.storyboard in Resources */,
 				B8AAF2EA18F4547900D287A3 /* InfoPlist.strings in Resources */,
