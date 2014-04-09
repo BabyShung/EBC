@@ -9,7 +9,7 @@
 #import "LoginRegisterViewController.h"
 #import "WCActionSheet.h"
 #import "FormValidation.h"
-
+#import "validation.h"
 
 #define EmailPlaceHolder @"Email"
 #define UserNamePlaceHolder @"Username"
@@ -60,34 +60,45 @@
     
 }
 
-// initialize based on which form
+/*****************************************
+ 
+    initialize based on which form
+ 
+ ****************************************/
 -(void) formInitializeAndIfIsLogin:(BOOL) IsLogin{
     
+    //you can't refer to self or properties on self from within a block that will be strongly retained by self, so use a weakself
+    __weak typeof(self) weakSelf = self;
     
     self.myActionSheet = [[WCActionSheet alloc] initWithDelegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles: nil];
     //P.S: you can change placeholder name but can't change componentName (fixed in .m file)
     [self.myActionSheet addTextBoxWithPlaceHolder:@"Email" andComponentName:EmailPlaceHolder];
     
     
-    if(IsLogin){
+    if(IsLogin){//init login form
         [self.myActionSheet addTextBoxWithPlaceHolder:@"Password" andComponentName:PwdPlaceHolder];
-        [self.myActionSheet addButtonWithTitle:@"Login" actionBlock:^{//logic code
+        [self.myActionSheet addButtonWithTitle:@"Login" actionBlock:^{
+            //logic code
+            
+            [weakSelf validateAllInputs];
             
         }];
-    }else{
+    }else{  //init register form
         [self.myActionSheet addTextBoxWithPlaceHolder:@"Username" andComponentName:UserNamePlaceHolder];
         [self.myActionSheet addTextBoxWithPlaceHolder:@"Password" andComponentName:PwdPlaceHolder];
-        [self.myActionSheet addButtonWithTitle:@"Sign Up" actionBlock:^{//logic code
+        [self.myActionSheet addButtonWithTitle:@"Sign Up" actionBlock:^{
+            //logic code
+            
+            [weakSelf validateAllInputs];
             
         }];
         self.myActionSheet.usernameTextField.delegate = self;
     }
-    
-    
-    [self.myActionSheet show];
-    
+
     self.myActionSheet.emailTextField.delegate = self;
     self.myActionSheet.pwdTextField.delegate = self;
+    
+    [self.myActionSheet show];
 }
 
 /************************************
@@ -118,10 +129,38 @@
 
 -(void) validateAllInputs{
     
-    FormValidation *validate = [[FormValidation alloc]init];
+    validation *validate=[[validation alloc] init];
     
-    //pass all the three texts to validate
-    [validate validateEmail:self.myActionSheet.emailTextField.text andUserName:self.myActionSheet.usernameTextField.text andPwd:self.myActionSheet.pwdTextField.text];
+    //pass the textFields
+    [validate Email:self.myActionSheet.emailTextField FieldName:@"Email"];
+    [validate Required:self.myActionSheet.emailTextField FieldName:@"Email"];
+    [validate Required:self.myActionSheet.pwdTextField FieldName:@"Password"];
+    [validate MinLength:4 textField:self.myActionSheet.pwdTextField FieldName:@"Password"];
+    [validate MaxLength:20 textField:self.myActionSheet.pwdTextField FieldName:@"Password"];
+    
+    if(self.myActionSheet.usernameTextField){//register case
+        [validate Required:self.myActionSheet.usernameTextField FieldName:@"Username"];
+        [validate MaxLength:20 textField:self.myActionSheet.usernameTextField FieldName:@"Username"];
+    }
+    
+    [validate isValid];
+    
+    //----Check valid or not
+    if([validate textFieldIsValid] == TRUE){
+        NSLog(@"Everything validated");
+        //self.errorLabel.hidden = TRUE;
+        //self.errorLabel.text = @"";
+    }else{
+        //----Show Error Messages From errorMsg Array
+        NSLog(@"Error Messages From Clinet Side: %@",[validate errorMsg]);
+        
+        NSString *errorString = [[validate errorMsg] componentsJoinedByString: @"\n"];
+        
+        NSLog(@"Error:\n%@",errorString);
+        //self.errorLabel.hidden = false;
+       // self.errorLabel.text = errorString;
+    }
+
     
 }
 

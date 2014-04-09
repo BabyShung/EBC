@@ -31,6 +31,7 @@
 		B8AAF37818F48E8D00D287A3 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AAF37718F48E8D00D287A3 /* libsqlite3.0.dylib */; };
 		B8AAF37E18F49F4100D287A3 /* LoginDemo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8AAF37D18F49F4100D287A3 /* LoginDemo.jpg */; };
 		B8AAF38118F4E66A00D287A3 /* FormValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF38018F4E66A00D287A3 /* FormValidation.m */; };
+		B8FA45B718F5CA78007DA680 /* validation.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA45B618F5CA78007DA680 /* validation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,8 @@
 		B8AAF37D18F49F4100D287A3 /* LoginDemo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LoginDemo.jpg; sourceTree = "<group>"; };
 		B8AAF37F18F4E66A00D287A3 /* FormValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormValidation.h; sourceTree = "<group>"; };
 		B8AAF38018F4E66A00D287A3 /* FormValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormValidation.m; sourceTree = "<group>"; };
+		B8FA45B518F5CA78007DA680 /* validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = validation.h; sourceTree = "<group>"; };
+		B8FA45B618F5CA78007DA680 /* validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = validation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +210,8 @@
 				B8AAF31B18F47F5B00D287A3 /* UIImage+ImageEffects.m */,
 				B8AAF37F18F4E66A00D287A3 /* FormValidation.h */,
 				B8AAF38018F4E66A00D287A3 /* FormValidation.m */,
+				B8FA45B518F5CA78007DA680 /* validation.h */,
+				B8FA45B618F5CA78007DA680 /* validation.m */,
 			);
 			name = HelperClasses;
 			sourceTree = "<group>";
@@ -338,6 +343,7 @@
 			files = (
 				B8AAF38118F4E66A00D287A3 /* FormValidation.m in Sources */,
 				B8AAF37318F48CC400D287A3 /* User.m in Sources */,
+				B8FA45B718F5CA78007DA680 /* validation.m in Sources */,
 				B8AAF32018F4803000D287A3 /* LoginRegisterViewController.m in Sources */,
 				B8AAF36E18F488E500D287A3 /* ATLabel.m in Sources */,
 				B8AAF31D18F47F5B00D287A3 /* UIImage+ImageEffects.m in Sources */,
