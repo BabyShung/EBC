@@ -35,9 +35,7 @@
 @property (nonatomic, strong) UIButton *destructiveButton;
 @property (nonatomic, strong) UIButton *cancelButton;
 
-@property (nonatomic, strong) UITextField *emailTextField;
-@property (nonatomic, strong) UITextField *pwdTextField;
-@property (nonatomic, strong) UITextField *usernameTextField;
+
 
 @property (nonatomic, strong) UIImageView *blurView;
 
@@ -107,6 +105,7 @@ static UIWindow *__sheetWindow = nil;
     return self;
 }
 
+//used in loginRegister
 - (instancetype)initWithDelegate:(id<WCActionSheetDelegate>)delegate cancelButtonTitle:(NSString *)cancelButtonTitle destructiveButtonTitle:(NSString *)destructiveButtonTitle otherButtonTitles:(NSString *)otherButtonTitles,... {
     self = [super initWithFrame:CGRectZero];
     if (self) {
@@ -167,16 +166,25 @@ static UIWindow *__sheetWindow = nil;
     
     textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     
-    [self addSubview:textField];
     
     
     //Hao added for text field reference
-    if([component isEqualToString:@"Email"])
+    if([component isEqualToString:@"Email"]){
         self.emailTextField = textField;
-    else if([component isEqualToString:@"Password"])
+        
+    }
+    else if([component isEqualToString:@"Password"]){
+        
+        textField.secureTextEntry = YES;//password format
         self.pwdTextField = textField;
+    }
     else if([component isEqualToString:@"Username"])
         self.usernameTextField = textField;
+    
+    
+    //finally add the textfield
+    [self addSubview:textField];
+
     
     NSUInteger index = [self.buttons count];
     [self.buttons addObject:textField];
@@ -185,6 +193,9 @@ static UIWindow *__sheetWindow = nil;
     return index;
     
 }
+
+
+
 
 #pragma mark - addButton
 

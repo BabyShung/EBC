@@ -35,6 +35,11 @@
 @property(nonatomic, readonly) NSInteger cancelButtonIndex;
 @property(nonatomic, readonly) NSInteger destructiveButtonIndex;
 
+
+@property (nonatomic, strong) UITextField *emailTextField;
+@property (nonatomic, strong) UITextField *pwdTextField;
+@property (nonatomic, strong) UITextField *usernameTextField;
+
 /**
  
     Methods

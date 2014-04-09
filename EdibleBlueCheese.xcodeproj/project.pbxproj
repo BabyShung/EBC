@@ -30,6 +30,7 @@
 		B8AAF37618F48E4C00D287A3 /* SQLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF37518F48E4C00D287A3 /* SQLHelper.m */; };
 		B8AAF37818F48E8D00D287A3 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AAF37718F48E8D00D287A3 /* libsqlite3.0.dylib */; };
 		B8AAF37E18F49F4100D287A3 /* LoginDemo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8AAF37D18F49F4100D287A3 /* LoginDemo.jpg */; };
+		B8AAF38118F4E66A00D287A3 /* FormValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF38018F4E66A00D287A3 /* FormValidation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		B8AAF37518F48E4C00D287A3 /* SQLHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLHelper.m; sourceTree = "<group>"; };
 		B8AAF37718F48E8D00D287A3 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		B8AAF37D18F49F4100D287A3 /* LoginDemo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LoginDemo.jpg; sourceTree = "<group>"; };
+		B8AAF37F18F4E66A00D287A3 /* FormValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormValidation.h; sourceTree = "<group>"; };
+		B8AAF38018F4E66A00D287A3 /* FormValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormValidation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +205,8 @@
 				B8AAF31918F47F5B00D287A3 /* WCActionSheet.m */,
 				B8AAF31A18F47F5B00D287A3 /* UIImage+ImageEffects.h */,
 				B8AAF31B18F47F5B00D287A3 /* UIImage+ImageEffects.m */,
+				B8AAF37F18F4E66A00D287A3 /* FormValidation.h */,
+				B8AAF38018F4E66A00D287A3 /* FormValidation.m */,
 			);
 			name = HelperClasses;
 			sourceTree = "<group>";
@@ -331,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8AAF38118F4E66A00D287A3 /* FormValidation.m in Sources */,
 				B8AAF37318F48CC400D287A3 /* User.m in Sources */,
 				B8AAF32018F4803000D287A3 /* LoginRegisterViewController.m in Sources */,
 				B8AAF36E18F488E500D287A3 /* ATLabel.m in Sources */,
