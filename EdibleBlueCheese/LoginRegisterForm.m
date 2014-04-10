@@ -169,6 +169,7 @@ static UIWindow *__sheetWindow = nil;
     
     //Hao added for text field reference
     if([component isEqualToString:@"Email"]){
+        textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         self.emailTextField = textField;
         
     }

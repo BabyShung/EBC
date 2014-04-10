@@ -27,6 +27,16 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    UIViewController *tv = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginRegister"];
+    [self presentViewController:tv animated:NO completion:nil];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+}
+- (IBAction)dismiss:(id)sender {
+    
+
 }
 
 - (void)didReceiveMemoryWarning

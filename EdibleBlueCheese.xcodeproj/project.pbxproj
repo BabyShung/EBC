@@ -27,10 +27,10 @@
 		B8AAF32718F4846100D287A3 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF32618F4846100D287A3 /* ProfileViewController.m */; };
 		B8AAF36E18F488E500D287A3 /* AnimateLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF36D18F488E500D287A3 /* AnimateLabel.m */; };
 		B8AAF37318F48CC400D287A3 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF37218F48CC400D287A3 /* User.m */; };
-		B8AAF37618F48E4C00D287A3 /* SQLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF37518F48E4C00D287A3 /* SQLHelper.m */; };
+		B8AAF37618F48E4C00D287A3 /* SQLConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF37518F48E4C00D287A3 /* SQLConnector.m */; };
 		B8AAF37818F48E8D00D287A3 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AAF37718F48E8D00D287A3 /* libsqlite3.0.dylib */; };
 		B8AAF37E18F49F4100D287A3 /* LoginDemo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8AAF37D18F49F4100D287A3 /* LoginDemo.jpg */; };
-		B8FA45B718F5CA78007DA680 /* FormValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA45B618F5CA78007DA680 /* FormValidation.m */; };
+		B8FA45B718F5CA78007DA680 /* FormValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA45B618F5CA78007DA680 /* FormValidator.m */; };
 		B8FA45BF18F5D8E7007DA680 /* EdibleAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA45BC18F5D8E7007DA680 /* EdibleAlertView.m */; };
 		B8FA45C018F5D8E7007DA680 /* EdibleAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8FA45BD18F5D8E7007DA680 /* EdibleAlertView.xib */; };
 		B8FA45C318F5D8ED007DA680 /* UIViewController+MaryPopin.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA45C218F5D8ED007DA680 /* UIViewController+MaryPopin.m */; };
@@ -77,12 +77,12 @@
 		B8AAF36D18F488E500D287A3 /* AnimateLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimateLabel.m; sourceTree = "<group>"; };
 		B8AAF37118F48CC400D287A3 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		B8AAF37218F48CC400D287A3 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		B8AAF37418F48E4C00D287A3 /* SQLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLHelper.h; sourceTree = "<group>"; };
-		B8AAF37518F48E4C00D287A3 /* SQLHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLHelper.m; sourceTree = "<group>"; };
+		B8AAF37418F48E4C00D287A3 /* SQLConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLConnector.h; sourceTree = "<group>"; };
+		B8AAF37518F48E4C00D287A3 /* SQLConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLConnector.m; sourceTree = "<group>"; };
 		B8AAF37718F48E8D00D287A3 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		B8AAF37D18F49F4100D287A3 /* LoginDemo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LoginDemo.jpg; sourceTree = "<group>"; };
-		B8FA45B518F5CA78007DA680 /* FormValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormValidation.h; sourceTree = "<group>"; };
-		B8FA45B618F5CA78007DA680 /* FormValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormValidation.m; sourceTree = "<group>"; };
+		B8FA45B518F5CA78007DA680 /* FormValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormValidator.h; sourceTree = "<group>"; };
+		B8FA45B618F5CA78007DA680 /* FormValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormValidator.m; sourceTree = "<group>"; };
 		B8FA45BB18F5D8E7007DA680 /* EdibleAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EdibleAlertView.h; sourceTree = "<group>"; };
 		B8FA45BC18F5D8E7007DA680 /* EdibleAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EdibleAlertView.m; sourceTree = "<group>"; };
 		B8FA45BD18F5D8E7007DA680 /* EdibleAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EdibleAlertView.xib; sourceTree = "<group>"; };
@@ -214,8 +214,8 @@
 				B8AAF31918F47F5B00D287A3 /* LoginRegisterForm.m */,
 				B8AAF31A18F47F5B00D287A3 /* UIImage+ImageEffects.h */,
 				B8AAF31B18F47F5B00D287A3 /* UIImage+ImageEffects.m */,
-				B8FA45B518F5CA78007DA680 /* FormValidation.h */,
-				B8FA45B618F5CA78007DA680 /* FormValidation.m */,
+				B8FA45B518F5CA78007DA680 /* FormValidator.h */,
+				B8FA45B618F5CA78007DA680 /* FormValidator.m */,
 			);
 			name = HelperClasses;
 			sourceTree = "<group>";
@@ -231,8 +231,8 @@
 		B8AAF36F18F48CA000D287A3 /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				B8AAF37418F48E4C00D287A3 /* SQLHelper.h */,
-				B8AAF37518F48E4C00D287A3 /* SQLHelper.m */,
+				B8AAF37418F48E4C00D287A3 /* SQLConnector.h */,
+				B8AAF37518F48E4C00D287A3 /* SQLConnector.m */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -359,7 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8AAF37318F48CC400D287A3 /* User.m in Sources */,
-				B8FA45B718F5CA78007DA680 /* FormValidation.m in Sources */,
+				B8FA45B718F5CA78007DA680 /* FormValidator.m in Sources */,
 				B8AAF32018F4803000D287A3 /* LoginRegisterViewController.m in Sources */,
 				B8FA45BF18F5D8E7007DA680 /* EdibleAlertView.m in Sources */,
 				B8AAF36E18F488E500D287A3 /* AnimateLabel.m in Sources */,
@@ -368,7 +368,7 @@
 				B8AAF2EC18F4547900D287A3 /* main.m in Sources */,
 				B8FA45C318F5D8ED007DA680 /* UIViewController+MaryPopin.m in Sources */,
 				B8AAF32718F4846100D287A3 /* ProfileViewController.m in Sources */,
-				B8AAF37618F48E4C00D287A3 /* SQLHelper.m in Sources */,
+				B8AAF37618F48E4C00D287A3 /* SQLConnector.m in Sources */,
 				B8AAF31C18F47F5B00D287A3 /* LoginRegisterForm.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

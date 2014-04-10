@@ -8,7 +8,7 @@
 
 #import "LoginRegisterViewController.h"
 #import "LoginRegisterForm.h"
-#import "FormValidation.h"
+#import "FormValidator.h"
 #import "EdibleAlertView.h"
 #import "UIViewController+MaryPopin.h"
 
@@ -128,11 +128,32 @@
 
 -(void) validateAllInputs{
     
-    FormValidation *validate=[[FormValidation alloc] init];
+    FormValidator *validate=[[FormValidator alloc] init];
     [validate Email:self.myActionSheet.emailTextField andUsername:self.myActionSheet.usernameTextField andPwd:self.myActionSheet.pwdTextField];
     [validate isValid];
     if([validate textFieldIsValid] == TRUE){    //success
         [self.myActionSheet dismissWithClickedButtonIndex:self.myActionSheet.cancelButtonIndex animated:YES];
+        
+        
+        //send info to server and verify
+        //(form already dismissed and loading gif is showing)
+        
+        //if success,slide down current viewcontroller and "jump" into the main page
+        //(postpone 0.5s to let amination fluent)
+        
+        //if failure,reload the register or login form and load the last info
+        //(password should be md5 hashed and server client use the same md5 algo?)
+        
+        
+        
+        //delay code
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^(void){
+//                [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+//                NSLog(@"dismissed");
+//
+//        });
+        
+        
     }else{  //failure
         NSLog(@"Error Messages From Clinet Side: %@",[validate errorMsg]);
         NSString *errorString = [[validate errorMsg] componentsJoinedByString: @"\n"];

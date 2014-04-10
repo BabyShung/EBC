@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 
 
-#import "SQLHelper.h"
+#import "SQLConnector.h"
 
 
 @implementation AppDelegate
@@ -18,7 +18,7 @@
 {
     
     
-    SQLHelper *sqlh=[[SQLHelper alloc] init];
+    SQLConnector *sqlh=[[SQLConnector alloc] init];
     [sqlh openDB];  //open sql connection
     
     //Tables
