@@ -35,11 +35,12 @@
 @property(nonatomic) UIButton* submissionButton;
 @property(nonatomic, strong) NSMutableArray * errors;
 @property(nonatomic, strong) NSMutableArray * errorMsg;
-@property(nonatomic, strong) NSMutableArray * emailError;
-@property(nonatomic, strong) NSMutableArray * requiredError;
-@property(nonatomic, strong) NSMutableArray *minLengthError;
-@property(nonatomic, strong) NSMutableArray *lettersNumbersOnly;
-@property(nonatomic, strong) NSMutableArray *maxLengthError;
+
+@property(nonatomic) BOOL emailError;
+@property(nonatomic) BOOL requiredError;
+@property(nonatomic) BOOL minLengthError;
+@property(nonatomic) BOOL lettersNumbersOnly;
+@property(nonatomic) BOOL maxLengthError;
 
 @property(nonatomic, strong) NSMutableArray * emailErrorMsg;
 @property(nonatomic, strong) NSMutableArray * requiredErrorMsg;

@@ -153,10 +153,8 @@
     NSLog(@"clicked cancel.");
 }
 - (void)actionSheet:(LoginRegisterForm *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex {
-    NSLog(@"clicked btn index: %ld",buttonIndex);
 }
 - (void)actionSheet:(LoginRegisterForm *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    NSLog(@"yeah yeah clicked btn index: %ld",buttonIndex);
     
 }
 - (void)actionSheet:(LoginRegisterForm *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
