@@ -1,20 +1,56 @@
 //
-//  FormValidation.h
+//  validation.h
 //  EdibleBlueCheese
 //
-//  Created by Hao Zheng on 4/8/14.
+//  Created by Hao Zheng on 4/9/14.
 //  Copyright (c) 2014 Hao Zheng. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface FormValidation : NSObject
+@interface FormValidation : NSObject <UITextFieldDelegate>{
+}
 
-- (BOOL)validateEmail:(NSString*)email andUserName:(NSString*) username andPwd:(NSString*)pwd;
+//validate login or register form
+- (void) Email:(UITextField *) email andUsername: (UITextField *) username andPwd: (UITextField *)pwd;
 
-- (BOOL)validateEmail:(NSString*)email;
+//check email
+- (void) Email : (UITextField *) emailAddress FieldName: (NSString *) textFieldName;
 
-- (BOOL)validateRequired:(NSString*)input;
+//check required
+- (void) Required : (UITextField *) textField FieldName: (NSString *) textFieldName;
+
+//check minlength
+- (void) MinLength: (int) length  textField: (UITextField *) textField FieldName: (NSString *) textFieldName;
+
+//
+- (void) LettersNumbersOnly: (UITextField *) textField FieldName: (NSString *) textFieldName;
+
+//check maxlength
+- (void) MaxLength: (int) length textField: (UITextField *)textField FieldName: (NSString *) textFieldName;
+
+
+- (BOOL) isValid;
+
+@property(nonatomic) UIButton* submissionButton;
+@property(nonatomic, strong) NSMutableArray * errors;
+@property(nonatomic, strong) NSMutableArray * errorMsg;
+@property(nonatomic, strong) NSMutableArray * emailError;
+@property(nonatomic, strong) NSMutableArray * requiredError;
+@property(nonatomic, strong) NSMutableArray *minLengthError;
+@property(nonatomic, strong) NSMutableArray *lettersNumbersOnly;
+@property(nonatomic, strong) NSMutableArray *maxLengthError;
+
+@property(nonatomic, strong) NSMutableArray * emailErrorMsg;
+@property(nonatomic, strong) NSMutableArray * requiredErrorMsg;
+@property(nonatomic, strong) NSMutableArray *minLengthErrorMsg;
+@property(nonatomic, strong) NSMutableArray *lettersNumbersOnlyMsg;
+@property(nonatomic, strong) NSMutableArray *maxLengthErrorMsg;
+@property(nonatomic, strong) NSString *errorStr;
+@property(nonatomic) BOOL textFieldIsValid;
+
+@property(nonatomic, strong) UITextField *textField;
 
 
 @end
+

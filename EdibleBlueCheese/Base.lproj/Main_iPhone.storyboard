@@ -45,8 +45,8 @@
                                     <action selector="showRegisterForm:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kH2-a8-Rf4"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLa-Z3-oGl" customClass="ATLabel">
-                                <rect key="frame" x="0.0" y="122" width="320" height="52"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLa-Z3-oGl" customClass="AnimateLabel">
+                                <rect key="frame" x="0.0" y="86" width="320" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="35"/>
                                 <color key="textColor" red="0.94901967050000002" green="0.34901961679999999" blue="0.50980395079999996" alpha="1" colorSpace="deviceRGB"/>

@@ -7,9 +7,10 @@
 //
 
 #import "LoginRegisterViewController.h"
-#import "WCActionSheet.h"
+#import "LoginRegisterForm.h"
 #import "FormValidation.h"
-#import "validation.h"
+#import "EdibleAlertView.h"
+#import "UIViewController+MaryPopin.h"
 
 #define EmailPlaceHolder @"Email"
 #define UserNamePlaceHolder @"Username"
@@ -17,8 +18,8 @@
 
 @interface LoginRegisterViewController () <WCActionSheetDelegate,UITextFieldDelegate>
 
-@property (nonatomic, strong) WCActionSheet *myActionSheet;
-
+@property (nonatomic, strong) LoginRegisterForm *myActionSheet;
+@property (nonatomic) BOOL shouldBeginCalledBeforeHand;
 @end
 
 @implementation LoginRegisterViewController
@@ -41,23 +42,18 @@
 
 }
 
-
+/*****************************************
+ 
+ clicking btns events
+ 
+ ****************************************/
 
 - (IBAction)showLoginForm:(id)sender {
-
     [self formInitializeAndIfIsLogin:YES];
-    
-        //    [actionSheet addButtonWithTitle:@"Hi!" actionBlock:^{
-    //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hi!" message:@"My name is Wojtek and I made it" delegate:nil cancelButtonTitle:@"okay" otherButtonTitles: nil];
-    //        [alert show];
-    //    }];
-
 }
 
 - (IBAction)showRegisterForm:(id)sender {
-
     [self formInitializeAndIfIsLogin:NO];
-    
 }
 
 /*****************************************
@@ -70,7 +66,7 @@
     //you can't refer to self or properties on self from within a block that will be strongly retained by self, so use a weakself
     __weak typeof(self) weakSelf = self;
     
-    self.myActionSheet = [[WCActionSheet alloc] initWithDelegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles: nil];
+    self.myActionSheet = [[LoginRegisterForm alloc] initWithDelegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles: nil];
     //P.S: you can change placeholder name but can't change componentName (fixed in .m file)
     [self.myActionSheet addTextBoxWithPlaceHolder:@"Email" andComponentName:EmailPlaceHolder];
     
@@ -101,9 +97,9 @@
     [self.myActionSheet show];
 }
 
-/************************************
+/********************************************
  
- delegate methods for textfield
+ textfield delegate methods: clicking return
  
  ****************************************/
 
@@ -118,79 +114,58 @@
             [self.myActionSheet.pwdTextField becomeFirstResponder];
     }
     else if(theTextField == self.myActionSheet.pwdTextField){
-        //submit
-        NSLog(@"sumbit!");
         [self validateAllInputs];
         
     }
-    
-    return true;
+    return NO;
 }
-
--(void) validateAllInputs{
-    
-    validation *validate=[[validation alloc] init];
-    
-    //pass the textFields
-    [validate Email:self.myActionSheet.emailTextField FieldName:@"Email"];
-    [validate Required:self.myActionSheet.emailTextField FieldName:@"Email"];
-    [validate Required:self.myActionSheet.pwdTextField FieldName:@"Password"];
-    [validate MinLength:4 textField:self.myActionSheet.pwdTextField FieldName:@"Password"];
-    [validate MaxLength:20 textField:self.myActionSheet.pwdTextField FieldName:@"Password"];
-    
-    if(self.myActionSheet.usernameTextField){//register case
-        [validate Required:self.myActionSheet.usernameTextField FieldName:@"Username"];
-        [validate MaxLength:20 textField:self.myActionSheet.usernameTextField FieldName:@"Username"];
-    }
-    
-    [validate isValid];
-    
-    //----Check valid or not
-    if([validate textFieldIsValid] == TRUE){
-        NSLog(@"Everything validated");
-        //self.errorLabel.hidden = TRUE;
-        //self.errorLabel.text = @"";
-    }else{
-        //----Show Error Messages From errorMsg Array
-        NSLog(@"Error Messages From Clinet Side: %@",[validate errorMsg]);
-        
-        NSString *errorString = [[validate errorMsg] componentsJoinedByString: @"\n"];
-        
-        NSLog(@"Error:\n%@",errorString);
-        //self.errorLabel.hidden = false;
-       // self.errorLabel.text = errorString;
-    }
-
-    
-}
-
 
 /************************************
  
-    delegate methods for WCActionSheet
+ validate all inputs, FormValidation.h
  
  ****************************************/
-- (void)actionSheetCancel:(WCActionSheet *)actionSheet {
+
+-(void) validateAllInputs{
+    
+    FormValidation *validate=[[FormValidation alloc] init];
+    [validate Email:self.myActionSheet.emailTextField andUsername:self.myActionSheet.usernameTextField andPwd:self.myActionSheet.pwdTextField];
+    [validate isValid];
+    if([validate textFieldIsValid] == TRUE){    //success
+        [self.myActionSheet dismissWithClickedButtonIndex:self.myActionSheet.cancelButtonIndex animated:YES];
+    }else{  //failure
+        NSLog(@"Error Messages From Clinet Side: %@",[validate errorMsg]);
+        NSString *errorString = [[validate errorMsg] componentsJoinedByString: @"\n"];
+        //show the alert
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops.." message:errorString delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+        [alert show];
+    }
+}
+
+
+
+/****************************************
+ 
+    delegate methods for LoginRegisterForm
+ 
+ ****************************************/
+- (void)actionSheetCancel:(LoginRegisterForm *)actionSheet {
+    NSLog(@"clicked cancel.");
+}
+- (void)actionSheet:(LoginRegisterForm *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex {
+    NSLog(@"clicked btn index: %ld",buttonIndex);
+}
+- (void)actionSheet:(LoginRegisterForm *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    NSLog(@"yeah yeah clicked btn index: %ld",buttonIndex);
     
 }
-
-- (void)actionSheet:(WCActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex {
-    ;
+- (void)actionSheet:(LoginRegisterForm *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSLog(@"btn clicked ?");
 }
-
-- (void)actionSheet:(WCActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    ;
+- (void)willPresentActionSheet:(LoginRegisterForm *)actionSheet {
+    //restore previous info
 }
-
-- (void)actionSheet:(WCActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    ;
-}
-
-- (void)willPresentActionSheet:(WCActionSheet *)actionSheet {
-    ;
-}
-
-- (void)didPresentActionSheet:(WCActionSheet *)actionSheet {
+- (void)didPresentActionSheet:(LoginRegisterForm *)actionSheet {
     ;
 }
 

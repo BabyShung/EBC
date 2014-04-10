@@ -21,17 +21,19 @@
 		B8AAF30418F4547900D287A3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AAF2E318F4547900D287A3 /* UIKit.framework */; };
 		B8AAF30C18F4547A00D287A3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B8AAF30A18F4547A00D287A3 /* InfoPlist.strings */; };
 		B8AAF30E18F4547A00D287A3 /* EdibleBlueCheeseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF30D18F4547A00D287A3 /* EdibleBlueCheeseTests.m */; };
-		B8AAF31C18F47F5B00D287A3 /* WCActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF31918F47F5B00D287A3 /* WCActionSheet.m */; };
+		B8AAF31C18F47F5B00D287A3 /* LoginRegisterForm.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF31918F47F5B00D287A3 /* LoginRegisterForm.m */; };
 		B8AAF31D18F47F5B00D287A3 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF31B18F47F5B00D287A3 /* UIImage+ImageEffects.m */; };
 		B8AAF32018F4803000D287A3 /* LoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF31F18F4803000D287A3 /* LoginRegisterViewController.m */; };
 		B8AAF32718F4846100D287A3 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF32618F4846100D287A3 /* ProfileViewController.m */; };
-		B8AAF36E18F488E500D287A3 /* ATLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF36D18F488E500D287A3 /* ATLabel.m */; };
+		B8AAF36E18F488E500D287A3 /* AnimateLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF36D18F488E500D287A3 /* AnimateLabel.m */; };
 		B8AAF37318F48CC400D287A3 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF37218F48CC400D287A3 /* User.m */; };
 		B8AAF37618F48E4C00D287A3 /* SQLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF37518F48E4C00D287A3 /* SQLHelper.m */; };
 		B8AAF37818F48E8D00D287A3 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AAF37718F48E8D00D287A3 /* libsqlite3.0.dylib */; };
 		B8AAF37E18F49F4100D287A3 /* LoginDemo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8AAF37D18F49F4100D287A3 /* LoginDemo.jpg */; };
-		B8AAF38118F4E66A00D287A3 /* FormValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF38018F4E66A00D287A3 /* FormValidation.m */; };
-		B8FA45B718F5CA78007DA680 /* validation.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA45B618F5CA78007DA680 /* validation.m */; };
+		B8FA45B718F5CA78007DA680 /* FormValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA45B618F5CA78007DA680 /* FormValidation.m */; };
+		B8FA45BF18F5D8E7007DA680 /* EdibleAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA45BC18F5D8E7007DA680 /* EdibleAlertView.m */; };
+		B8FA45C018F5D8E7007DA680 /* EdibleAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8FA45BD18F5D8E7007DA680 /* EdibleAlertView.xib */; };
+		B8FA45C318F5D8ED007DA680 /* UIViewController+MaryPopin.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA45C218F5D8ED007DA680 /* UIViewController+MaryPopin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,26 +65,29 @@
 		B8AAF30918F4547900D287A3 /* EdibleBlueCheeseTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EdibleBlueCheeseTests-Info.plist"; sourceTree = "<group>"; };
 		B8AAF30B18F4547A00D287A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B8AAF30D18F4547A00D287A3 /* EdibleBlueCheeseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EdibleBlueCheeseTests.m; sourceTree = "<group>"; };
-		B8AAF31818F47F5B00D287A3 /* WCActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCActionSheet.h; sourceTree = "<group>"; };
-		B8AAF31918F47F5B00D287A3 /* WCActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCActionSheet.m; sourceTree = "<group>"; };
+		B8AAF31818F47F5B00D287A3 /* LoginRegisterForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRegisterForm.h; sourceTree = "<group>"; };
+		B8AAF31918F47F5B00D287A3 /* LoginRegisterForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRegisterForm.m; sourceTree = "<group>"; };
 		B8AAF31A18F47F5B00D287A3 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		B8AAF31B18F47F5B00D287A3 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		B8AAF31E18F4803000D287A3 /* LoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginRegisterViewController.h; path = ../LoginRegisterViewController.h; sourceTree = "<group>"; };
 		B8AAF31F18F4803000D287A3 /* LoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginRegisterViewController.m; path = ../LoginRegisterViewController.m; sourceTree = "<group>"; };
 		B8AAF32518F4846100D287A3 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		B8AAF32618F4846100D287A3 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
-		B8AAF36C18F488E500D287A3 /* ATLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLabel.h; sourceTree = "<group>"; };
-		B8AAF36D18F488E500D287A3 /* ATLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLabel.m; sourceTree = "<group>"; };
+		B8AAF36C18F488E500D287A3 /* AnimateLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimateLabel.h; sourceTree = "<group>"; };
+		B8AAF36D18F488E500D287A3 /* AnimateLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimateLabel.m; sourceTree = "<group>"; };
 		B8AAF37118F48CC400D287A3 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		B8AAF37218F48CC400D287A3 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		B8AAF37418F48E4C00D287A3 /* SQLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLHelper.h; sourceTree = "<group>"; };
 		B8AAF37518F48E4C00D287A3 /* SQLHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLHelper.m; sourceTree = "<group>"; };
 		B8AAF37718F48E8D00D287A3 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		B8AAF37D18F49F4100D287A3 /* LoginDemo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LoginDemo.jpg; sourceTree = "<group>"; };
-		B8AAF37F18F4E66A00D287A3 /* FormValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormValidation.h; sourceTree = "<group>"; };
-		B8AAF38018F4E66A00D287A3 /* FormValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormValidation.m; sourceTree = "<group>"; };
-		B8FA45B518F5CA78007DA680 /* validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = validation.h; sourceTree = "<group>"; };
-		B8FA45B618F5CA78007DA680 /* validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = validation.m; sourceTree = "<group>"; };
+		B8FA45B518F5CA78007DA680 /* FormValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormValidation.h; sourceTree = "<group>"; };
+		B8FA45B618F5CA78007DA680 /* FormValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormValidation.m; sourceTree = "<group>"; };
+		B8FA45BB18F5D8E7007DA680 /* EdibleAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EdibleAlertView.h; sourceTree = "<group>"; };
+		B8FA45BC18F5D8E7007DA680 /* EdibleAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EdibleAlertView.m; sourceTree = "<group>"; };
+		B8FA45BD18F5D8E7007DA680 /* EdibleAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EdibleAlertView.xib; sourceTree = "<group>"; };
+		B8FA45C118F5D8ED007DA680 /* UIViewController+MaryPopin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MaryPopin.h"; sourceTree = "<group>"; };
+		B8FA45C218F5D8ED007DA680 /* UIViewController+MaryPopin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MaryPopin.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,16 +207,15 @@
 		B8AAF32118F4804100D287A3 /* HelperClasses */ = {
 			isa = PBXGroup;
 			children = (
-				B8AAF36C18F488E500D287A3 /* ATLabel.h */,
-				B8AAF36D18F488E500D287A3 /* ATLabel.m */,
-				B8AAF31818F47F5B00D287A3 /* WCActionSheet.h */,
-				B8AAF31918F47F5B00D287A3 /* WCActionSheet.m */,
+				B8FA45B818F5D8C5007DA680 /* AlertView */,
+				B8AAF36C18F488E500D287A3 /* AnimateLabel.h */,
+				B8AAF36D18F488E500D287A3 /* AnimateLabel.m */,
+				B8AAF31818F47F5B00D287A3 /* LoginRegisterForm.h */,
+				B8AAF31918F47F5B00D287A3 /* LoginRegisterForm.m */,
 				B8AAF31A18F47F5B00D287A3 /* UIImage+ImageEffects.h */,
 				B8AAF31B18F47F5B00D287A3 /* UIImage+ImageEffects.m */,
-				B8AAF37F18F4E66A00D287A3 /* FormValidation.h */,
-				B8AAF38018F4E66A00D287A3 /* FormValidation.m */,
-				B8FA45B518F5CA78007DA680 /* validation.h */,
-				B8FA45B618F5CA78007DA680 /* validation.m */,
+				B8FA45B518F5CA78007DA680 /* FormValidation.h */,
+				B8FA45B618F5CA78007DA680 /* FormValidation.m */,
 			);
 			name = HelperClasses;
 			sourceTree = "<group>";
@@ -240,6 +244,18 @@
 				B8AAF37218F48CC400D287A3 /* User.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		B8FA45B818F5D8C5007DA680 /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				B8FA45C118F5D8ED007DA680 /* UIViewController+MaryPopin.h */,
+				B8FA45C218F5D8ED007DA680 /* UIViewController+MaryPopin.m */,
+				B8FA45BB18F5D8E7007DA680 /* EdibleAlertView.h */,
+				B8FA45BC18F5D8E7007DA680 /* EdibleAlertView.m */,
+				B8FA45BD18F5D8E7007DA680 /* EdibleAlertView.xib */,
+			);
+			name = AlertView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,6 +337,7 @@
 				B8AAF37E18F49F4100D287A3 /* LoginDemo.jpg in Resources */,
 				B8AAF2F618F4547900D287A3 /* Main_iPad.storyboard in Resources */,
 				B8AAF2FB18F4547900D287A3 /* Images.xcassets in Resources */,
+				B8FA45C018F5D8E7007DA680 /* EdibleAlertView.xib in Resources */,
 				B8AAF2F318F4547900D287A3 /* Main_iPhone.storyboard in Resources */,
 				B8AAF2EA18F4547900D287A3 /* InfoPlist.strings in Resources */,
 			);
@@ -341,17 +358,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8AAF38118F4E66A00D287A3 /* FormValidation.m in Sources */,
 				B8AAF37318F48CC400D287A3 /* User.m in Sources */,
-				B8FA45B718F5CA78007DA680 /* validation.m in Sources */,
+				B8FA45B718F5CA78007DA680 /* FormValidation.m in Sources */,
 				B8AAF32018F4803000D287A3 /* LoginRegisterViewController.m in Sources */,
-				B8AAF36E18F488E500D287A3 /* ATLabel.m in Sources */,
+				B8FA45BF18F5D8E7007DA680 /* EdibleAlertView.m in Sources */,
+				B8AAF36E18F488E500D287A3 /* AnimateLabel.m in Sources */,
 				B8AAF31D18F47F5B00D287A3 /* UIImage+ImageEffects.m in Sources */,
 				B8AAF2F018F4547900D287A3 /* AppDelegate.m in Sources */,
 				B8AAF2EC18F4547900D287A3 /* main.m in Sources */,
+				B8FA45C318F5D8ED007DA680 /* UIViewController+MaryPopin.m in Sources */,
 				B8AAF32718F4846100D287A3 /* ProfileViewController.m in Sources */,
 				B8AAF37618F48E4C00D287A3 /* SQLHelper.m in Sources */,
-				B8AAF31C18F47F5B00D287A3 /* WCActionSheet.m in Sources */,
+				B8AAF31C18F47F5B00D287A3 /* LoginRegisterForm.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

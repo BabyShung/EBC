@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ATLabel.h"
+#import "AnimateLabel.h"
 
 @interface LoginRegisterViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet ATLabel *AnimatedLabel;
+@property (weak, nonatomic) IBOutlet AnimateLabel *AnimatedLabel;
 
 @end
