@@ -34,6 +34,8 @@
 		B8FA45BF18F5D8E7007DA680 /* EdibleAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA45BC18F5D8E7007DA680 /* EdibleAlertView.m */; };
 		B8FA45C018F5D8E7007DA680 /* EdibleAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8FA45BD18F5D8E7007DA680 /* EdibleAlertView.xib */; };
 		B8FA45C318F5D8ED007DA680 /* UIViewController+MaryPopin.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA45C218F5D8ED007DA680 /* UIViewController+MaryPopin.m */; };
+		B8FA45CB18F72E56007DA680 /* ImagePlaceholderHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA45C818F72E56007DA680 /* ImagePlaceholderHelper.m */; };
+		B8FA45CC18F72E56007DA680 /* UIImageView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA45CA18F72E56007DA680 /* UIImageView+Placeholder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,10 @@
 		B8FA45BD18F5D8E7007DA680 /* EdibleAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EdibleAlertView.xib; sourceTree = "<group>"; };
 		B8FA45C118F5D8ED007DA680 /* UIViewController+MaryPopin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MaryPopin.h"; sourceTree = "<group>"; };
 		B8FA45C218F5D8ED007DA680 /* UIViewController+MaryPopin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MaryPopin.m"; sourceTree = "<group>"; };
+		B8FA45C718F72E55007DA680 /* ImagePlaceholderHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePlaceholderHelper.h; sourceTree = "<group>"; };
+		B8FA45C818F72E56007DA680 /* ImagePlaceholderHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePlaceholderHelper.m; sourceTree = "<group>"; };
+		B8FA45C918F72E56007DA680 /* UIImageView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Placeholder.h"; sourceTree = "<group>"; };
+		B8FA45CA18F72E56007DA680 /* UIImageView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Placeholder.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,13 +155,12 @@
 		B8AAF2E518F4547900D287A3 /* EdibleBlueCheese */ = {
 			isa = PBXGroup;
 			children = (
+				B8AAF2F118F4547900D287A3 /* Main_iPhone.storyboard */,
+				B8AAF31718F47F3200D287A3 /* LoginRegister */,
+				B8FA45C518F72DF7007DA680 /* Profile */,
 				B8AAF37018F48CA900D287A3 /* Classes */,
 				B8AAF36F18F48CA000D287A3 /* Database */,
 				B8AAF32218F481F700D287A3 /* Images */,
-				B8AAF31718F47F3200D287A3 /* LoginRegister */,
-				B8AAF2F118F4547900D287A3 /* Main_iPhone.storyboard */,
-				B8AAF32518F4846100D287A3 /* ProfileViewController.h */,
-				B8AAF32618F4846100D287A3 /* ProfileViewController.m */,
 				B8AAF2FA18F4547900D287A3 /* Images.xcassets */,
 				B8AAF2E618F4547900D287A3 /* Supporting Files */,
 			);
@@ -197,14 +202,14 @@
 		B8AAF31718F47F3200D287A3 /* LoginRegister */ = {
 			isa = PBXGroup;
 			children = (
-				B8AAF32118F4804100D287A3 /* HelperClasses */,
+				B8AAF32118F4804100D287A3 /* HelperClasses_LR */,
 				B8AAF31E18F4803000D287A3 /* LoginRegisterViewController.h */,
 				B8AAF31F18F4803000D287A3 /* LoginRegisterViewController.m */,
 			);
 			name = LoginRegister;
 			sourceTree = "<group>";
 		};
-		B8AAF32118F4804100D287A3 /* HelperClasses */ = {
+		B8AAF32118F4804100D287A3 /* HelperClasses_LR */ = {
 			isa = PBXGroup;
 			children = (
 				B8FA45B818F5D8C5007DA680 /* AlertView */,
@@ -217,7 +222,7 @@
 				B8FA45B518F5CA78007DA680 /* FormValidator.h */,
 				B8FA45B618F5CA78007DA680 /* FormValidator.m */,
 			);
-			name = HelperClasses;
+			name = HelperClasses_LR;
 			sourceTree = "<group>";
 		};
 		B8AAF32218F481F700D287A3 /* Images */ = {
@@ -256,6 +261,27 @@
 				B8FA45BD18F5D8E7007DA680 /* EdibleAlertView.xib */,
 			);
 			name = AlertView;
+			sourceTree = "<group>";
+		};
+		B8FA45C518F72DF7007DA680 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B8FA45C618F72E3E007DA680 /* HelperClasses_Pf */,
+				B8AAF32518F4846100D287A3 /* ProfileViewController.h */,
+				B8AAF32618F4846100D287A3 /* ProfileViewController.m */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		B8FA45C618F72E3E007DA680 /* HelperClasses_Pf */ = {
+			isa = PBXGroup;
+			children = (
+				B8FA45C718F72E55007DA680 /* ImagePlaceholderHelper.h */,
+				B8FA45C818F72E56007DA680 /* ImagePlaceholderHelper.m */,
+				B8FA45C918F72E56007DA680 /* UIImageView+Placeholder.h */,
+				B8FA45CA18F72E56007DA680 /* UIImageView+Placeholder.m */,
+			);
+			name = HelperClasses_Pf;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,7 +388,9 @@
 				B8FA45B718F5CA78007DA680 /* FormValidator.m in Sources */,
 				B8AAF32018F4803000D287A3 /* LoginRegisterViewController.m in Sources */,
 				B8FA45BF18F5D8E7007DA680 /* EdibleAlertView.m in Sources */,
+				B8FA45CB18F72E56007DA680 /* ImagePlaceholderHelper.m in Sources */,
 				B8AAF36E18F488E500D287A3 /* AnimateLabel.m in Sources */,
+				B8FA45CC18F72E56007DA680 /* UIImageView+Placeholder.m in Sources */,
 				B8AAF31D18F47F5B00D287A3 /* UIImage+ImageEffects.m in Sources */,
 				B8AAF2F018F4547900D287A3 /* AppDelegate.m in Sources */,
 				B8AAF2EC18F4547900D287A3 /* main.m in Sources */,

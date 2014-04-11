@@ -10,4 +10,8 @@
 
 @interface ProfileViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *Selfie;
+
+@property (weak, nonatomic) IBOutlet UIImageView *Cover;
+
 @end

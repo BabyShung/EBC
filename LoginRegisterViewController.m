@@ -147,11 +147,11 @@
         
         
         //delay code
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^(void){
-//                [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-//                NSLog(@"dismissed");
-//
-//        });
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^(void){
+                [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+                NSLog(@"dismissed");
+
+        });
         
         
     }else{  //failure
