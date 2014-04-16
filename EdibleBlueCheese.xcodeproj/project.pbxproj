@@ -30,6 +30,7 @@
 		B8AAF37618F48E4C00D287A3 /* SQLConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF37518F48E4C00D287A3 /* SQLConnector.m */; };
 		B8AAF37818F48E8D00D287A3 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AAF37718F48E8D00D287A3 /* libsqlite3.0.dylib */; };
 		B8AAF37E18F49F4100D287A3 /* LoginDemo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8AAF37D18F49F4100D287A3 /* LoginDemo.jpg */; };
+		B8D1CAB518FE0326001AFA11 /* LoginRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D1CAB418FE0326001AFA11 /* LoginRegister.m */; };
 		B8FA45B718F5CA78007DA680 /* FormValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA45B618F5CA78007DA680 /* FormValidator.m */; };
 		B8FA45BF18F5D8E7007DA680 /* EdibleAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA45BC18F5D8E7007DA680 /* EdibleAlertView.m */; };
 		B8FA45C018F5D8E7007DA680 /* EdibleAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8FA45BD18F5D8E7007DA680 /* EdibleAlertView.xib */; };
@@ -83,6 +84,8 @@
 		B8AAF37518F48E4C00D287A3 /* SQLConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLConnector.m; sourceTree = "<group>"; };
 		B8AAF37718F48E8D00D287A3 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		B8AAF37D18F49F4100D287A3 /* LoginDemo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LoginDemo.jpg; sourceTree = "<group>"; };
+		B8D1CAB318FE0326001AFA11 /* LoginRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRegister.h; sourceTree = "<group>"; };
+		B8D1CAB418FE0326001AFA11 /* LoginRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRegister.m; sourceTree = "<group>"; };
 		B8FA45B518F5CA78007DA680 /* FormValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormValidator.h; sourceTree = "<group>"; };
 		B8FA45B618F5CA78007DA680 /* FormValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormValidator.m; sourceTree = "<group>"; };
 		B8FA45BB18F5D8E7007DA680 /* EdibleAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EdibleAlertView.h; sourceTree = "<group>"; };
@@ -215,6 +218,8 @@
 				B8FA45B818F5D8C5007DA680 /* AlertView */,
 				B8AAF36C18F488E500D287A3 /* AnimateLabel.h */,
 				B8AAF36D18F488E500D287A3 /* AnimateLabel.m */,
+				B8D1CAB318FE0326001AFA11 /* LoginRegister.h */,
+				B8D1CAB418FE0326001AFA11 /* LoginRegister.m */,
 				B8AAF31818F47F5B00D287A3 /* LoginRegisterForm.h */,
 				B8AAF31918F47F5B00D287A3 /* LoginRegisterForm.m */,
 				B8AAF31A18F47F5B00D287A3 /* UIImage+ImageEffects.h */,
@@ -328,7 +333,7 @@
 		B8AAF2D418F4547900D287A3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Hao Zheng";
 				TargetAttributes = {
 					B8AAF2FF18F4547900D287A3 = {
@@ -392,6 +397,7 @@
 				B8AAF36E18F488E500D287A3 /* AnimateLabel.m in Sources */,
 				B8FA45CC18F72E56007DA680 /* UIImageView+Placeholder.m in Sources */,
 				B8AAF31D18F47F5B00D287A3 /* UIImage+ImageEffects.m in Sources */,
+				B8D1CAB518FE0326001AFA11 /* LoginRegister.m in Sources */,
 				B8AAF2F018F4547900D287A3 /* AppDelegate.m in Sources */,
 				B8AAF2EC18F4547900D287A3 /* main.m in Sources */,
 				B8FA45C318F5D8ED007DA680 /* UIViewController+MaryPopin.m in Sources */,
@@ -459,7 +465,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -499,7 +504,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -558,7 +562,6 @@
 		B8AAF31518F4547A00D287A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EdibleBlueCheese.app/EdibleBlueCheese";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -581,7 +584,6 @@
 		B8AAF31618F4547A00D287A3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EdibleBlueCheese.app/EdibleBlueCheese";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

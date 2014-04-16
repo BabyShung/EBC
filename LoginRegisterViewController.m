@@ -11,12 +11,19 @@
 #import "FormValidator.h"
 #import "EdibleAlertView.h"
 #import "UIViewController+MaryPopin.h"
+#import "LoginRegister.h"
+
 
 #define EmailPlaceHolder @"Email"
 #define UserNamePlaceHolder @"Username"
 #define PwdPlaceHolder @"Password"
 
-@interface LoginRegisterViewController () <WCActionSheetDelegate,UITextFieldDelegate>
+
+
+@interface LoginRegisterViewController () <WCActionSheetDelegate,UITextFieldDelegate,NSURLConnectionDataDelegate>
+{
+    NSMutableData *webdata;
+}
 
 @property (nonatomic, strong) LoginRegisterForm *myActionSheet;
 @property (nonatomic) BOOL shouldBeginCalledBeforeHand;
@@ -39,6 +46,8 @@
 	
     //animate label
     [self.AnimatedLabel animateWithWords:@[@"We're the Edible",@"It's the best App",@"Do you like it?"] forDuration:3.0f];
+    
+    webdata = [[NSMutableData alloc]init];
 
 }
 
@@ -135,25 +144,14 @@
         [self.myActionSheet dismissWithClickedButtonIndex:self.myActionSheet.cancelButtonIndex animated:YES];
         
         
-        //send info to server and verify
-        //(form already dismissed and loading gif is showing)
-        
-        //if success,slide down current viewcontroller and "jump" into the main page
-        //(postpone 0.5s to let amination fluent)
-        
-        //if failure,reload the register or login form and load the last info
-        //(password should be md5 hashed and server client use the same md5 algo?)
-        
-        
-        
-        //delay code
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^(void){
-                [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-                NSLog(@"dismissed");
-
+            //passing the parameters
+            LoginRegister *lr = [[LoginRegister alloc]init];
+            [lr loginRegisterAccount:self.myActionSheet.emailTextField.text andUsernam:self.myActionSheet.usernameTextField.text andPwd:self.myActionSheet.pwdTextField.text andSELF:self];
         });
         
-        
+
+
     }else{  //failure
         NSLog(@"Error Messages From Clinet Side: %@",[validate errorMsg]);
         NSString *errorString = [[validate errorMsg] componentsJoinedByString: @"\n"];
@@ -187,6 +185,64 @@
 - (void)didPresentActionSheet:(LoginRegisterForm *)actionSheet {
     ;
 }
+
+
+/****************************************
+ 
+ delegate methods for networkConnection
+ 
+ ****************************************/
+
+
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
+    [webdata setLength:0];
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
+    [webdata appendData:data];
+}
+
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
+    NSLog(@"error..please try again");
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops.." message:@"Network problem..please try again." delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+    [alert show];
+}
+
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection{
+    [self checkResult];
+}
+
+
+-(void)checkResult{
+    
+    NSDictionary *returnJSONtoNSdict = [NSJSONSerialization JSONObjectWithData:webdata options:0 error:nil];
+    
+    id status = [returnJSONtoNSdict objectForKey:@"status"];
+    NSString *name = [returnJSONtoNSdict objectForKey:@"log"];
+    
+    
+    if([status boolValue]){
+        //if success,slide down current viewcontroller and "jump" into the main page
+        //(postpone 0.8s to let amination fluent)
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^(void){
+            [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+            NSLog(@"dismissed");
+            
+        });
+
+    }else{
+        //if failure,reload the register or login form and load the last info
+        //(password should be md5 hashed and server client use the same md5 algo?)
+        //show the alert
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops.." message:name delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+        [alert show];
+    }
+
+}
+
+
+
 
 
 @end
