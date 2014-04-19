@@ -30,6 +30,14 @@
 		B8AAF37618F48E4C00D287A3 /* SQLConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF37518F48E4C00D287A3 /* SQLConnector.m */; };
 		B8AAF37818F48E8D00D287A3 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AAF37718F48E8D00D287A3 /* libsqlite3.0.dylib */; };
 		B8AAF37E18F49F4100D287A3 /* LoginDemo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8AAF37D18F49F4100D287A3 /* LoginDemo.jpg */; };
+		B8BC421419031F6C00485705 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8BC420C19031F6C00485705 /* 1.jpg */; };
+		B8BC421519031F6C00485705 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8BC420D19031F6C00485705 /* 2.jpg */; };
+		B8BC421619031F6C00485705 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8BC420E19031F6C00485705 /* 3.jpg */; };
+		B8BC421719031F6C00485705 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8BC420F19031F6C00485705 /* 4.jpg */; };
+		B8BC421819031F6C00485705 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8BC421019031F6C00485705 /* 5.jpg */; };
+		B8BC421919031F6C00485705 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8BC421119031F6C00485705 /* 6.jpg */; };
+		B8BC421A19031F6C00485705 /* CardScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8BC421319031F6C00485705 /* CardScrollView.m */; };
+		B8BC421D19031F8400485705 /* CardCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8BC421C19031F8400485705 /* CardCollectionViewController.m */; };
 		B8D1CAB518FE0326001AFA11 /* LoginRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D1CAB418FE0326001AFA11 /* LoginRegister.m */; };
 		B8FA45B718F5CA78007DA680 /* FormValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA45B618F5CA78007DA680 /* FormValidator.m */; };
 		B8FA45BF18F5D8E7007DA680 /* EdibleAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA45BC18F5D8E7007DA680 /* EdibleAlertView.m */; };
@@ -84,6 +92,16 @@
 		B8AAF37518F48E4C00D287A3 /* SQLConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLConnector.m; sourceTree = "<group>"; };
 		B8AAF37718F48E8D00D287A3 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		B8AAF37D18F49F4100D287A3 /* LoginDemo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LoginDemo.jpg; sourceTree = "<group>"; };
+		B8BC420C19031F6C00485705 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		B8BC420D19031F6C00485705 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		B8BC420E19031F6C00485705 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		B8BC420F19031F6C00485705 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
+		B8BC421019031F6C00485705 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
+		B8BC421119031F6C00485705 /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
+		B8BC421219031F6C00485705 /* CardScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardScrollView.h; sourceTree = "<group>"; };
+		B8BC421319031F6C00485705 /* CardScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardScrollView.m; sourceTree = "<group>"; };
+		B8BC421B19031F8400485705 /* CardCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardCollectionViewController.h; sourceTree = "<group>"; };
+		B8BC421C19031F8400485705 /* CardCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardCollectionViewController.m; sourceTree = "<group>"; };
 		B8D1CAB318FE0326001AFA11 /* LoginRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRegister.h; sourceTree = "<group>"; };
 		B8D1CAB418FE0326001AFA11 /* LoginRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRegister.m; sourceTree = "<group>"; };
 		B8FA45B518F5CA78007DA680 /* FormValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormValidator.h; sourceTree = "<group>"; };
@@ -160,6 +178,7 @@
 			children = (
 				B8AAF2F118F4547900D287A3 /* Main_iPhone.storyboard */,
 				B8AAF31718F47F3200D287A3 /* LoginRegister */,
+				B8BC420B19031F5800485705 /* Card */,
 				B8FA45C518F72DF7007DA680 /* Profile */,
 				B8AAF37018F48CA900D287A3 /* Classes */,
 				B8AAF36F18F48CA000D287A3 /* Database */,
@@ -233,6 +252,12 @@
 		B8AAF32218F481F700D287A3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B8BC420C19031F6C00485705 /* 1.jpg */,
+				B8BC420D19031F6C00485705 /* 2.jpg */,
+				B8BC420E19031F6C00485705 /* 3.jpg */,
+				B8BC420F19031F6C00485705 /* 4.jpg */,
+				B8BC421019031F6C00485705 /* 5.jpg */,
+				B8BC421119031F6C00485705 /* 6.jpg */,
 				B8AAF37D18F49F4100D287A3 /* LoginDemo.jpg */,
 			);
 			name = Images;
@@ -254,6 +279,17 @@
 				B8AAF37218F48CC400D287A3 /* User.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		B8BC420B19031F5800485705 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				B8BC421219031F6C00485705 /* CardScrollView.h */,
+				B8BC421319031F6C00485705 /* CardScrollView.m */,
+				B8BC421B19031F8400485705 /* CardCollectionViewController.h */,
+				B8BC421C19031F8400485705 /* CardCollectionViewController.m */,
+			);
+			name = Card;
 			sourceTree = "<group>";
 		};
 		B8FA45B818F5D8C5007DA680 /* AlertView */ = {
@@ -365,12 +401,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8BC421819031F6C00485705 /* 5.jpg in Resources */,
+				B8BC421619031F6C00485705 /* 3.jpg in Resources */,
 				B8AAF37E18F49F4100D287A3 /* LoginDemo.jpg in Resources */,
 				B8AAF2F618F4547900D287A3 /* Main_iPad.storyboard in Resources */,
 				B8AAF2FB18F4547900D287A3 /* Images.xcassets in Resources */,
 				B8FA45C018F5D8E7007DA680 /* EdibleAlertView.xib in Resources */,
+				B8BC421919031F6C00485705 /* 6.jpg in Resources */,
 				B8AAF2F318F4547900D287A3 /* Main_iPhone.storyboard in Resources */,
 				B8AAF2EA18F4547900D287A3 /* InfoPlist.strings in Resources */,
+				B8BC421519031F6C00485705 /* 2.jpg in Resources */,
+				B8BC421719031F6C00485705 /* 4.jpg in Resources */,
+				B8BC421419031F6C00485705 /* 1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +431,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8BC421D19031F8400485705 /* CardCollectionViewController.m in Sources */,
 				B8AAF37318F48CC400D287A3 /* User.m in Sources */,
 				B8FA45B718F5CA78007DA680 /* FormValidator.m in Sources */,
 				B8AAF32018F4803000D287A3 /* LoginRegisterViewController.m in Sources */,
@@ -404,6 +447,7 @@
 				B8AAF32718F4846100D287A3 /* ProfileViewController.m in Sources */,
 				B8AAF37618F48E4C00D287A3 /* SQLConnector.m in Sources */,
 				B8AAF31C18F47F5B00D287A3 /* LoginRegisterForm.m in Sources */,
+				B8BC421A19031F6C00485705 /* CardScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

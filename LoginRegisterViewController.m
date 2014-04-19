@@ -149,8 +149,6 @@
             LoginRegister *lr = [[LoginRegister alloc]init];
             [lr loginRegisterAccount:self.myActionSheet.emailTextField.text andUsernam:self.myActionSheet.usernameTextField.text andPwd:self.myActionSheet.pwdTextField.text andSELF:self];
         });
-        
-
 
     }else{  //failure
         NSLog(@"Error Messages From Clinet Side: %@",[validate errorMsg]);
@@ -203,7 +201,6 @@
 }
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
-    NSLog(@"error..please try again");
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops.." message:@"Network problem..please try again." delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
     [alert show];
