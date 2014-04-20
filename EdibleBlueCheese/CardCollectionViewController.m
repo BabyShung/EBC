@@ -60,10 +60,9 @@
     [_scrollView nextItem];
 }
 
-- (IBAction)jumpToItem:(id)sender {
-    [_scrollView moveToIndex:3];
+- (IBAction)goBack:(id)sender {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
-
 
 #pragma mark - PWParallaxScrollViewSource
 

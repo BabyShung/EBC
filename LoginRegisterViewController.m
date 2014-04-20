@@ -27,6 +27,11 @@
 
 @property (nonatomic, strong) LoginRegisterForm *myActionSheet;
 @property (nonatomic) BOOL shouldBeginCalledBeforeHand;
+
+@property (weak, nonatomic) IBOutlet UIButton *loginBTN;
+@property (weak, nonatomic) IBOutlet UIButton *registerBTN;
+
+
 @end
 
 @implementation LoginRegisterViewController
@@ -44,6 +49,10 @@
 {
     [super viewDidLoad];
 	
+    
+    self.loginBTN.layer.cornerRadius = 60.0f;
+    self.registerBTN.layer.cornerRadius = 60.0f;
+    
     //animate label
     [self.AnimatedLabel animateWithWords:@[@"We're the Edible",@"It's the best App",@"Do you like it?"] forDuration:3.0f];
     

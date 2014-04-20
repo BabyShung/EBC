@@ -17,6 +17,18 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+	
+	if ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] != NSOrderedAscending) {
+		[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+		[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+		NSDictionary *attributes = @{ NSFontAttributeName: [UIFont fontWithName:@"Heiti TC" size:18],
+									  NSForegroundColorAttributeName: [UIColor whiteColor]};
+		[[UINavigationBar appearance] setTitleTextAttributes:attributes];
+        
+	}
+    
+    
     
     SQLConnector *sqlh=[[SQLConnector alloc] init];
     [sqlh openDB];  //open sql connection

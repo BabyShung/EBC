@@ -8,7 +8,7 @@
 
 #import "ProfileViewController.h"
 #import "ImagePlaceholderHelper.h"
-
+#import "NavBarSetting.h"
 
 @interface ProfileViewController ()
 
@@ -31,9 +31,15 @@
 {
     [super viewDidLoad];
 
+    
+    NavBarSetting *navb = [[NavBarSetting alloc]init];
+    [navb setupNavBar:self.navigationController.navigationBar];
+    
     self.Selfie.image = [[ImagePlaceholderHelper sharedInstance] placerholderAvatarWithSize:self.Selfie.frame.size];
     
-    [self.Cover fillWithPlaceholderImageAndText:@"Click to change cover" fillColor:[UIColor colorWithRed:0.861f green:0.791f blue:0.467f alpha:1.00f]];
+   // [self.Cover fillWithPlaceholderImageAndText:@"Click to change cover" fillColor:[UIColor colorWithRed:0.861f green:0.791f blue:0.467f alpha:1.00f]];
+    
+    [self.Cover setImage:[UIImage imageNamed:@"mycover.jpg"]];
     
     
 
