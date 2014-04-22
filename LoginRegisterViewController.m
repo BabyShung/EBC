@@ -28,6 +28,8 @@
     NSMutableData *webdata;
 }
 
+@property (nonatomic) BOOL isLogging;
+
 @property (nonatomic, strong) LoginRegisterForm *myActionSheet;
 @property (nonatomic,strong) LoadingAnimation *loadingImage;
 
@@ -52,6 +54,8 @@
     [self.AnimatedLabel animateWithWords:@[@"We're the Edible",@"It's the best App",@"Do you like it?"] forDuration:3.0f];
     
     webdata = [[NSMutableData alloc]init];
+    
+
     
 }
 
@@ -141,6 +145,8 @@
 
 -(void) validateAllInputs{
     
+    
+    
     FormValidator *validate=[[FormValidator alloc] init];
     [validate Email:self.myActionSheet.emailTextField andUsername:self.myActionSheet.usernameTextField andPwd:self.myActionSheet.pwdTextField];
     [validate isValid];
@@ -157,13 +163,15 @@
         }
         [self.loadingImage startAnimating];
         
-        
+        self.isLogging = YES;
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^(void){
             
             //passing the parameters
             LoginRegister *lr = [[LoginRegister alloc]init];
             [lr loginRegisterAccount:self.myActionSheet.emailTextField.text andUsernam:self.myActionSheet.usernameTextField.text andPwd:self.myActionSheet.pwdTextField.text andSELF:self];
+            
+            
         });
         
     }else{  //failure
@@ -173,6 +181,8 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops.." message:errorString delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
         [alert show];
     }
+    
+    
 }
 
 
@@ -186,9 +196,16 @@
     NSLog(@"clicked cancel.");
 }
 - (void)actionSheet:(LoginRegisterForm *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex {
+
 }
 - (void)actionSheet:(LoginRegisterForm *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    
+    if(self.isLogging){
+        self.loginBTN.enabled = NO;
+        self.registerBTN.enabled = NO;
+    }else{
+        self.loginBTN.enabled = YES;
+        self.registerBTN.enabled = YES;
+    }
 }
 - (void)actionSheet:(LoginRegisterForm *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     NSLog(@"btn clicked ?");
@@ -254,34 +271,23 @@
             NSString *uid = [returnJSONtoNSdict objectForKey:@"uid"];
             NSString *uname = [returnJSONtoNSdict objectForKey:@"uname"];
             NSString *utype = [returnJSONtoNSdict objectForKey:@"utype"];
-            NSString *uselfie = [returnJSONtoNSdict objectForKey:@"uselfie"];
-            NSString *ucreate_time = [returnJSONtoNSdict objectForKey:@"ucreate_time"];
-            NSLog(@"user info?  %@",uid);
-            NSLog(@"user info?  %@",uname);
-            NSLog(@"user info?  %@",utype);
-            NSLog(@"user info?  %@",uselfie);
-            NSLog(@"user info?  %@",ucreate_time);
+            //NSString *uselfie = [returnJSONtoNSdict objectForKey:@"uselfie"];
+            //NSString *ucreate_time = [returnJSONtoNSdict objectForKey:@"ucreate_time"];
             
             User *tmp = [User sharedInstanceWithUid:uid andUname:uname andUtype:[utype integerValue]   andUselfie:nil];
-            
-            NSLog(@"s info?  %@",tmp.Uid);
-            NSLog(@"s info?  %@",tmp.Uname);
-            NSLog(@"s info?  %i",tmp.Utype);
-            NSLog(@"s info?  %@",tmp.Uselfie);
+
             
             
-            UITabBarController *tv = [self.storyboard instantiateViewControllerWithIdentifier:@"tabbar"];
-            tv.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            
-            
-            UINavigationController *firstNVC = [tv.viewControllers objectAtIndex:0];
+            UITabBarController *tabbarVC = [self.storyboard instantiateViewControllerWithIdentifier:@"tabbar"];
+            tabbarVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            UINavigationController *firstNVC = [tabbarVC.viewControllers objectAtIndex:0];
             ProfileViewController *firstVC = (ProfileViewController*)firstNVC.visibleViewController;
             firstVC.loggedInUser = tmp;
             
             
             
             //don't know how to fix the bug, parent exists
-            [self presentViewController:tv animated:YES completion:Nil];
+            [self presentViewController:tabbarVC animated:YES completion:Nil];
             
             //[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
             NSLog(@"dismissed");
@@ -294,12 +300,19 @@
             if(self.loadingImage)
                 [self.loadingImage stopAnimating];
             
+            self.isLogging = NO;
+            self.loginBTN.enabled = YES;
+            self.registerBTN.enabled = YES;
+            
         });
         
     }else{
         //if failure,reload the register or login form and load the last info
         //(password should be md5 hashed and server client use the same md5 algo?)
         //show the alert
+        if(!log){
+            log = @"Network error, please try again.";
+        }
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops.." message:log delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
         [alert show];
         
@@ -308,7 +321,12 @@
         if(self.loadingImage)
             [self.loadingImage stopAnimating];
         
+        self.isLogging = NO;
+        self.loginBTN.enabled = YES;
+        self.registerBTN.enabled = YES;
     }
+    
+    
 }
 
 
