@@ -13,6 +13,10 @@
 #import "LoginRegister.h"
 #import "LoadingAnimation.h"
 
+#import "User.h"
+#import "ProfileViewController.h"
+
+
 #define EmailPlaceHolder @"Email"
 #define UserNamePlaceHolder @"Username"
 #define PwdPlaceHolder @"Password"
@@ -48,12 +52,12 @@
     [self.AnimatedLabel animateWithWords:@[@"We're the Edible",@"It's the best App",@"Do you like it?"] forDuration:3.0f];
     
     webdata = [[NSMutableData alloc]init];
-
+    
 }
 
 /*****************************************
  
-    clicking btns events
+ clicking btns events
  
  ****************************************/
 
@@ -67,7 +71,7 @@
 
 /*****************************************
  
-    initialize based on which form
+ initialize based on which form
  
  ****************************************/
 -(void) formInitializeAndIfIsLogin:(BOOL) IsLogin{
@@ -99,7 +103,7 @@
         }];
         self.myActionSheet.usernameTextField.delegate = self;
     }
-
+    
     self.myActionSheet.emailTextField.delegate = self;
     self.myActionSheet.pwdTextField.delegate = self;
     
@@ -120,7 +124,7 @@
         else
             [self.myActionSheet.pwdTextField becomeFirstResponder];
     }else if(theTextField == self.myActionSheet.usernameTextField){
-            [self.myActionSheet.pwdTextField becomeFirstResponder];
+        [self.myActionSheet.pwdTextField becomeFirstResponder];
     }
     else if(theTextField == self.myActionSheet.pwdTextField){
         [self validateAllInputs];
@@ -161,7 +165,7 @@
             LoginRegister *lr = [[LoginRegister alloc]init];
             [lr loginRegisterAccount:self.myActionSheet.emailTextField.text andUsernam:self.myActionSheet.usernameTextField.text andPwd:self.myActionSheet.pwdTextField.text andSELF:self];
         });
-
+        
     }else{  //failure
         NSLog(@"Error Messages From Clinet Side: %@",[validate errorMsg]);
         NSString *errorString = [[validate errorMsg] componentsJoinedByString: @"\n"];
@@ -175,7 +179,7 @@
 
 /****************************************
  
-    delegate methods for LoginRegisterForm
+ delegate methods for LoginRegisterForm
  
  ****************************************/
 - (void)actionSheetCancel:(LoginRegisterForm *)actionSheet {
@@ -224,7 +228,7 @@
 
 /****************************************
  
-    check if login success or failure
+ check if login success or failure
  
  ****************************************/
 -(void)checkResult{
@@ -232,7 +236,7 @@
     NSDictionary *returnJSONtoNSdict = [NSJSONSerialization JSONObjectWithData:webdata options:0 error:nil];
     
     id status = [returnJSONtoNSdict objectForKey:@"status"];
-    NSString *name = [returnJSONtoNSdict objectForKey:@"log"];
+    NSString *log = [returnJSONtoNSdict objectForKey:@"log"];
     
     
     if([status boolValue]){
@@ -240,9 +244,42 @@
         //(postpone 0.8s to let amination fluent)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^(void){
             
-            UIViewController *tv = [self.storyboard instantiateViewControllerWithIdentifier:@"tabbar"];
+            
+            
+            /****************************************
+             
+             testing return values
+             
+             ****************************************/
+            NSString *uid = [returnJSONtoNSdict objectForKey:@"uid"];
+            NSString *uname = [returnJSONtoNSdict objectForKey:@"uname"];
+            NSString *utype = [returnJSONtoNSdict objectForKey:@"utype"];
+            NSString *uselfie = [returnJSONtoNSdict objectForKey:@"uselfie"];
+            NSString *ucreate_time = [returnJSONtoNSdict objectForKey:@"ucreate_time"];
+            NSLog(@"user info?  %@",uid);
+            NSLog(@"user info?  %@",uname);
+            NSLog(@"user info?  %@",utype);
+            NSLog(@"user info?  %@",uselfie);
+            NSLog(@"user info?  %@",ucreate_time);
+            
+            User *tmp = [User sharedInstanceWithUid:uid andUname:uname andUtype:[utype integerValue]   andUselfie:nil];
+            
+            NSLog(@"s info?  %@",tmp.Uid);
+            NSLog(@"s info?  %@",tmp.Uname);
+            NSLog(@"s info?  %i",tmp.Utype);
+            NSLog(@"s info?  %@",tmp.Uselfie);
+            
+            
+            UITabBarController *tv = [self.storyboard instantiateViewControllerWithIdentifier:@"tabbar"];
             tv.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-     
+            
+            
+            UINavigationController *firstNVC = [tv.viewControllers objectAtIndex:0];
+            ProfileViewController *firstVC = (ProfileViewController*)firstNVC.visibleViewController;
+            firstVC.loggedInUser = tmp;
+            
+            
+            
             //don't know how to fix the bug, parent exists
             [self presentViewController:tv animated:YES completion:Nil];
             
@@ -250,31 +287,33 @@
             NSLog(@"dismissed");
             
             
+
+            
+            
             //stop the animation
             if(self.loadingImage)
                 [self.loadingImage stopAnimating];
             
         });
-
+        
     }else{
         //if failure,reload the register or login form and load the last info
         //(password should be md5 hashed and server client use the same md5 algo?)
         //show the alert
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops.." message:name delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops.." message:log delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
         [alert show];
         
         
         //stop the animation
         if(self.loadingImage)
             [self.loadingImage stopAnimating];
-    
+        
     }
 }
 
 
-
 -(void)viewDidAppear:(BOOL)animated{
-
+    
 }
 
 @end

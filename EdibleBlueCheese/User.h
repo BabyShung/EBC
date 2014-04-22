@@ -10,4 +10,12 @@
 
 @interface User : NSObject
 
+@property (nonatomic, retain) NSString *Uid; //email
+@property (nonatomic, retain) NSString *Uname;
+@property (nonatomic, assign) NSUInteger Utype;
+@property (nonatomic, retain) NSData *Uselfie;
+
+
++ (User *)sharedInstanceWithUid:(NSString*)uid andUname:(NSString*)uname andUtype:(NSUInteger)utype andUselfie:(NSData*)uselfie;
+
 @end

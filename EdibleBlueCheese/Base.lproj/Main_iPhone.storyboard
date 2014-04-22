@@ -129,6 +129,7 @@
                     <connections>
                         <outlet property="Cover" destination="zow-KV-PFI" id="6gF-6e-MMN"/>
                         <outlet property="Selfie" destination="obm-cL-avh" id="Xty-Uj-Rtf"/>
+                        <outlet property="UnameLabel" destination="plh-f2-OYT" id="1VD-cG-c0K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3FV-EH-wYt" userLabel="First Responder" sceneMemberID="firstResponder"/>

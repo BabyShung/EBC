@@ -67,6 +67,16 @@
     self.imagePicker.allowsEditing = YES;
     self.imagePicker.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [navb setupNavBar:self.imagePicker.navigationBar];
+    
+    
+    //checking passed data
+    NSLog(@"lll info?  %@",self.loggedInUser.Uid);
+    NSLog(@"lll info?  %@",self.loggedInUser.Uname);
+    NSLog(@"lll info?  %i",self.loggedInUser.Utype);
+    NSLog(@"lll info?  %@",self.loggedInUser.Uselfie);
+    
+    self.UnameLabel.text = self.loggedInUser.Uname;
+    
 }
 
 -(void)selfieTapDetected{
