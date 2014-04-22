@@ -20,6 +20,7 @@
 		B8738B99190479470044FD42 /* eat.png in Resources */ = {isa = PBXBuildFile; fileRef = B8738B91190479470044FD42 /* eat.png */; };
 		B8738B9A190479470044FD42 /* home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B8738B92190479470044FD42 /* home@2x.png */; };
 		B8738B9B190479470044FD42 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = B8738B93190479470044FD42 /* home.png */; };
+		B8738B9E190634730044FD42 /* LoadingAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = B8738B9D190634730044FD42 /* LoadingAnimation.m */; };
 		B8AAF2E018F4547900D287A3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AAF2DF18F4547900D287A3 /* Foundation.framework */; };
 		B8AAF2E218F4547900D287A3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AAF2E118F4547900D287A3 /* CoreGraphics.framework */; };
 		B8AAF2E418F4547900D287A3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AAF2E318F4547900D287A3 /* UIKit.framework */; };
@@ -89,6 +90,8 @@
 		B8738B91190479470044FD42 /* eat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eat.png; sourceTree = "<group>"; };
 		B8738B92190479470044FD42 /* home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home@2x.png"; sourceTree = "<group>"; };
 		B8738B93190479470044FD42 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		B8738B9C190634730044FD42 /* LoadingAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingAnimation.h; sourceTree = "<group>"; };
+		B8738B9D190634730044FD42 /* LoadingAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingAnimation.m; sourceTree = "<group>"; };
 		B8AAF2DC18F4547900D287A3 /* EdibleBlueCheese.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EdibleBlueCheese.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8AAF2DF18F4547900D287A3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B8AAF2E118F4547900D287A3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -279,6 +282,8 @@
 				B8AAF31B18F47F5B00D287A3 /* UIImage+ImageEffects.m */,
 				B8FA45B518F5CA78007DA680 /* FormValidator.h */,
 				B8FA45B618F5CA78007DA680 /* FormValidator.m */,
+				B8738B9C190634730044FD42 /* LoadingAnimation.h */,
+				B8738B9D190634730044FD42 /* LoadingAnimation.m */,
 			);
 			name = HelperClasses_LR;
 			sourceTree = "<group>";
@@ -522,6 +527,7 @@
 				B8738B7819046C740044FD42 /* TableViewController.m in Sources */,
 				B8738B7919046C740044FD42 /* CollectionViewController.m in Sources */,
 				B8BC421A19031F6C00485705 /* CardScrollView.m in Sources */,
+				B8738B9E190634730044FD42 /* LoadingAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

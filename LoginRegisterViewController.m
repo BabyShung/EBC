@@ -12,7 +12,7 @@
 #import "EdibleAlertView.h"
 #import "UIViewController+MaryPopin.h"
 #import "LoginRegister.h"
-
+#import "LoadingAnimation.h"
 
 #define EmailPlaceHolder @"Email"
 #define UserNamePlaceHolder @"Username"
@@ -26,7 +26,7 @@
 }
 
 @property (nonatomic, strong) LoginRegisterForm *myActionSheet;
-@property (nonatomic) BOOL shouldBeginCalledBeforeHand;
+@property (nonatomic,strong) LoadingAnimation *loadingImage;
 
 @property (weak, nonatomic) IBOutlet UIButton *loginBTN;
 @property (weak, nonatomic) IBOutlet UIButton *registerBTN;
@@ -57,6 +57,9 @@
     [self.AnimatedLabel animateWithWords:@[@"We're the Edible",@"It's the best App",@"Do you like it?"] forDuration:3.0f];
     
     webdata = [[NSMutableData alloc]init];
+    
+    
+    
 
 }
 
@@ -153,10 +156,23 @@
         [self.myActionSheet dismissWithClickedButtonIndex:self.myActionSheet.cancelButtonIndex animated:YES];
         
         
+        //start animation
+        if(!self.loadingImage){
+            self.loadingImage = [[LoadingAnimation alloc] initWithStyle:RTSpinKitViewStyleWave color:[UIColor colorWithRed:0.161 green:0.502 blue:0.725 alpha:1.0]];
+            CGRect screenBounds = [[UIScreen mainScreen] bounds];
+            self.loadingImage.center = CGPointMake(CGRectGetMidX(screenBounds), CGRectGetMidY(screenBounds));
+            [self.view addSubview:self.loadingImage];
+        }
+        [self.loadingImage startAnimating];
+        
+        
+        
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^(void){
             //passing the parameters
             LoginRegister *lr = [[LoginRegister alloc]init];
             [lr loginRegisterAccount:self.myActionSheet.emailTextField.text andUsernam:self.myActionSheet.usernameTextField.text andPwd:self.myActionSheet.pwdTextField.text andSELF:self];
+            
+            
         });
 
     }else{  //failure
@@ -250,7 +266,18 @@
         //show the alert
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops.." message:name delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
         [alert show];
+        
+        //stop the animation
+        if(self.loadingImage)
+            [self.loadingImage stopAnimating];
+        
     }
+
+}
+
+
+
+-(void)viewDidAppear:(BOOL)animated{
 
 }
 
