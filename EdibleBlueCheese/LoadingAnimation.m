@@ -145,7 +145,7 @@ static CATransform3D RTSpinKit3DRotationWithPerspective(CGFloat perspective,
 
                 anim.values = @[
                     [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.0, 0.4, 0.0)],
-                    [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.0, 1.0, 0.0)],
+                    [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.0, 0.9, 0.0)],
                     [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.0, 0.4, 0.0)],
                     [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.0, 0.4, 0.0)]
                 ];

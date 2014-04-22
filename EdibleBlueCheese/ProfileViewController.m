@@ -9,7 +9,7 @@
 #import "ProfileViewController.h"
 #import "ImagePlaceholderHelper.h"
 #import "NavBarSetting.h"
-
+#import "UILayers.h"
 @interface ProfileViewController ()
 
 //@property(nonatomic) BOOL loggedIn;
@@ -41,23 +41,12 @@
     
     [self.Cover setImage:[UIImage imageNamed:@"mycover.jpg"]];
     
-    
-
-    CALayer *borderLayer = [CALayer layer];
-    CGRect borderFrame = CGRectMake(0, 0, (self.Selfie.frame.size.width), (self.Selfie.frame.size.height));
-    [borderLayer setBackgroundColor:[[UIColor clearColor] CGColor]];
-    [borderLayer setFrame:borderFrame];
-    [borderLayer setBorderWidth:2.5];
-    [borderLayer setBorderColor:[[UIColor whiteColor] CGColor]];
-    [self.Selfie.layer addSublayer:borderLayer];
-    
-    CALayer *borderLayer2 = [CALayer layer];
-    CGRect borderFrame2 = CGRectMake(0, 0, (self.Selfie.frame.size.width), (self.Selfie.frame.size.height));
-    [borderLayer2 setBackgroundColor:[[UIColor clearColor] CGColor]];
-    [borderLayer2 setFrame:borderFrame2];
-    [borderLayer2 setBorderWidth:0.3];
-    [borderLayer2 setBorderColor:[[UIColor grayColor] CGColor]];
-    [self.Selfie.layer addSublayer:borderLayer2];
+    //add layers to the image frame
+    UILayers *uil = [[UILayers alloc]init];
+    CALayer * calayer = [uil borderLayerWidth:self.Selfie.frame.size.width andHeight:self.Selfie.frame.size.height andBorderWidth:2.5 andColor:[UIColor whiteColor]];
+    [self.Selfie.layer addSublayer:calayer];
+    calayer = [uil borderLayerWidth:self.Selfie.frame.size.width andHeight:self.Selfie.frame.size.height andBorderWidth:0.3 andColor:[UIColor grayColor]];
+    [self.Selfie.layer addSublayer:calayer];
     
 }
 

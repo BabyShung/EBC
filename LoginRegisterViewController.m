@@ -36,20 +36,12 @@
 
 @implementation LoginRegisterViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	
-    
+    //btn radius
     self.loginBTN.layer.cornerRadius = 60.0f;
     self.registerBTN.layer.cornerRadius = 60.0f;
     
@@ -57,15 +49,12 @@
     [self.AnimatedLabel animateWithWords:@[@"We're the Edible",@"It's the best App",@"Do you like it?"] forDuration:3.0f];
     
     webdata = [[NSMutableData alloc]init];
-    
-    
-    
 
 }
 
 /*****************************************
  
- clicking btns events
+    clicking btns events
  
  ****************************************/
 
@@ -160,7 +149,7 @@
         if(!self.loadingImage){
             self.loadingImage = [[LoadingAnimation alloc] initWithStyle:RTSpinKitViewStyleWave color:[UIColor colorWithRed:0.161 green:0.502 blue:0.725 alpha:1.0]];
             CGRect screenBounds = [[UIScreen mainScreen] bounds];
-            self.loadingImage.center = CGPointMake(CGRectGetMidX(screenBounds), CGRectGetMidY(screenBounds));
+            self.loadingImage.center = CGPointMake(CGRectGetMidX(screenBounds), screenBounds.size.height*0.7);
             [self.view addSubview:self.loadingImage];
         }
         [self.loadingImage startAnimating];
@@ -168,11 +157,10 @@
         
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^(void){
+            
             //passing the parameters
             LoginRegister *lr = [[LoginRegister alloc]init];
             [lr loginRegisterAccount:self.myActionSheet.emailTextField.text andUsernam:self.myActionSheet.usernameTextField.text andPwd:self.myActionSheet.pwdTextField.text andSELF:self];
-            
-            
         });
 
     }else{  //failure
@@ -235,7 +223,11 @@
     [self checkResult];
 }
 
-
+/****************************************
+ 
+    check if login success or failure
+ 
+ ****************************************/
 -(void)checkResult{
     
     NSDictionary *returnJSONtoNSdict = [NSJSONSerialization JSONObjectWithData:webdata options:0 error:nil];
@@ -258,6 +250,11 @@
             //[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
             NSLog(@"dismissed");
             
+            
+            //stop the animation
+            if(self.loadingImage)
+                [self.loadingImage stopAnimating];
+            
         });
 
     }else{
@@ -267,12 +264,12 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops.." message:name delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
         [alert show];
         
+        
         //stop the animation
         if(self.loadingImage)
             [self.loadingImage stopAnimating];
-        
+    
     }
-
 }
 
 
