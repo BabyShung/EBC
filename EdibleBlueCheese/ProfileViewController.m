@@ -12,6 +12,9 @@
 #import "UILayers.h"
 #import "UIImage+operation.h"
 
+#import "UIViewController+MaryPopin.h"
+#import "EdibleAlertView.h"
+
 @interface ProfileViewController ()
 
 @property(nonatomic,strong) UIImagePickerController *imagePicker;
@@ -136,5 +139,13 @@
 //        [self presentViewController:tv animated:YES completion:nil];
 }
 
+- (IBAction)demoNotify:(id)sender {
+    EdibleAlertView *popin = [[EdibleAlertView alloc] init];
+    [popin setPopinTransitionStyle:BKTPopinTransitionStyleCrossDissolve];
+    [popin setPopinOptions:BKTPopinDefault];
+    [self presentPopinController:popin animated:YES completion:^{
+        NSLog(@"Popin presented !");
+    }];
+}
 
 @end

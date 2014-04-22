@@ -9,8 +9,7 @@
 #import "LoginRegisterViewController.h"
 #import "LoginRegisterForm.h"
 #import "FormValidator.h"
-#import "EdibleAlertView.h"
-#import "UIViewController+MaryPopin.h"
+
 #import "LoginRegister.h"
 #import "LoadingAnimation.h"
 
