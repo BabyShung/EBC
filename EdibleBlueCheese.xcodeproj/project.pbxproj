@@ -22,6 +22,7 @@
 		B8738B9B190479470044FD42 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = B8738B93190479470044FD42 /* home.png */; };
 		B8738B9E190634730044FD42 /* LoadingAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = B8738B9D190634730044FD42 /* LoadingAnimation.m */; };
 		B8738BA21906CEA60044FD42 /* UILayers.m in Sources */ = {isa = PBXBuildFile; fileRef = B8738BA11906CEA60044FD42 /* UILayers.m */; };
+		B8738BA51906D8B80044FD42 /* UIImage+operation.m in Sources */ = {isa = PBXBuildFile; fileRef = B8738BA41906D8B80044FD42 /* UIImage+operation.m */; };
 		B8AAF2E018F4547900D287A3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AAF2DF18F4547900D287A3 /* Foundation.framework */; };
 		B8AAF2E218F4547900D287A3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AAF2E118F4547900D287A3 /* CoreGraphics.framework */; };
 		B8AAF2E418F4547900D287A3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AAF2E318F4547900D287A3 /* UIKit.framework */; };
@@ -95,6 +96,8 @@
 		B8738B9D190634730044FD42 /* LoadingAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingAnimation.m; sourceTree = "<group>"; };
 		B8738BA01906CEA60044FD42 /* UILayers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILayers.h; sourceTree = "<group>"; };
 		B8738BA11906CEA60044FD42 /* UILayers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILayers.m; sourceTree = "<group>"; };
+		B8738BA31906D8B80044FD42 /* UIImage+operation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+operation.h"; sourceTree = "<group>"; };
+		B8738BA41906D8B80044FD42 /* UIImage+operation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+operation.m"; sourceTree = "<group>"; };
 		B8AAF2DC18F4547900D287A3 /* EdibleBlueCheese.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EdibleBlueCheese.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8AAF2DF18F4547900D287A3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B8AAF2E118F4547900D287A3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -399,6 +402,8 @@
 				B8FA45C818F72E56007DA680 /* ImagePlaceholderHelper.m */,
 				B8FA45C918F72E56007DA680 /* UIImageView+Placeholder.h */,
 				B8FA45CA18F72E56007DA680 /* UIImageView+Placeholder.m */,
+				B8738BA31906D8B80044FD42 /* UIImage+operation.h */,
+				B8738BA41906D8B80044FD42 /* UIImage+operation.m */,
 			);
 			name = HelperClasses_Pf;
 			sourceTree = "<group>";
@@ -522,6 +527,7 @@
 				B8AAF37318F48CC400D287A3 /* User.m in Sources */,
 				B8FA45B718F5CA78007DA680 /* FormValidator.m in Sources */,
 				B8BC423419034E0700485705 /* UIViewController+ScrollingNavbar.m in Sources */,
+				B8738BA51906D8B80044FD42 /* UIImage+operation.m in Sources */,
 				B8AAF32018F4803000D287A3 /* LoginRegisterViewController.m in Sources */,
 				B8FA45BF18F5D8E7007DA680 /* EdibleAlertView.m in Sources */,
 				B8FA45CB18F72E56007DA680 /* ImagePlaceholderHelper.m in Sources */,
