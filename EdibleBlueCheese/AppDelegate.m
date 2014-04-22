@@ -20,9 +20,10 @@
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
 	
 	if ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] != NSOrderedAscending) {
+
 		[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 		[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-		NSDictionary *attributes = @{ NSFontAttributeName: [UIFont fontWithName:@"Heiti TC" size:18],
+		NSDictionary *attributes = @{ NSFontAttributeName: [UIFont fontWithName:@"Heiti TC" size:20],
 									  NSForegroundColorAttributeName: [UIColor whiteColor]};
 		[[UINavigationBar appearance] setTitleTextAttributes:attributes];
         
@@ -41,7 +42,18 @@
     [sqlh closeDB];//close db
 
     
-    // Override point for customization after application launch.
+    
+    
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    
+    UIViewController *viewController =  [storyboard instantiateViewControllerWithIdentifier:@"LoginRegister"];
+    
+    self.window.rootViewController = viewController;
+    [self.window makeKeyAndVisible];
+    
+    
     return YES;
 }
 							

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="kwi-PL-Nhr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -63,7 +63,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="362" y="-1177"/>
+            <point key="canvasLocation" x="-150" y="355"/>
         </scene>
         <!--Profile View Controller - Me-->
         <scene sceneID="veE-QA-KuP">
@@ -228,7 +228,7 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Collection" id="nKI-dG-gMh">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="search" id="hI5-cL-myl"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="hI5-cL-myl"/>
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="omp-UT-xbK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -268,7 +268,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Table" id="oRV-kU-BdO">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="action" id="91J-7z-6Te"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="91J-7z-6Te"/>
                     </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="Edu-ke-xaR" id="hw1-Rc-ooE"/>
@@ -387,7 +387,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="xhg-gc-zcw">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="kwi-PL-Nhr" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabbar" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kwi-PL-Nhr" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="wBL-HA-mwO">

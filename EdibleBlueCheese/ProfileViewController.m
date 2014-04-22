@@ -12,7 +12,7 @@
 
 @interface ProfileViewController ()
 
-@property(nonatomic) BOOL loggedIn;
+//@property(nonatomic) BOOL loggedIn;
 
 @end
 
@@ -62,16 +62,20 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    if(!self.loggedIn){//if not logged in
-        UIViewController *tv = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginRegister"];
-        [self presentViewController:tv animated:NO completion:nil];
-        self.loggedIn = YES;
-    }
+//    if(!self.loggedIn){//if not logged in
+//        UIViewController *tv = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginRegister"];
+//        [self presentViewController:tv animated:NO completion:nil];
+//        self.loggedIn = YES;
+//    }
+    
+  
 }
 
 - (IBAction)dismiss:(id)sender {
-    UIViewController *tv = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginRegister"];
-    [self presentViewController:tv animated:YES completion:nil];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    
+//        UIViewController *tv = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginRegister"];
+//        [self presentViewController:tv animated:YES completion:nil];
 }
 
 

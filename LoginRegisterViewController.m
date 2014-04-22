@@ -232,7 +232,14 @@
         //if success,slide down current viewcontroller and "jump" into the main page
         //(postpone 0.8s to let amination fluent)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^(void){
-            [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+            
+            UIViewController *tv = [self.storyboard instantiateViewControllerWithIdentifier:@"tabbar"];
+            tv.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+     
+            //don't know how to fix the bug, parent exists
+            [self presentViewController:tv animated:YES completion:Nil];
+            
+            //[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
             NSLog(@"dismissed");
             
         });
@@ -246,9 +253,5 @@
     }
 
 }
-
-
-
-
 
 @end
