@@ -15,8 +15,22 @@
 }
 @property (nonatomic) sqlite3 *database;
 
-// filePath
-- (NSString *) sqliteDBFilePath;
+/***************************************
+ 
+    Use this method, singleton
+ 
+ **************************************/
+
++ (SQLConnector *)sharedInstance;
+
+
+/***************************************
+ 
+    methods
+ 
+ **************************************/
+
+- (NSString *) sqliteDBFilePath;// filePath
 
 - (void) openDB;//open a connection
 
@@ -24,12 +38,15 @@
 
 - (void) createEditableCopyOfDatabaseIfNeeded;
 
--(void) createUserTable: (NSString *) tablename
+-(void) createUserTable: (NSString *) tablename //create user table
                 withUid:(NSString *) field1
-         withUsername:(NSString *) field2
+           withUsername:(NSString *) field2
            withPassword:(NSString *) field3
-           withSelfIE:(NSString *) field4
-    withExecuteDateTime:(NSString *) field5;
+              withUtype:(NSString *) field4
+             withSelfIE:(NSString *) field5
+            withPrimary:(NSString *) field6
+    withExecuteDateTime:(NSString *) field7
+      withLastLoginTime:(NSString *) field8;
 
 
 @end

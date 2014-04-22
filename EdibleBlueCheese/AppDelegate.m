@@ -10,7 +10,7 @@
 
 
 #import "SQLConnector.h"
-
+#import "DBOperations_User.h"
 
 @implementation AppDelegate
 
@@ -31,15 +31,29 @@
     
     
     
-    SQLConnector *sqlh=[[SQLConnector alloc] init];
+    SQLConnector *sqlh=[SQLConnector sharedInstance];//singleton
     [sqlh openDB];  //open sql connection
     
     //Tables
-    [sqlh createUserTable:@"User" withUid:@"Uid" withUsername:@"Uname" withPassword:@"Upwd" withSelfIE:@"Selfie" withExecuteDateTime:@"ts"];
-    
+    [sqlh createUserTable:@"User" withUid:@"uid" withUsername:@"uname" withPassword:@"upwd" withUtype:@"utype" withSelfIE:@"uselfie" withPrimary:@"primaryUser" withExecuteDateTime:@"create_ts" withLastLoginTime:@"last_ts"];
     
     
     [sqlh closeDB];//close db
+    
+    
+    //check if there is a loggedIn primary
+    DBOperations_User *dbo = [[DBOperations_User alloc]init];
+    BOOL result = [dbo HelperReturnBool:@"SELECT primaryUser from User where primaryUser = 1"];
+    
+    if(result){
+        NSLog(@"can login auto");
+    }else{
+        
+        NSLog(@"should login manually");
+    }
+    
+    
+    
 
     
     

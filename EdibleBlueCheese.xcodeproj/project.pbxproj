@@ -23,6 +23,7 @@
 		B8738B9E190634730044FD42 /* LoadingAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = B8738B9D190634730044FD42 /* LoadingAnimation.m */; };
 		B8738BA21906CEA60044FD42 /* UILayers.m in Sources */ = {isa = PBXBuildFile; fileRef = B8738BA11906CEA60044FD42 /* UILayers.m */; };
 		B8738BA51906D8B80044FD42 /* UIImage+operation.m in Sources */ = {isa = PBXBuildFile; fileRef = B8738BA41906D8B80044FD42 /* UIImage+operation.m */; };
+		B8738BA8190705550044FD42 /* DBOperations_User.m in Sources */ = {isa = PBXBuildFile; fileRef = B8738BA7190705550044FD42 /* DBOperations_User.m */; };
 		B8AAF2E018F4547900D287A3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AAF2DF18F4547900D287A3 /* Foundation.framework */; };
 		B8AAF2E218F4547900D287A3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AAF2E118F4547900D287A3 /* CoreGraphics.framework */; };
 		B8AAF2E418F4547900D287A3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AAF2E318F4547900D287A3 /* UIKit.framework */; };
@@ -98,6 +99,8 @@
 		B8738BA11906CEA60044FD42 /* UILayers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILayers.m; sourceTree = "<group>"; };
 		B8738BA31906D8B80044FD42 /* UIImage+operation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+operation.h"; sourceTree = "<group>"; };
 		B8738BA41906D8B80044FD42 /* UIImage+operation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+operation.m"; sourceTree = "<group>"; };
+		B8738BA6190705550044FD42 /* DBOperations_User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBOperations_User.h; sourceTree = "<group>"; };
+		B8738BA7190705550044FD42 /* DBOperations_User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBOperations_User.m; sourceTree = "<group>"; };
 		B8AAF2DC18F4547900D287A3 /* EdibleBlueCheese.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EdibleBlueCheese.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8AAF2DF18F4547900D287A3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B8AAF2E118F4547900D287A3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -334,6 +337,8 @@
 			children = (
 				B8AAF37418F48E4C00D287A3 /* SQLConnector.h */,
 				B8AAF37518F48E4C00D287A3 /* SQLConnector.m */,
+				B8738BA6190705550044FD42 /* DBOperations_User.h */,
+				B8738BA7190705550044FD42 /* DBOperations_User.m */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -547,6 +552,7 @@
 				B8738B7819046C740044FD42 /* TableViewController.m in Sources */,
 				B8738B7919046C740044FD42 /* CollectionViewController.m in Sources */,
 				B8BC421A19031F6C00485705 /* CardScrollView.m in Sources */,
+				B8738BA8190705550044FD42 /* DBOperations_User.m in Sources */,
 				B8738B9E190634730044FD42 /* LoadingAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

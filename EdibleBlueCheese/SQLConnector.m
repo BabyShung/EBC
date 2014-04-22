@@ -15,6 +15,30 @@ static NSString *kSQLiteFileName = @"EdibleBlueCheeseDB.sqlite3";
 
 @synthesize database;
 
+
++ (SQLConnector *)sharedInstance
+{
+    // 1
+    static SQLConnector *_sharedInstance = nil;
+    
+    // 2
+    static dispatch_once_t oncePredicate;
+    
+    // 3
+    dispatch_once(&oncePredicate, ^{
+        _sharedInstance = [[SQLConnector alloc] init];
+        
+    });
+    return _sharedInstance;
+}
+
+- (instancetype)init {
+    if (self = [super init]) {
+        
+    }
+    return self;
+}
+
 /*******************************
  
     Basic functions
@@ -82,7 +106,7 @@ static NSString *kSQLiteFileName = @"EdibleBlueCheeseDB.sqlite3";
     Tables
  
  
- User:  Uid,Username, Upwd, SelfIE, ExecuteDateTime
+ User:  Uid, Username, Upwd, Utype, SelfIE, Primary, ExecuteDateTime, lastLoginTime
 
  
  
@@ -93,12 +117,15 @@ static NSString *kSQLiteFileName = @"EdibleBlueCheeseDB.sqlite3";
                 withUid:(NSString *) field1
            withUsername:(NSString *) field2
            withPassword:(NSString *) field3
-             withSelfIE:(NSString *) field4
-    withExecuteDateTime:(NSString *) field5{
+              withUtype:(NSString *) field4
+             withSelfIE:(NSString *) field5
+            withPrimary:(NSString *) field6
+    withExecuteDateTime:(NSString *) field7
+      withLastLoginTime:(NSString *) field8{
     
     
     char *err;
-    NSString *sql =[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS '%@' ('%@' INTEGER PRIMARY KEY AUTOINCREMENT, '%@' TEXT,'%@' TEXT,'%@' TEXT,'%@' TimeStamp NOT NULL DEFAULT (datetime('now','localtime')));",tablename,field1,field2,field3,field4,field5];
+    NSString *sql =[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS '%@' ('%@' TEXT PRIMARY KEY, '%@' TEXT NOT NULL,'%@' TEXT NOT NULL,'%@' INTEGER DEFAULT 1,'%@' TEXT,'%@' INTEGER DEFAULT 0,'%@' TimeStamp NOT NULL DEFAULT (datetime('now','localtime')),'%@' TimeStamp NOT NULL DEFAULT (datetime('now','localtime')));",tablename,field1,field2,field3,field4,field5,field6,field7,field8];
     
     if(sqlite3_exec(database, [sql UTF8String], NULL, NULL, &err)!=SQLITE_OK){
         sqlite3_close(database);
