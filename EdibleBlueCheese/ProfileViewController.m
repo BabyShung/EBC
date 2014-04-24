@@ -16,6 +16,7 @@
 #import "UIViewController+MaryPopin.h"
 #import "EdibleAlertView.h"
 
+
 @interface ProfileViewController ()
 
 @property(nonatomic,strong) UIImagePickerController *imagePicker;
@@ -53,12 +54,16 @@
     [self.Selfie addGestureRecognizer:selfieTap];
     
     
-    //init imageController
-    self.imagePicker = [UIImagePickerController new];
-    self.imagePicker.delegate = self;
-    self.imagePicker.allowsEditing = YES;
-    self.imagePicker.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [navb setupNavBar:self.imagePicker.navigationBar];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        //init imageController
+        self.imagePicker = [UIImagePickerController new];
+        self.imagePicker.delegate = self;
+        self.imagePicker.allowsEditing = YES;
+        self.imagePicker.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [navb setupNavBar:self.imagePicker.navigationBar];
+        
+    });
+
     
     
     //checking passed data
@@ -68,6 +73,8 @@
     NSLog(@"profile info?  %@",self.loggedInUser.Uselfie);
     
     self.UnameLabel.text = self.loggedInUser.Uname;
+    
+    [self setTitle:@"My Profile"];
     
 }
 

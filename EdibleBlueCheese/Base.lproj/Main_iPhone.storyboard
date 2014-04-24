@@ -65,7 +65,7 @@
             </objects>
             <point key="canvasLocation" x="203" y="137"/>
         </scene>
-        <!--Profile View Controller - My Profile-->
+        <!--Profile View Controller-->
         <scene sceneID="veE-QA-KuP">
             <objects>
                 <viewController storyboardIdentifier="Profile" useStoryboardIdentifierAsRestorationIdentifier="YES" id="a1T-F2-8v1" customClass="ProfileViewController" sceneMemberID="viewController">
@@ -125,7 +125,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="My Profile" id="btC-8a-wYW"/>
+                    <navigationItem key="navigationItem" id="btC-8a-wYW"/>
                     <connections>
                         <outlet property="Cover" destination="zow-KV-PFI" id="6gF-6e-MMN"/>
                         <outlet property="Selfie" destination="obm-cL-avh" id="Xty-Uj-Rtf"/>
@@ -134,7 +134,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3FV-EH-wYt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1735" y="-613"/>
+            <point key="canvasLocation" x="1757" y="-613"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="aDB-Qt-SkJ">
+            <objects>
+                <tableViewController storyboardIdentifier="Settings" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dV0-j2-TzJ" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="fEB-cG-Ikh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="yyo-bD-ayM">
+                                <rect key="frame" x="0.0" y="55" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yyo-bD-ayM" id="8NJ-eo-Quu">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dV0-j2-TzJ" id="5A2-DE-oAK"/>
+                            <outlet property="delegate" destination="dV0-j2-TzJ" id="Knt-4G-zha"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mTT-7H-ZPc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1757" y="-1329"/>
         </scene>
         <!--Card Collection View Controller-->
         <scene sceneID="pyQ-GC-ACN">
@@ -194,7 +222,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axd-Xa-4KC" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2308" y="-629"/>
+            <point key="canvasLocation" x="2208" y="-613"/>
         </scene>
         <!--Collection View Controller - Collection-->
         <scene sceneID="2iv-Kh-8mb">

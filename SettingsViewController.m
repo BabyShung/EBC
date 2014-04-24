@@ -1,17 +1,14 @@
 //
-//  MeViewController.m
+//  SettingsViewController.m
 //  EdibleBlueCheese
 //
 //  Created by Hao Zheng on 4/24/14.
 //  Copyright (c) 2014 Hao Zheng. All rights reserved.
 //
 
-#import "MeViewController.h"
-#import "NavBarSetting.h"
-#import "ProfileViewController.h"
-#import "BadgeTableCell.h"
+#import "SettingsViewController.h"
 
-@interface MeViewController ()
+@interface SettingsViewController ()
 
 @property (strong, nonatomic) NSArray *menu;
 @property (strong, nonatomic) NSArray *section1;
@@ -20,28 +17,19 @@
 
 @end
 
-@implementation MeViewController
+@implementation SettingsViewController
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    NavBarSetting *navb = [[NavBarSetting alloc]init];
-    [navb setupNavBar:self.navigationController.navigationBar];
-    
-    
-    //checking passed data
-    NSLog(@"profile info?  %@",self.loggedInUser.Uid);
-    NSLog(@"profile info?  %@",self.loggedInUser.Uname);
-    NSLog(@"profile info?  %i",self.loggedInUser.Utype);
-    NSLog(@"profile info?  %@",self.loggedInUser.Uselfie);
-    
-    
-    self.section1 = [NSArray arrayWithObjects:self.loggedInUser.Uname,nil];
-    self.section2 = [NSArray arrayWithObjects:@"Post", @"Like", @"XXX", nil];
-    self.section3 = [NSArray arrayWithObjects:@"Settings", nil];
+    self.section1 = [NSArray arrayWithObjects:@"Account",nil];
+    self.section2 = [NSArray arrayWithObjects:@"Follow us on Weibo",@"Feedback", @"About", nil];
+    self.section3 = [NSArray arrayWithObjects:@"Logout", nil];
     self.menu = [NSArray arrayWithObjects:self.section1, self.section2,self.section3, nil];
     
+    [self setTitle:@"Settings"];
     
 }
 
@@ -56,34 +44,29 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(section == 0){
-        return [self.section1 count];
+       return [self.section1 count];
     }else if(section ==1){
         return [self.section2 count];
     }else
         return [self.section3 count];
-   
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    
-    BadgeTableCell *cell = [[BadgeTableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     // Configure the cell...
     
-    if (indexPath.section == 0) {   //Me
+    if (indexPath.section == 0) {
         cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.section1 objectAtIndex:indexPath.row]];
     }else if (indexPath.section == 1) {
         cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.section2 objectAtIndex:indexPath.row]];
-    }else if (indexPath.section == 2) {//settings
+    }else if (indexPath.section == 2) {
         cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.section3 objectAtIndex:indexPath.row]];
-        cell.detailTextLabel.text = @"Account, Feedback, Logout..";
         
     }
     
-    cell.detailTextLabel.textColor = [UIColor grayColor];
     return cell;
 }
 
@@ -126,40 +109,15 @@
 }
 */
 
--(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if(indexPath.section == 0){
-        ProfileViewController *pvc = [self.storyboard instantiateViewControllerWithIdentifier:@"Profile"];
-        pvc.loggedInUser = self.loggedInUser;
-        [self.navigationController pushViewController:pvc animated:YES];
-
-        
-        
-    
-    }else if(indexPath.section == 1){
-        
-    }else if(indexPath.section == 2){
-        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"Settings"];
-        [self.navigationController pushViewController:vc animated:YES];
-
-    }
-
-    
-}
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    
-//    // Get the new view controller using [segue destinationViewController].
-//    // Pass the selected object to the new view controller.
-//    if([segue.identifier isEqualToString:@"MyProfile"]){
-//        ProfileViewController* pvc = (ProfileViewController* )segue.destinationViewController;
-//        pvc.loggedInUser = self.loggedInUser;
-//        //delegate if needed
-//    }
-//}
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end
