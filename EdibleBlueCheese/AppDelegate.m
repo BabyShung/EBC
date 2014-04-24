@@ -8,38 +8,29 @@
 
 #import "AppDelegate.h"
 
-
-#import "SQLConnector.h"
 #import "DBOperations_User.h"
-#import "ProfileViewController.h"
+#import "MeViewController.h"
+#import "SQLConnector.h"
 
+
+#import "NavBarSetting.h"
+#import "Manual_Auto_Login.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
-    [[UIApplication sharedApplication] setStatusBarHidden:NO];
-	
-	if ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] != NSOrderedAscending) {
+    //set the theme of all navigation bar
+    NavBarSetting *nbsetting = [[NavBarSetting alloc]init];
+    [nbsetting setNavBarTheme];
 
-		[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-		[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-		NSDictionary *attributes = @{ NSFontAttributeName: [UIFont fontWithName:@"Heiti TC" size:20],
-									  NSForegroundColorAttributeName: [UIColor whiteColor]};
-		[[UINavigationBar appearance] setTitleTextAttributes:attributes];
-        
-	}
     
     
-    
+    //DB:: tables
     SQLConnector *sqlh=[SQLConnector sharedInstance];//singleton
     [sqlh openDB];  //open sql connection
-    
     //Tables
     [sqlh createUserTable:@"User" withUid:@"uid" withUsername:@"uname" withPassword:@"upwd" withUtype:@"utype" withSelfIE:@"uselfie" withPrimary:@"primaryUser" withExecuteDateTime:@"create_ts" withLastLoginTime:@"last_ts"];
-    
-    
     [sqlh closeDB];//close db
     
     
@@ -49,38 +40,34 @@
     
     NSString* storyBoardID = nil;
     
-    if(user){
-        NSLog(@"can login auto");
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    
+    if(user){//will auto login
+        NSLog(@"should auto login");
         storyBoardID = @"tabbar";
-        self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-
+        
         UITabBarController *tabbarVC = [storyboard instantiateViewControllerWithIdentifier:storyBoardID];
         tabbarVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         UINavigationController *firstNVC = [tabbarVC.viewControllers objectAtIndex:0];
-        ProfileViewController *firstVC = (ProfileViewController*)firstNVC.visibleViewController;
+        MeViewController *firstVC = (MeViewController*)firstNVC.visibleViewController;
         
-        
+        NSLog(@"##### %@",firstVC);
         User *tmp = [User sharedInstanceWithUid:user.Uid andUname:user.Uname andUpwd:user.Upwd andUtype:user.Utype  andUselfie:nil];
         //*****assign the user
         firstVC.loggedInUser = tmp;
         
         self.window.rootViewController = tabbarVC;
-        [self.window makeKeyAndVisible];
     }else{
         NSLog(@"should login manually");
         storyBoardID = @"LoginRegister";
-        self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+        
         UIViewController *viewController =  [storyboard instantiateViewControllerWithIdentifier:storyBoardID];
         self.window.rootViewController = viewController;
-        [self.window makeKeyAndVisible];
+        
     }
     
-    
-    
-
-    
+    [self.window makeKeyAndVisible];
     
     return YES;
 }

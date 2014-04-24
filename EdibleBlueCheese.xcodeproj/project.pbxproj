@@ -57,7 +57,9 @@
 		B8BC421D19031F8400485705 /* CardCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8BC421C19031F8400485705 /* CardCollectionViewController.m */; };
 		B8BC423419034E0700485705 /* UIViewController+ScrollingNavbar.m in Sources */ = {isa = PBXBuildFile; fileRef = B8BC423319034E0700485705 /* UIViewController+ScrollingNavbar.m */; };
 		B8D1CAB518FE0326001AFA11 /* LoginRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D1CAB418FE0326001AFA11 /* LoginRegister.m */; };
+		B8E1D5341909899A00CB8C1C /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E1D5331909899A00CB8C1C /* MeViewController.m */; };
 		B8E6099F1908A56000DBD4C1 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E6099E1908A56000DBD4C1 /* UIAlertView+Blocks.m */; };
+		B8E609A21908CD7C00DBD4C1 /* Manual_Auto_Login.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E609A11908CD7C00DBD4C1 /* Manual_Auto_Login.m */; };
 		B8FA45B718F5CA78007DA680 /* FormValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA45B618F5CA78007DA680 /* FormValidator.m */; };
 		B8FA45BF18F5D8E7007DA680 /* EdibleAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA45BC18F5D8E7007DA680 /* EdibleAlertView.m */; };
 		B8FA45C018F5D8E7007DA680 /* EdibleAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8FA45BD18F5D8E7007DA680 /* EdibleAlertView.xib */; };
@@ -150,8 +152,12 @@
 		B8BC423319034E0700485705 /* UIViewController+ScrollingNavbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ScrollingNavbar.m"; sourceTree = "<group>"; };
 		B8D1CAB318FE0326001AFA11 /* LoginRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRegister.h; sourceTree = "<group>"; };
 		B8D1CAB418FE0326001AFA11 /* LoginRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRegister.m; sourceTree = "<group>"; };
+		B8E1D5321909899A00CB8C1C /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
+		B8E1D5331909899A00CB8C1C /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		B8E6099D1908A56000DBD4C1 /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
 		B8E6099E1908A56000DBD4C1 /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
+		B8E609A01908CD7C00DBD4C1 /* Manual_Auto_Login.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manual_Auto_Login.h; sourceTree = "<group>"; };
+		B8E609A11908CD7C00DBD4C1 /* Manual_Auto_Login.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Manual_Auto_Login.m; sourceTree = "<group>"; };
 		B8FA45B518F5CA78007DA680 /* FormValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormValidator.h; sourceTree = "<group>"; };
 		B8FA45B618F5CA78007DA680 /* FormValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormValidator.m; sourceTree = "<group>"; };
 		B8FA45BB18F5D8E7007DA680 /* EdibleAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EdibleAlertView.h; sourceTree = "<group>"; };
@@ -197,6 +203,8 @@
 				B8738B7119046C740044FD42 /* NavBarSetting.m */,
 				B8738BA01906CEA60044FD42 /* UILayers.h */,
 				B8738BA11906CEA60044FD42 /* UILayers.m */,
+				B8E609A01908CD7C00DBD4C1 /* Manual_Auto_Login.h */,
+				B8E609A11908CD7C00DBD4C1 /* Manual_Auto_Login.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -240,6 +248,7 @@
 				B8AAF2F118F4547900D287A3 /* Main_iPhone.storyboard */,
 				B8AAF31718F47F3200D287A3 /* LoginRegister */,
 				B8BC420B19031F5800485705 /* Card */,
+				B8E1D52E1909890200CB8C1C /* Me */,
 				B8FA45C518F72DF7007DA680 /* Profile */,
 				B8AAF37018F48CA900D287A3 /* Classes */,
 				B8AAF36F18F48CA000D287A3 /* Database */,
@@ -381,6 +390,16 @@
 				B8BC423319034E0700485705 /* UIViewController+ScrollingNavbar.m */,
 			);
 			name = Tmp;
+			sourceTree = "<group>";
+		};
+		B8E1D52E1909890200CB8C1C /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				B8E1D5321909899A00CB8C1C /* MeViewController.h */,
+				B8E1D5331909899A00CB8C1C /* MeViewController.m */,
+			);
+			name = Me;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		B8FA45B818F5D8C5007DA680 /* AlertView */ = {
@@ -545,8 +564,10 @@
 				B8AAF36E18F488E500D287A3 /* AnimateLabel.m in Sources */,
 				B8FA45CC18F72E56007DA680 /* UIImageView+Placeholder.m in Sources */,
 				B8738B7619046C740044FD42 /* ScrollViewController.m in Sources */,
+				B8E609A21908CD7C00DBD4C1 /* Manual_Auto_Login.m in Sources */,
 				B8AAF31D18F47F5B00D287A3 /* UIImage+ImageEffects.m in Sources */,
 				B8738BA21906CEA60044FD42 /* UILayers.m in Sources */,
+				B8E1D5341909899A00CB8C1C /* MeViewController.m in Sources */,
 				B8D1CAB518FE0326001AFA11 /* LoginRegister.m in Sources */,
 				B8AAF2F018F4547900D287A3 /* AppDelegate.m in Sources */,
 				B8AAF2EC18F4547900D287A3 /* main.m in Sources */,

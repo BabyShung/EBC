@@ -12,4 +12,6 @@
 
 -(void)setupNavBar:(UINavigationBar *)tmp;
 
+-(void)setNavBarTheme;
+
 @end

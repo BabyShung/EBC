@@ -103,5 +103,10 @@
     return tmp;
 }
 
+-(void)dealloc
+{
+   // [self.sqlc closeDB];
+}
+
 
 @end

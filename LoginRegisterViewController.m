@@ -15,7 +15,7 @@
 #import "LoadingAnimation.h"
 
 #import "User.h"
-#import "ProfileViewController.h"
+#import "MeViewController.h"
 #import "DBOperations_User.h"
 
 #define EmailPlaceHolder @"Email"
@@ -291,7 +291,7 @@
             UITabBarController *tabbarVC = [self.storyboard instantiateViewControllerWithIdentifier:@"tabbar"];
             tabbarVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
             UINavigationController *firstNVC = [tabbarVC.viewControllers objectAtIndex:0];
-            ProfileViewController *firstVC = (ProfileViewController*)firstNVC.visibleViewController;
+            MeViewController *firstVC = (MeViewController*)firstNVC.visibleViewController;
             
             //*****assign the user
             firstVC.loggedInUser = tmp;

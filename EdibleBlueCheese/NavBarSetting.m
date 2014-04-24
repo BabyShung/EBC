@@ -29,4 +29,18 @@
     }
 }
 
+-(void)setNavBarTheme{
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+	
+	if ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] != NSOrderedAscending) {
+        
+		[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+		[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+		NSDictionary *attributes = @{ NSFontAttributeName: [UIFont fontWithName:@"Heiti TC" size:20],
+									  NSForegroundColorAttributeName: [UIColor whiteColor]};
+		[[UINavigationBar appearance] setTitleTextAttributes:attributes];
+        
+	}
+}
+
 @end
