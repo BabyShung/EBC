@@ -16,7 +16,7 @@
 
 #import "User.h"
 #import "ProfileViewController.h"
-
+#import "DBOperations_User.h"
 
 #define EmailPlaceHolder @"Email"
 #define UserNamePlaceHolder @"Username"
@@ -31,6 +31,8 @@
 
 @property (nonatomic) BOOL isLogging;
 @property (nonatomic) BOOL clickedLogin;
+
+@property (nonatomic, strong) NSString* pwd;
 
 @property (nonatomic, strong) LoginRegisterForm *myActionSheet;
 @property (nonatomic,strong) LoadingAnimation *loadingImage;
@@ -171,11 +173,15 @@
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^(void){
             
+            
+            self.pwd = self.myActionSheet.pwdTextField.text;
+            
             //passing the parameters
             LoginRegister *lr = [[LoginRegister alloc]init];
-            [lr loginRegisterAccount:self.myActionSheet.emailTextField.text andUsernam:self.myActionSheet.usernameTextField.text andPwd:self.myActionSheet.pwdTextField.text andSELF:self];
+            [lr loginRegisterAccount:self.myActionSheet.emailTextField.text andUsernam:self.myActionSheet.usernameTextField.text andPwd:self.pwd andSELF:self];
             
-
+            
+            
         });
         
     }else{  //failure
@@ -278,7 +284,7 @@
             //NSString *uselfie = [returnJSONtoNSdict objectForKey:@"uselfie"];
             //NSString *ucreate_time = [returnJSONtoNSdict objectForKey:@"ucreate_time"];
             
-            User *tmp = [User sharedInstanceWithUid:uid andUname:uname andUtype:[utype integerValue]   andUselfie:nil];
+            User *tmp = [User sharedInstanceWithUid:uid andUname:uname andUpwd:nil andUtype:[utype integerValue]   andUselfie:nil];
 
             
             
@@ -286,6 +292,8 @@
             tabbarVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
             UINavigationController *firstNVC = [tabbarVC.viewControllers objectAtIndex:0];
             ProfileViewController *firstVC = (ProfileViewController*)firstNVC.visibleViewController;
+            
+            //*****assign the user
             firstVC.loggedInUser = tmp;
             
             
@@ -296,8 +304,10 @@
             //[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
             NSLog(@"dismissed");
             
+            //write primary to account
+            DBOperations_User *dbo = [[DBOperations_User alloc]init];
+            [dbo execute:[NSString stringWithFormat:@"INSERT OR REPLACE INTO User (uid,uname,upwd,primaryUser,last_ts) VALUES ('%@','%@','%@',1,datetime('now','localtime'))",tmp.Uid,tmp.Uname,self.pwd]];
             
-
             
             
             //stop the animation

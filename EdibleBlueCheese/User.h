@@ -12,10 +12,11 @@
 
 @property (nonatomic, retain) NSString *Uid; //email
 @property (nonatomic, retain) NSString *Uname;
+@property (nonatomic, retain) NSString *Upwd;
 @property (nonatomic, assign) NSUInteger Utype;
 @property (nonatomic, retain) NSData *Uselfie;
 
 
-+ (User *)sharedInstanceWithUid:(NSString*)uid andUname:(NSString*)uname andUtype:(NSUInteger)utype andUselfie:(NSData*)uselfie;
++ (User *)sharedInstanceWithUid:(NSString*)uid andUname:(NSString*)uname andUpwd:(NSString*)upwd andUtype:(NSUInteger)utype andUselfie:(NSData*)uselfie;
 
 @end

@@ -11,6 +11,8 @@
 
 #import "SQLConnector.h"
 #import "DBOperations_User.h"
+#import "ProfileViewController.h"
+
 
 @implementation AppDelegate
 
@@ -43,29 +45,41 @@
     
     //check if there is a loggedIn primary
     DBOperations_User *dbo = [[DBOperations_User alloc]init];
-    BOOL result = [dbo HelperReturnBool:@"SELECT primaryUser from User where primaryUser = 1"];
+    User* user = [dbo FetchAUser:@"SELECT uid,uname,upwd from User where primaryUser = 1"];
     
-    if(result){
+    NSString* storyBoardID = nil;
+    
+    if(user){
         NSLog(@"can login auto");
-    }else{
+        storyBoardID = @"tabbar";
+        self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+
+        UITabBarController *tabbarVC = [storyboard instantiateViewControllerWithIdentifier:storyBoardID];
+        tabbarVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        UINavigationController *firstNVC = [tabbarVC.viewControllers objectAtIndex:0];
+        ProfileViewController *firstVC = (ProfileViewController*)firstNVC.visibleViewController;
         
+        
+        User *tmp = [User sharedInstanceWithUid:user.Uid andUname:user.Uname andUpwd:user.Upwd andUtype:user.Utype  andUselfie:nil];
+        //*****assign the user
+        firstVC.loggedInUser = tmp;
+        
+        self.window.rootViewController = tabbarVC;
+        [self.window makeKeyAndVisible];
+    }else{
         NSLog(@"should login manually");
+        storyBoardID = @"LoginRegister";
+        self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+        UIViewController *viewController =  [storyboard instantiateViewControllerWithIdentifier:storyBoardID];
+        self.window.rootViewController = viewController;
+        [self.window makeKeyAndVisible];
     }
     
     
     
 
-    
-    
-    
-    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-    
-    UIViewController *viewController =  [storyboard instantiateViewControllerWithIdentifier:@"LoginRegister"];
-    
-    self.window.rootViewController = viewController;
-    [self.window makeKeyAndVisible];
     
     
     return YES;

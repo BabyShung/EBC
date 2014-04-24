@@ -11,7 +11,7 @@
 @implementation User
 
 //static init
-+ (User *)sharedInstanceWithUid:(NSString*)uid andUname:(NSString*)uname andUtype:(NSUInteger)utype andUselfie:(NSData*)uselfie
++ (User *)sharedInstanceWithUid:(NSString*)uid andUname:(NSString*)uname andUpwd:(NSString*)upwd andUtype:(NSUInteger)utype andUselfie:(NSData*)uselfie
 {
     // 1
     static User *_sharedInstance = nil;
@@ -25,6 +25,7 @@
         
         _sharedInstance.Uid = uid;
         _sharedInstance.Uname = uname;
+        _sharedInstance.Upwd = upwd;
         _sharedInstance.Utype = utype;
         _sharedInstance.Uselfie = uselfie;
     });

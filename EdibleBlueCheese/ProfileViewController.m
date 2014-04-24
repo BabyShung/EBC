@@ -11,6 +11,7 @@
 #import "NavBarSetting.h"
 #import "UILayers.h"
 #import "UIImage+operation.h"
+#import "DBOperations_User.h"
 
 #import "UIViewController+MaryPopin.h"
 #import "EdibleAlertView.h"
@@ -22,15 +23,6 @@
 @end
 
 @implementation ProfileViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -70,10 +62,10 @@
     
     
     //checking passed data
-    NSLog(@"lll info?  %@",self.loggedInUser.Uid);
-    NSLog(@"lll info?  %@",self.loggedInUser.Uname);
-    NSLog(@"lll info?  %i",self.loggedInUser.Utype);
-    NSLog(@"lll info?  %@",self.loggedInUser.Uselfie);
+    NSLog(@"profile info?  %@",self.loggedInUser.Uid);
+    NSLog(@"profile info?  %@",self.loggedInUser.Uname);
+    NSLog(@"profile info?  %i",self.loggedInUser.Utype);
+    NSLog(@"profile info?  %@",self.loggedInUser.Uselfie);
     
     self.UnameLabel.text = self.loggedInUser.Uname;
     
@@ -143,6 +135,13 @@
 }
 
 - (IBAction)dismiss:(id)sender {
+    
+    //write primary to account
+    DBOperations_User *dbo = [[DBOperations_User alloc]init];
+    
+    [dbo execute:[NSString stringWithFormat:@"UPDATE User SET primaryUser = 0 WHERE uid = '%@'",self.loggedInUser.Uid]];
+    
+    
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     
 //        UIViewController *tv = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginRegister"];

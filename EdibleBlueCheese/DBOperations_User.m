@@ -55,4 +55,53 @@
     }
 }
 
+
+-(void)execute:(NSString *)sql
+{
+    sqlite3_stmt *stm = nil;
+    
+    if (stm == nil)
+    {
+		if (sqlite3_prepare_v2([self.sqlc database], [sql UTF8String], -1, &stm, NULL) != SQLITE_OK)
+        {
+			NSAssert1(0, @"!Error: failed to prepare statement with message '%s'.", sqlite3_errmsg([self.sqlc database]));
+		}
+	}
+    
+    int success = sqlite3_step(stm);
+    
+    if (success == SQLITE_ERROR)
+    {
+        NSAssert1(0, @"Error: failed to execute table with message '%s'.", sqlite3_errmsg([self.sqlc database]));
+    }
+}
+
+-(User *)FetchAUser:(NSString *)sql
+{
+    sqlite3_stmt *stm = nil;
+    
+    if (stm == nil)
+    {
+		if (sqlite3_prepare_v2([self.sqlc database], [sql UTF8String], -1, &stm, NULL) != SQLITE_OK)
+        {
+			NSAssert1(0, @"!Error: failed to prepare statement with message '%s'.", sqlite3_errmsg([self.sqlc database]));
+		}
+	}
+    
+    User *tmp;
+    while (sqlite3_step(stm) == SQLITE_ROW)
+	{
+        NSString* uid = [NSString stringWithUTF8String:(char *)sqlite3_column_text(stm, 0)];
+        NSString* uname = [NSString stringWithUTF8String:(char *)sqlite3_column_text(stm, 1)];
+        NSString* upwd = [NSString stringWithUTF8String:(char *)sqlite3_column_text(stm, 2)];
+        NSUInteger utype = sqlite3_column_int(stm, 3);
+        //NSString* uselfie = [NSString stringWithUTF8String:(char *)sqlite3_column_text(stm, 4)];
+        tmp = [User sharedInstanceWithUid:uid andUname:uname andUpwd:upwd andUtype:utype andUselfie:nil];
+        
+        
+    }
+    return tmp;
+}
+
+
 @end
