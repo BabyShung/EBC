@@ -57,6 +57,7 @@
 		B8BC421D19031F8400485705 /* CardCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8BC421C19031F8400485705 /* CardCollectionViewController.m */; };
 		B8BC423419034E0700485705 /* UIViewController+ScrollingNavbar.m in Sources */ = {isa = PBXBuildFile; fileRef = B8BC423319034E0700485705 /* UIViewController+ScrollingNavbar.m */; };
 		B8D1CAB518FE0326001AFA11 /* LoginRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D1CAB418FE0326001AFA11 /* LoginRegister.m */; };
+		B8E6099F1908A56000DBD4C1 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E6099E1908A56000DBD4C1 /* UIAlertView+Blocks.m */; };
 		B8FA45B718F5CA78007DA680 /* FormValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA45B618F5CA78007DA680 /* FormValidator.m */; };
 		B8FA45BF18F5D8E7007DA680 /* EdibleAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA45BC18F5D8E7007DA680 /* EdibleAlertView.m */; };
 		B8FA45C018F5D8E7007DA680 /* EdibleAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8FA45BD18F5D8E7007DA680 /* EdibleAlertView.xib */; };
@@ -149,6 +150,8 @@
 		B8BC423319034E0700485705 /* UIViewController+ScrollingNavbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ScrollingNavbar.m"; sourceTree = "<group>"; };
 		B8D1CAB318FE0326001AFA11 /* LoginRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRegister.h; sourceTree = "<group>"; };
 		B8D1CAB418FE0326001AFA11 /* LoginRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRegister.m; sourceTree = "<group>"; };
+		B8E6099D1908A56000DBD4C1 /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
+		B8E6099E1908A56000DBD4C1 /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
 		B8FA45B518F5CA78007DA680 /* FormValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormValidator.h; sourceTree = "<group>"; };
 		B8FA45B618F5CA78007DA680 /* FormValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormValidator.m; sourceTree = "<group>"; };
 		B8FA45BB18F5D8E7007DA680 /* EdibleAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EdibleAlertView.h; sourceTree = "<group>"; };
@@ -305,6 +308,8 @@
 				B8FA45B618F5CA78007DA680 /* FormValidator.m */,
 				B8738B9C190634730044FD42 /* LoadingAnimation.h */,
 				B8738B9D190634730044FD42 /* LoadingAnimation.m */,
+				B8E6099D1908A56000DBD4C1 /* UIAlertView+Blocks.h */,
+				B8E6099E1908A56000DBD4C1 /* UIAlertView+Blocks.m */,
 			);
 			name = HelperClasses_LR;
 			sourceTree = "<group>";
@@ -531,6 +536,7 @@
 				B8BC421D19031F8400485705 /* CardCollectionViewController.m in Sources */,
 				B8AAF37318F48CC400D287A3 /* User.m in Sources */,
 				B8FA45B718F5CA78007DA680 /* FormValidator.m in Sources */,
+				B8E6099F1908A56000DBD4C1 /* UIAlertView+Blocks.m in Sources */,
 				B8BC423419034E0700485705 /* UIViewController+ScrollingNavbar.m in Sources */,
 				B8738BA51906D8B80044FD42 /* UIImage+operation.m in Sources */,
 				B8AAF32018F4803000D287A3 /* LoginRegisterViewController.m in Sources */,

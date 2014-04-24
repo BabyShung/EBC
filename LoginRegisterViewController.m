@@ -9,6 +9,7 @@
 #import "LoginRegisterViewController.h"
 #import "LoginRegisterForm.h"
 #import "FormValidator.h"
+#import "UIAlertView+Blocks.h"
 
 #import "LoginRegister.h"
 #import "LoadingAnimation.h"
@@ -29,6 +30,7 @@
 }
 
 @property (nonatomic) BOOL isLogging;
+@property (nonatomic) BOOL clickedLogin;
 
 @property (nonatomic, strong) LoginRegisterForm *myActionSheet;
 @property (nonatomic,strong) LoadingAnimation *loadingImage;
@@ -67,10 +69,12 @@
 
 - (IBAction)showLoginForm:(id)sender {
     [self formInitializeAndIfIsLogin:YES];
+    self.clickedLogin = YES;
 }
 
 - (IBAction)showRegisterForm:(id)sender {
     [self formInitializeAndIfIsLogin:NO];
+    self.clickedLogin = NO;
 }
 
 /*****************************************
@@ -171,7 +175,7 @@
             LoginRegister *lr = [[LoginRegister alloc]init];
             [lr loginRegisterAccount:self.myActionSheet.emailTextField.text andUsernam:self.myActionSheet.usernameTextField.text andPwd:self.myActionSheet.pwdTextField.text andSELF:self];
             
-            
+
         });
         
     }else{  //failure
@@ -314,7 +318,16 @@
             log = @"Network error, please try again.";
         }
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops.." message:log delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
-        [alert show];
+        [alert showWithHandler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+            
+            if (buttonIndex == [alertView cancelButtonIndex]) {
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^(void){
+                    
+                    [self formInitializeAndIfIsLogin:self.clickedLogin];
+                    
+                });
+            }
+        }];
         
         
         //stop the animation
