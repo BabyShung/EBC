@@ -74,7 +74,8 @@
     
     self.UnameLabel.text = self.loggedInUser.Uname;
     
-    [self setTitle:@"My Profile"];
+    self.title =@"My Profile";
+    self.tabBarController.tabBar.hidden = YES;
     
 }
 

@@ -60,6 +60,8 @@
 		B8E1D5341909899A00CB8C1C /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E1D5331909899A00CB8C1C /* MeViewController.m */; };
 		B8E1D53719099F8C00CB8C1C /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E1D53619099F8C00CB8C1C /* SettingsViewController.m */; };
 		B8E1D5431909ABCF00CB8C1C /* BadgeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E1D5421909ABCF00CB8C1C /* BadgeTableCell.m */; };
+		B8E1D549190A1C0E00CB8C1C /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E1D548190A1C0E00CB8C1C /* AccountViewController.m */; };
+		B8E1D54F190A293D00CB8C1C /* ModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E1D54E190A293D00CB8C1C /* ModifyViewController.m */; };
 		B8E6099F1908A56000DBD4C1 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E6099E1908A56000DBD4C1 /* UIAlertView+Blocks.m */; };
 		B8E609A21908CD7C00DBD4C1 /* Manual_Auto_Login.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E609A11908CD7C00DBD4C1 /* Manual_Auto_Login.m */; };
 		B8FA45B718F5CA78007DA680 /* FormValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA45B618F5CA78007DA680 /* FormValidator.m */; };
@@ -160,6 +162,10 @@
 		B8E1D53619099F8C00CB8C1C /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		B8E1D5411909ABCF00CB8C1C /* BadgeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadgeTableCell.h; sourceTree = "<group>"; };
 		B8E1D5421909ABCF00CB8C1C /* BadgeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgeTableCell.m; sourceTree = "<group>"; };
+		B8E1D547190A1C0E00CB8C1C /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
+		B8E1D548190A1C0E00CB8C1C /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
+		B8E1D54D190A293D00CB8C1C /* ModifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyViewController.h; sourceTree = "<group>"; };
+		B8E1D54E190A293D00CB8C1C /* ModifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyViewController.m; sourceTree = "<group>"; };
 		B8E6099D1908A56000DBD4C1 /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
 		B8E6099E1908A56000DBD4C1 /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
 		B8E609A01908CD7C00DBD4C1 /* Manual_Auto_Login.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manual_Auto_Login.h; sourceTree = "<group>"; };
@@ -255,7 +261,6 @@
 				B8AAF31718F47F3200D287A3 /* LoginRegister */,
 				B8BC420B19031F5800485705 /* Card */,
 				B8E1D52E1909890200CB8C1C /* Me */,
-				B8FA45C518F72DF7007DA680 /* Profile */,
 				B8AAF37018F48CA900D287A3 /* Classes */,
 				B8AAF36F18F48CA000D287A3 /* Database */,
 				B8AAF32218F481F700D287A3 /* Images */,
@@ -401,15 +406,32 @@
 		B8E1D52E1909890200CB8C1C /* Me */ = {
 			isa = PBXGroup;
 			children = (
-				B8E1D5411909ABCF00CB8C1C /* BadgeTableCell.h */,
-				B8E1D5421909ABCF00CB8C1C /* BadgeTableCell.m */,
+				B8E1D5451909B20D00CB8C1C /* HelperClasses_Me */,
+				B8FA45C518F72DF7007DA680 /* Profile */,
+				B8E1D5461909B22B00CB8C1C /* Settings */,
 				B8E1D5321909899A00CB8C1C /* MeViewController.h */,
 				B8E1D5331909899A00CB8C1C /* MeViewController.m */,
-				B8E1D53519099F8C00CB8C1C /* SettingsViewController.h */,
-				B8E1D53619099F8C00CB8C1C /* SettingsViewController.m */,
 			);
 			name = Me;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		B8E1D5451909B20D00CB8C1C /* HelperClasses_Me */ = {
+			isa = PBXGroup;
+			children = (
+				B8E1D5411909ABCF00CB8C1C /* BadgeTableCell.h */,
+				B8E1D5421909ABCF00CB8C1C /* BadgeTableCell.m */,
+			);
+			name = HelperClasses_Me;
+			sourceTree = "<group>";
+		};
+		B8E1D5461909B22B00CB8C1C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B8E1D53519099F8C00CB8C1C /* SettingsViewController.h */,
+				B8E1D53619099F8C00CB8C1C /* SettingsViewController.m */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		B8FA45B818F5D8C5007DA680 /* AlertView */ = {
@@ -430,8 +452,13 @@
 				B8FA45C618F72E3E007DA680 /* HelperClasses_Pf */,
 				B8AAF32518F4846100D287A3 /* ProfileViewController.h */,
 				B8AAF32618F4846100D287A3 /* ProfileViewController.m */,
+				B8E1D547190A1C0E00CB8C1C /* AccountViewController.h */,
+				B8E1D548190A1C0E00CB8C1C /* AccountViewController.m */,
+				B8E1D54D190A293D00CB8C1C /* ModifyViewController.h */,
+				B8E1D54E190A293D00CB8C1C /* ModifyViewController.m */,
 			);
 			name = Profile;
+			path = EdibleBlueCheese;
 			sourceTree = "<group>";
 		};
 		B8FA45C618F72E3E007DA680 /* HelperClasses_Pf */ = {
@@ -587,11 +614,13 @@
 				B8AAF32718F4846100D287A3 /* ProfileViewController.m in Sources */,
 				B8AAF37618F48E4C00D287A3 /* SQLConnector.m in Sources */,
 				B8AAF31C18F47F5B00D287A3 /* LoginRegisterForm.m in Sources */,
+				B8E1D54F190A293D00CB8C1C /* ModifyViewController.m in Sources */,
 				B8738B7819046C740044FD42 /* TableViewController.m in Sources */,
 				B8738B7919046C740044FD42 /* CollectionViewController.m in Sources */,
 				B8BC421A19031F6C00485705 /* CardScrollView.m in Sources */,
 				B8E1D53719099F8C00CB8C1C /* SettingsViewController.m in Sources */,
 				B8738BA8190705550044FD42 /* DBOperations_User.m in Sources */,
+				B8E1D549190A1C0E00CB8C1C /* AccountViewController.m in Sources */,
 				B8738B9E190634730044FD42 /* LoadingAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

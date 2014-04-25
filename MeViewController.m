@@ -10,6 +10,7 @@
 #import "NavBarSetting.h"
 #import "ProfileViewController.h"
 #import "BadgeTableCell.h"
+#import "SettingsViewController.h"
 
 @interface MeViewController ()
 
@@ -82,8 +83,8 @@
         cell.detailTextLabel.text = @"Account, Feedback, Logout..";
         
     }
-    
     cell.detailTextLabel.textColor = [UIColor grayColor];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
@@ -139,12 +140,13 @@
     }else if(indexPath.section == 1){
         
     }else if(indexPath.section == 2){
-        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"Settings"];
+        SettingsViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"Settings"];
+        vc.loggedInUser = self.loggedInUser;
         [self.navigationController pushViewController:vc animated:YES];
 
     }
 
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 #pragma mark - Navigation
 
@@ -160,6 +162,11 @@
 //        //delegate if needed
 //    }
 //}
+
+
+-(void)viewWillAppear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = NO;
+}
 
 
 @end

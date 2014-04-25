@@ -7,7 +7,8 @@
 //
 
 #import "SettingsViewController.h"
-
+#import "BadgeTableCell.h"
+#import "AccountViewController.h"
 @interface SettingsViewController ()
 
 @property (strong, nonatomic) NSArray *menu;
@@ -29,7 +30,8 @@
     self.section3 = [NSArray arrayWithObjects:@"Logout", nil];
     self.menu = [NSArray arrayWithObjects:self.section1, self.section2,self.section3, nil];
     
-    [self setTitle:@"Settings"];
+    self.title = @"Settings";
+    self.tabBarController.tabBar.hidden = YES;
     
 }
 
@@ -54,7 +56,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"Cell";
+    
+    BadgeTableCell *cell = [[BadgeTableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     
     // Configure the cell...
     
@@ -66,7 +70,10 @@
         cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.section3 objectAtIndex:indexPath.row]];
         
     }
-    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.badgeString = @"ss";
+    cell.badgeTextColor = [UIColor grayColor];
+    cell.badgeColor = [UIColor clearColor];
     return cell;
 }
 
@@ -119,5 +126,24 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section == 0){
+        AccountViewController *avc = [self.storyboard instantiateViewControllerWithIdentifier:@"Account"];
+        avc.loggedInUser = self.loggedInUser;
+        [self.navigationController pushViewController:avc animated:YES];
+        
+        
+        
+        
+    }else if(indexPath.section == 1){
+        
+    }else if(indexPath.section == 2){
+        
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 @end
