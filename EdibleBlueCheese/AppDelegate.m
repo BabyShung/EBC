@@ -9,12 +9,10 @@
 #import "AppDelegate.h"
 
 #import "DBOperations_User.h"
-#import "MeViewController.h"
 #import "SQLConnector.h"
 
 
 #import "NavBarSetting.h"
-#import "Manual_Auto_Login.h"
 
 @implementation AppDelegate
 
@@ -38,38 +36,11 @@
     
     //check if there is a loggedIn primary
     DBOperations_User *dbo = [[DBOperations_User alloc]init];
-    User* user = [dbo FetchAUser:@"SELECT uid,uname,upwd from User where primaryUser = 1"];
     
-    NSString* storyBoardID = nil;
-    
-    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-    
-    if(user){//will auto login
-        NSLog(@"should auto login");
-        storyBoardID = @"tabbar";
-        
-        UITabBarController *tabbarVC = [storyboard instantiateViewControllerWithIdentifier:storyBoardID];
-        tabbarVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        UINavigationController *firstNVC = [tabbarVC.viewControllers objectAtIndex:0];
-        MeViewController *firstVC = (MeViewController*)firstNVC.visibleViewController;
-        
-        NSLog(@"##### %@",firstVC);
-        User *tmp = [User sharedInstanceWithUid:user.Uid andUname:user.Uname andUpwd:user.Upwd andUtype:user.Utype  andUselfie:nil];
-        //*****assign the user
-        firstVC.loggedInUser = tmp;
-        
-        self.window.rootViewController = tabbarVC;
-    }else{
-        NSLog(@"should login manually");
-        storyBoardID = @"LoginRegister";
-        
-        UIViewController *viewController =  [storyboard instantiateViewControllerWithIdentifier:storyBoardID];
-        self.window.rootViewController = viewController;
-        
-    }
-    
-    [self.window makeKeyAndVisible];
+    //init the static shared instance in memory
+    User *user = [dbo FetchAUser:@"SELECT uid,uname,upwd from User where primaryUser = 1"];
+    NSLog(@"user exist?  %@",user);
+
     
     
     return YES;

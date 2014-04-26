@@ -11,12 +11,15 @@
 #import "ModifyViewController.h"
 #import "FontSettings.h"
 #import "PasswordViewController.h"
+#import "User.h"
 
 @interface AccountViewController ()
 
 @property (strong, nonatomic) NSArray *menu;
 @property (strong, nonatomic) NSArray *section1;
 @property (strong, nonatomic) NSArray *section2;
+
+@property (strong, nonatomic) User *user;
 
 @end
 
@@ -25,6 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.user = [User sharedInstance];
     
     self.section1 = [NSArray arrayWithObjects:@"Email",nil];
     self.section2 = [NSArray arrayWithObjects:@"User Name",@"Password",  nil];
@@ -64,7 +69,7 @@
     
     if (indexPath.section == 0) {
         cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.section1 objectAtIndex:indexPath.row]];
-        cell.badgeString = self.loggedInUser.Uid;
+        cell.badgeString = self.user.Uid;
         
         //.....
         cell.userInteractionEnabled = NO;//disable this cell
@@ -74,7 +79,7 @@
     }else if (indexPath.section == 1) {
         cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.section2 objectAtIndex:indexPath.row]];
         if(indexPath.row ==0){
-            cell.badgeString = self.loggedInUser.Uname;
+            cell.badgeString = self.user.Uname;
         }
     }
     
@@ -87,7 +92,7 @@
 {
     if(indexPath.section == 0){//click email (currently cell is disabled
         ModifyViewController *mvc = [self.storyboard instantiateViewControllerWithIdentifier:@"Modify"];
-        mvc.modifyString = self.loggedInUser.Uid;
+        mvc.modifyString = self.user.Uid;
        
         [self.navigationController pushViewController:mvc animated:YES];
         
@@ -97,7 +102,7 @@
     }else if(indexPath.section == 1 && indexPath.row == 0){//click username
         
         ModifyViewController *mvc = [self.storyboard instantiateViewControllerWithIdentifier:@"Modify"];
-        mvc.modifyString = self.loggedInUser.Uname;
+        mvc.modifyString = self.user.Uname;
         //mvc.labelString = @"Button Haha";
         mvc.viewTitle = @"User Name";
          mvc.labelString = @"User name should not be more than 20 characters.";

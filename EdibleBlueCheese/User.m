@@ -10,15 +10,23 @@
 
 @implementation User
 
+static User *_sharedInstance = nil;
+
 + (User *)sharedInstance{   //directly get the instance
-    return [self sharedInstanceWithUid:nil andUname:nil andUpwd:nil andUtype:1 andUselfie:nil];
+
+    return _sharedInstance;
+}
+
++(User *)setTONil{
+    _sharedInstance = nil;
+    return _sharedInstance;
 }
 
 //static init
 + (User *)sharedInstanceWithUid:(NSString*)uid andUname:(NSString*)uname andUpwd:(NSString*)upwd andUtype:(NSUInteger)utype andUselfie:(NSData*)uselfie
 {
     // 1
-    static User *_sharedInstance = nil;
+    
     
     // 2
     static dispatch_once_t oncePredicate;

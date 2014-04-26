@@ -11,6 +11,4 @@
 
 @interface MeViewController : UITableViewController
 
-@property (nonatomic,strong) User *loggedInUser;
-
 @end

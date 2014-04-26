@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "User.h"
+
 
 @interface AccountViewController : UITableViewController
-
-@property (nonatomic,strong) User *loggedInUser;
 
 
 @end

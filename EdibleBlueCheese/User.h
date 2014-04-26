@@ -20,4 +20,6 @@
 
 + (User *)sharedInstanceWithUid:(NSString*)uid andUname:(NSString*)uname andUpwd:(NSString*)upwd andUtype:(NSUInteger)utype andUselfie:(NSData*)uselfie;
 
++(User *)setTONil;
+
 @end

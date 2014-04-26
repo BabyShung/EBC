@@ -10,6 +10,7 @@
 
 static NSString *kSQLiteFileName = @"EdibleBlueCheeseDB.sqlite3";
 
+static SQLConnector *_sharedInstance = nil;
 
 @implementation SQLConnector
 
@@ -19,7 +20,7 @@ static NSString *kSQLiteFileName = @"EdibleBlueCheeseDB.sqlite3";
 + (SQLConnector *)sharedInstance
 {
     // 1
-    static SQLConnector *_sharedInstance = nil;
+    
     
     // 2
     static dispatch_once_t oncePredicate;
@@ -34,7 +35,7 @@ static NSString *kSQLiteFileName = @"EdibleBlueCheeseDB.sqlite3";
 
 - (instancetype)init {
     if (self = [super init]) {
-        
+        NSLog(@"DB connector sharedInstance get called");
     }
     return self;
 }

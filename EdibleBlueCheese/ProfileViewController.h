@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "User.h"
 
 @interface ProfileViewController : UIViewController <UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIActionSheetDelegate>
 
@@ -17,7 +16,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *UnameLabel;
 
-@property (nonatomic,strong) User *loggedInUser;
 
 
 @end

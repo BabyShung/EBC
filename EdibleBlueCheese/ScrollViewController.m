@@ -8,6 +8,8 @@
 #import "ScrollViewController.h"
 #import "UIViewController+ScrollingNavbar.h"
 #import "NavBarSetting.h"
+#import "User.h"
+#import "LoginRegisterViewController.h"
 
 @interface ScrollViewController () <UIScrollViewDelegate>
 
@@ -60,6 +62,19 @@
 	[self showNavbar];
 	
 	return YES;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    //check second login based on the sharedInstance
+    User *user = [User sharedInstance];
+    if(!user){//not loaded primary user, then show the loginRegisterView
+        LoginRegisterViewController *lrvc = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginRegister"];
+        lrvc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self presentViewController:lrvc animated:NO completion:nil];
+    }
+    
+    
 }
 
 @end

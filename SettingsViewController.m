@@ -10,6 +10,7 @@
 #import "BadgeTableCell.h"
 #import "AccountViewController.h"
 #import "FontSettings.h"
+#import "User.h"
 
 @interface SettingsViewController ()
 
@@ -85,7 +86,6 @@
 {
     if(indexPath.section == 0){
         AccountViewController *avc = [self.storyboard instantiateViewControllerWithIdentifier:@"Account"];
-        avc.loggedInUser = self.loggedInUser;
         [self.navigationController pushViewController:avc animated:YES];
         
         

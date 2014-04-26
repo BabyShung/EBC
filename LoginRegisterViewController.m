@@ -284,24 +284,11 @@
             //NSString *uselfie = [returnJSONtoNSdict objectForKey:@"uselfie"];
             //NSString *ucreate_time = [returnJSONtoNSdict objectForKey:@"ucreate_time"];
             
+            //init the sharedInstance
             User *tmp = [User sharedInstanceWithUid:uid andUname:uname andUpwd:nil andUtype:[utype integerValue]   andUselfie:nil];
 
-            
-            
-            UITabBarController *tabbarVC = [self.storyboard instantiateViewControllerWithIdentifier:@"tabbar"];
-            tabbarVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            UINavigationController *firstNVC = [tabbarVC.viewControllers objectAtIndex:0];
-            MeViewController *firstVC = (MeViewController*)firstNVC.visibleViewController;
-            
-            //*****assign the user
-            firstVC.loggedInUser = tmp;
-            
-            
-            
-            //don't know how to fix the bug, parent exists
-            [self presentViewController:tabbarVC animated:YES completion:Nil];
-            
-            //[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+
+            [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
             NSLog(@"dismissed");
             
             //write primary to account
@@ -352,9 +339,5 @@
     
 }
 
-
--(void)viewDidAppear:(BOOL)animated{
-    
-}
 
 @end

@@ -16,6 +16,7 @@
 #import "UIViewController+MaryPopin.h"
 #import "EdibleAlertView.h"
 
+#import "User.h"
 
 @interface ProfileViewController ()
 
@@ -28,14 +29,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     
     NavBarSetting *navb = [[NavBarSetting alloc]init];
     [navb setupNavBar:self.navigationController.navigationBar];
     
     self.Selfie.image = [[ImagePlaceholderHelper sharedInstance] placerholderAvatarWithSize:self.Selfie.frame.size];
     
-   // [self.Cover fillWithPlaceholderImageAndText:@"Click to change cover" fillColor:[UIColor colorWithRed:0.861f green:0.791f blue:0.467f alpha:1.00f]];
+    // [self.Cover fillWithPlaceholderImageAndText:@"Click to change cover" fillColor:[UIColor colorWithRed:0.861f green:0.791f blue:0.467f alpha:1.00f]];
     
     [self.Cover setImage:[UIImage imageNamed:@"mycover.jpg"]];
     
@@ -63,16 +64,10 @@
         [navb setupNavBar:self.imagePicker.navigationBar];
         
     });
-
     
+    User *user = [User sharedInstance];
     
-    //checking passed data
-    NSLog(@"profile info?  %@",self.loggedInUser.Uid);
-    NSLog(@"profile info?  %@",self.loggedInUser.Uname);
-    NSLog(@"profile info?  %i",self.loggedInUser.Utype);
-    NSLog(@"profile info?  %@",self.loggedInUser.Uselfie);
-    
-    self.UnameLabel.text = self.loggedInUser.Uname;
+    self.UnameLabel.text = user.Uname;
     
     self.title =@"My Profile";
     self.tabBarController.tabBar.hidden = YES;
@@ -80,7 +75,7 @@
 }
 
 -(void)selfieTapDetected{
-
+    
     
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
         UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:Nil
@@ -105,15 +100,15 @@
             [self.imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
         [self presentViewController:self.imagePicker animated:YES completion:nil];
     } else{
-    
+        
     }
-        //[self dismissViewControllerAnimated:YES completion:nil];
+    //[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-
+    
     NSLog(@"finished taking photo");
     
     //put the image
@@ -132,28 +127,21 @@
 }
 
 
--(void)viewDidAppear:(BOOL)animated{
-//    if(!self.loggedIn){//if not logged in
-//        UIViewController *tv = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginRegister"];
-//        [self presentViewController:tv animated:NO completion:nil];
-//        self.loggedIn = YES;
-//    }
-    
-  
-}
-
 - (IBAction)dismiss:(id)sender {
     
     //write primary to account
     DBOperations_User *dbo = [[DBOperations_User alloc]init];
+    User *user = [User sharedInstance];
+    [dbo execute:[NSString stringWithFormat:@"UPDATE User SET primaryUser = 0 WHERE uid = '%@'",user.Uid]];
     
-    [dbo execute:[NSString stringWithFormat:@"UPDATE User SET primaryUser = 0 WHERE uid = '%@'",self.loggedInUser.Uid]];
+    
+    UIViewController *tv = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginRegister"];
+    tv.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:tv animated:YES completion:nil];
     
     
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     
-//        UIViewController *tv = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginRegister"];
-//        [self presentViewController:tv animated:YES completion:nil];
+    
 }
 
 - (IBAction)demoNotify:(id)sender {
