@@ -125,4 +125,20 @@
 {
     return 52;
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:1];
+    BadgeTableCell *cell = (BadgeTableCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+    
+    
+    User *user = [User sharedInstance];
+    
+    if(![cell.badgeString isEqualToString:user.Uname]){
+        cell.badgeString = user.Uname;
+    }
+    
+
+}
+
 @end

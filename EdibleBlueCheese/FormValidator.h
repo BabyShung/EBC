@@ -20,6 +20,7 @@
 
 - (void) OldPwd:(UITextField *) oldpwd andNextPwd: (UITextField *) nextpwd andConfirmPwd: (UITextField *)confirmpwd;
 
+- (void) updateOneField:(UITextField *) textfield andFieldName:(NSString*)fieldname;
 
 /*******************************************
  

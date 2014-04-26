@@ -179,8 +179,24 @@
 //}
 
 
+
 -(void)viewWillAppear:(BOOL)animated{
+    
     self.tabBarController.tabBar.hidden = NO;
+    
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    BadgeTableCell *cell = (BadgeTableCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+    
+    
+    User *user = [User sharedInstance];
+    
+    if(![cell.textLabel.text isEqualToString:user.Uname]){
+        cell.textLabel.text = user.Uname;
+        [cell.textLabel sizeToFit];
+    }
+    
+    
 }
 
 

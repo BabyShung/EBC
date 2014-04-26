@@ -63,6 +63,12 @@
     [self SameCheck:nextpwd andConfirm:confirmpwd];
 }
 
+- (void) updateOneField:(UITextField *) textfield andFieldName:(NSString*)fieldname{
+    [self Required:textfield FieldName:fieldname];
+    [self LettersNumbersOnly:textfield FieldName:fieldname];
+    
+}
+
 /***************
  
  Email Address

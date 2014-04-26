@@ -148,7 +148,6 @@
     NSDictionary *returnJSONtoNSdict = [NSJSONSerialization JSONObjectWithData:webdata options:0 error:nil];
     
     
-    
     id status = [returnJSONtoNSdict objectForKey:@"status"];
     NSString *log = [returnJSONtoNSdict objectForKey:@"log"];
     NSLog(@"status --- -- -   %d",[status boolValue]);
