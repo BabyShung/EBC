@@ -9,8 +9,13 @@
 #import "ModifyViewController.h"
 #import "UIButton+Bootstrap.h"
 #import "FontSettings.h"
+#import "AsyncRequest.h"
 
-@interface ModifyViewController ()
+
+@interface ModifyViewController () <NSURLConnectionDataDelegate>
+{
+    NSMutableData *webdata;
+}
 
 @property (weak, nonatomic) IBOutlet UITextField *myTextBox;
 @property (weak, nonatomic) IBOutlet UILabel *bottomLabel;
@@ -36,6 +41,8 @@
     
     self.title = self.viewTitle;
     
+    
+    webdata = [[NSMutableData alloc]init];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -52,13 +59,46 @@
     NSLog(@"validating!");
     
     //send request
+    AsyncRequest *async = [[AsyncRequest alloc]init];
+    [async modifyUserName:self.myTextBox.text andSELF:self];
     
-    //perform delegate
+    //perform delegate back to prev vc
     
     //update DB
     
     //dismiss view
-    
+    [self.navigationController popViewControllerAnimated:YES];
 }
+
+/****************************************
+ 
+ delegate methods for networkConnection
+ 
+ ****************************************/
+
+
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
+    [webdata setLength:0];
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
+    [webdata appendData:data];
+}
+
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops.." message:@"Network problem..please try again." delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+    [alert show];
+}
+
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection{
+    NSDictionary *returnJSONtoNSdict = [NSJSONSerialization JSONObjectWithData:webdata options:0 error:nil];
+    
+    id status = [returnJSONtoNSdict objectForKey:@"status"];
+    NSString *log = [returnJSONtoNSdict objectForKey:@"log"];
+    NSLog(@"status --- -- -   %d",[status boolValue]);
+    NSLog(@"log --- -- -   %@",log);
+}
+
 
 @end

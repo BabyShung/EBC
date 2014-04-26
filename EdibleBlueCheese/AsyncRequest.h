@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AsyncRequest : NSObject <NSURLConnectionDataDelegate>
+@interface AsyncRequest : NSObject 
 
 
 -(void)loginRegisterAccount:(NSString *)email andUsernam:(NSString *)uname andPwd:(NSString *) pwd andSELF:(id) selfy;
+
+-(void)modifyUserName:(NSString*)username andSELF:(id)selfy;
+
 
 @end

@@ -43,7 +43,6 @@
 		B8AAF32018F4803000D287A3 /* LoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF31F18F4803000D287A3 /* LoginRegisterViewController.m */; };
 		B8AAF32718F4846100D287A3 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF32618F4846100D287A3 /* ProfileViewController.m */; };
 		B8AAF36E18F488E500D287A3 /* AnimateLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF36D18F488E500D287A3 /* AnimateLabel.m */; };
-		B8AAF37318F48CC400D287A3 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF37218F48CC400D287A3 /* User.m */; };
 		B8AAF37618F48E4C00D287A3 /* SQLConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF37518F48E4C00D287A3 /* SQLConnector.m */; };
 		B8AAF37818F48E8D00D287A3 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AAF37718F48E8D00D287A3 /* libsqlite3.0.dylib */; };
 		B8AAF37E18F49F4100D287A3 /* LoginDemo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8AAF37D18F49F4100D287A3 /* LoginDemo.jpg */; };
@@ -66,6 +65,10 @@
 		B8E1D59A190AF7FE00CB8C1C /* UIButton+Bootstrap.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E1D598190AF7FE00CB8C1C /* UIButton+Bootstrap.m */; };
 		B8E1D59D190AFF9E00CB8C1C /* FontSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E1D59C190AFF9E00CB8C1C /* FontSettings.m */; };
 		B8E1D5A0190B723100CB8C1C /* PasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E1D59F190B723100CB8C1C /* PasswordViewController.m */; };
+		B8E1D5EB190C1C7300CB8C1C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E1D5EA190C1C7300CB8C1C /* QuartzCore.framework */; };
+		B8E1D5F3190C224B00CB8C1C /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E1D5F1190C224B00CB8C1C /* SVProgressHUD.m */; };
+		B8E1D5F4190C224B00CB8C1C /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B8E1D5F2190C224B00CB8C1C /* SVProgressHUD.bundle */; };
+		B8E1D5FB190C296100CB8C1C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E1D5FA190C296100CB8C1C /* User.m */; };
 		B8E6099F1908A56000DBD4C1 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E6099E1908A56000DBD4C1 /* UIAlertView+Blocks.m */; };
 		B8E609A21908CD7C00DBD4C1 /* Manual_Auto_Login.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E609A11908CD7C00DBD4C1 /* Manual_Auto_Login.m */; };
 		B8FA45B718F5CA78007DA680 /* FormValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA45B618F5CA78007DA680 /* FormValidator.m */; };
@@ -140,8 +143,6 @@
 		B8AAF32618F4846100D287A3 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		B8AAF36C18F488E500D287A3 /* AnimateLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimateLabel.h; sourceTree = "<group>"; };
 		B8AAF36D18F488E500D287A3 /* AnimateLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimateLabel.m; sourceTree = "<group>"; };
-		B8AAF37118F48CC400D287A3 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		B8AAF37218F48CC400D287A3 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		B8AAF37418F48E4C00D287A3 /* SQLConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLConnector.h; sourceTree = "<group>"; };
 		B8AAF37518F48E4C00D287A3 /* SQLConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLConnector.m; sourceTree = "<group>"; };
 		B8AAF37718F48E8D00D287A3 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -178,6 +179,12 @@
 		B8E1D59C190AFF9E00CB8C1C /* FontSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontSettings.m; sourceTree = "<group>"; };
 		B8E1D59E190B723100CB8C1C /* PasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordViewController.h; sourceTree = "<group>"; };
 		B8E1D59F190B723100CB8C1C /* PasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordViewController.m; sourceTree = "<group>"; };
+		B8E1D5EA190C1C7300CB8C1C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B8E1D5F0190C224B00CB8C1C /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		B8E1D5F1190C224B00CB8C1C /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		B8E1D5F2190C224B00CB8C1C /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		B8E1D5F9190C296100CB8C1C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		B8E1D5FA190C296100CB8C1C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		B8E6099D1908A56000DBD4C1 /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
 		B8E6099E1908A56000DBD4C1 /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
 		B8E609A01908CD7C00DBD4C1 /* Manual_Auto_Login.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manual_Auto_Login.h; sourceTree = "<group>"; };
@@ -200,6 +207,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8E1D5EB190C1C7300CB8C1C /* QuartzCore.framework in Frameworks */,
 				B8AAF37818F48E8D00D287A3 /* libsqlite3.0.dylib in Frameworks */,
 				B8AAF2E218F4547900D287A3 /* CoreGraphics.framework in Frameworks */,
 				B8AAF2E418F4547900D287A3 /* UIKit.framework in Frameworks */,
@@ -257,6 +265,7 @@
 		B8AAF2DE18F4547900D287A3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B8E1D5EA190C1C7300CB8C1C /* QuartzCore.framework */,
 				B8AAF37718F48E8D00D287A3 /* libsqlite3.0.dylib */,
 				B8AAF2DF18F4547900D287A3 /* Foundation.framework */,
 				B8AAF2E118F4547900D287A3 /* CoreGraphics.framework */,
@@ -272,6 +281,8 @@
 				B8738B9F1906CE730044FD42 /* Settings */,
 				B8BC422219034DEC00485705 /* Tmp */,
 				B8AAF2F118F4547900D287A3 /* Main_iPhone.storyboard */,
+				B8D1CAB318FE0326001AFA11 /* AsyncRequest.h */,
+				B8D1CAB418FE0326001AFA11 /* AsyncRequest.m */,
 				B8AAF31718F47F3200D287A3 /* LoginRegister */,
 				B8BC420B19031F5800485705 /* Card */,
 				B8E1D52E1909890200CB8C1C /* Me */,
@@ -332,8 +343,6 @@
 				B8FA45B818F5D8C5007DA680 /* AlertView */,
 				B8AAF36C18F488E500D287A3 /* AnimateLabel.h */,
 				B8AAF36D18F488E500D287A3 /* AnimateLabel.m */,
-				B8D1CAB318FE0326001AFA11 /* AsyncRequest.h */,
-				B8D1CAB418FE0326001AFA11 /* AsyncRequest.m */,
 				B8AAF31818F47F5B00D287A3 /* LoginRegisterForm.h */,
 				B8AAF31918F47F5B00D287A3 /* LoginRegisterForm.m */,
 				B8AAF31A18F47F5B00D287A3 /* UIImage+ImageEffects.h */,
@@ -385,8 +394,8 @@
 		B8AAF37018F48CA900D287A3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				B8AAF37118F48CC400D287A3 /* User.h */,
-				B8AAF37218F48CC400D287A3 /* User.m */,
+				B8E1D5F9190C296100CB8C1C /* User.h */,
+				B8E1D5FA190C296100CB8C1C /* User.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -433,8 +442,8 @@
 		B8E1D5451909B20D00CB8C1C /* HelperClasses_Me */ = {
 			isa = PBXGroup;
 			children = (
-				B8E1D5411909ABCF00CB8C1C /* BadgeTableCell.h */,
-				B8E1D5421909ABCF00CB8C1C /* BadgeTableCell.m */,
+				B8E1D5F5190C225D00CB8C1C /* BadgeTableCell */,
+				B8E1D5EF190C224100CB8C1C /* SVProgressHUD */,
 			);
 			name = HelperClasses_Me;
 			sourceTree = "<group>";
@@ -457,6 +466,25 @@
 				B8E1D598190AF7FE00CB8C1C /* UIButton+Bootstrap.m */,
 			);
 			name = Buttons;
+			sourceTree = "<group>";
+		};
+		B8E1D5EF190C224100CB8C1C /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				B8E1D5F0190C224B00CB8C1C /* SVProgressHUD.h */,
+				B8E1D5F1190C224B00CB8C1C /* SVProgressHUD.m */,
+				B8E1D5F2190C224B00CB8C1C /* SVProgressHUD.bundle */,
+			);
+			name = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		B8E1D5F5190C225D00CB8C1C /* BadgeTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				B8E1D5411909ABCF00CB8C1C /* BadgeTableCell.h */,
+				B8E1D5421909ABCF00CB8C1C /* BadgeTableCell.m */,
+			);
+			name = BadgeTableCell;
 			sourceTree = "<group>";
 		};
 		B8FA45B818F5D8C5007DA680 /* AlertView */ = {
@@ -599,6 +627,7 @@
 				B8738B97190479470044FD42 /* drink.png in Resources */,
 				B8BC421719031F6C00485705 /* 4.jpg in Resources */,
 				B8BC421419031F6C00485705 /* 1.jpg in Resources */,
+				B8E1D5F4190C224B00CB8C1C /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,12 +647,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8BC421D19031F8400485705 /* CardCollectionViewController.m in Sources */,
-				B8AAF37318F48CC400D287A3 /* User.m in Sources */,
 				B8E1D59A190AF7FE00CB8C1C /* UIButton+Bootstrap.m in Sources */,
 				B8FA45B718F5CA78007DA680 /* FormValidator.m in Sources */,
 				B8E6099F1908A56000DBD4C1 /* UIAlertView+Blocks.m in Sources */,
 				B8E1D5431909ABCF00CB8C1C /* BadgeTableCell.m in Sources */,
 				B8BC423419034E0700485705 /* UIViewController+ScrollingNavbar.m in Sources */,
+				B8E1D5F3190C224B00CB8C1C /* SVProgressHUD.m in Sources */,
 				B8738BA51906D8B80044FD42 /* UIImage+operation.m in Sources */,
 				B8AAF32018F4803000D287A3 /* LoginRegisterViewController.m in Sources */,
 				B8E1D5A0190B723100CB8C1C /* PasswordViewController.m in Sources */,
@@ -651,6 +680,7 @@
 				B8BC421A19031F6C00485705 /* CardScrollView.m in Sources */,
 				B8E1D53719099F8C00CB8C1C /* SettingsViewController.m in Sources */,
 				B8738BA8190705550044FD42 /* DBOperations_User.m in Sources */,
+				B8E1D5FB190C296100CB8C1C /* User.m in Sources */,
 				B8E1D549190A1C0E00CB8C1C /* AccountViewController.m in Sources */,
 				B8E1D59D190AFF9E00CB8C1C /* FontSettings.m in Sources */,
 				B8738B9E190634730044FD42 /* LoadingAnimation.m in Sources */,

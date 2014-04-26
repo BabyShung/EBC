@@ -16,6 +16,7 @@
 @property (nonatomic, assign) NSUInteger Utype;
 @property (nonatomic, retain) NSData *Uselfie;
 
++ (User *)sharedInstance;
 
 + (User *)sharedInstanceWithUid:(NSString*)uid andUname:(NSString*)uname andUpwd:(NSString*)upwd andUtype:(NSUInteger)utype andUselfie:(NSData*)uselfie;
 

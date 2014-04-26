@@ -10,6 +10,10 @@
 
 @implementation User
 
++ (User *)sharedInstance{   //directly get the instance
+    return [self sharedInstanceWithUid:nil andUname:nil andUpwd:nil andUtype:1 andUselfie:nil];
+}
+
 //static init
 + (User *)sharedInstanceWithUid:(NSString*)uid andUname:(NSString*)uname andUpwd:(NSString*)upwd andUtype:(NSUInteger)utype andUselfie:(NSData*)uselfie
 {

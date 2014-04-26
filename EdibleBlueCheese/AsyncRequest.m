@@ -7,11 +7,24 @@
 //
 
 #import "AsyncRequest.h"
+#import "User.h"
 
 #define loginURL @"http://1-dot-edible-bluecheese-server.appspot.com/login"
 #define registerURL @"http://1-dot-edible-bluecheese-server.appspot.com/registration"
+#define changeSELFIE @"http://1-dot-edible-bluecheese-server.appspot.com/changeselfie"
+#define updatePROFILE @"http://1-dot-edible-bluecheese-server.appspot.com/updateprofile"
+#define changePASSWORD @"http://1-dot-edible-bluecheese-server.appspot.com/changepassword"
+#define searchUSER @"http://1-dot-edible-bluecheese-server.appspot.com/searchuser"
+#define getUserINFO @"http://1-dot-edible-bluecheese-server.appspot.com/getuserinfo"
 
 @implementation AsyncRequest 
+
+
+/************************
+ 
+ request methods
+ 
+ ************************/
 
 -(void)loginRegisterAccount:(NSString *)email andUsernam:(NSString *)uname andPwd:(NSString *) pwd andSELF:(id) selfy{
     
@@ -27,6 +40,38 @@
         url = [NSURL URLWithString:loginURL];
     }
     
+    [self performAsyncTask:selfy andDictionary:dict andURL:url];
+    
+}
+
+-(void)modifyUserName:(NSString*)username andSELF:(id)selfy{
+    
+    //shared instance from memory!!!!
+    User *user = [User sharedInstance];
+    
+     NSLog(@"==========shared instance==========");
+    NSLog(@"%@",user.Uid);
+    NSLog(@"%@",user.Uname);
+    NSLog(@"%@",user.Upwd);
+    NSLog(@"%d",user.Utype);
+    NSLog(@"%@",user.Uselfie);
+    
+    
+    
+    NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:user.Uid, @"uid",user.Uname, @"old_uname", username, @"new_uname", nil];
+    NSURL *url = [NSURL URLWithString:updatePROFILE];
+    
+    [self performAsyncTask:selfy andDictionary:dict andURL:url];
+
+}
+
+
+/************************
+
+    Shared method (post)
+ 
+ ************************/
+-(void)performAsyncTask:(id)selfy andDictionary:(NSDictionary *)dict andURL:(NSURL *)url{
     NSError *error;
     //convert dictionary to data
     NSData* jsonData = [NSJSONSerialization dataWithJSONObject:dict options:kNilOptions error:&error];
@@ -47,9 +92,7 @@
     
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:selfy];
     [conn start];
-    
 }
-
 
 
 
