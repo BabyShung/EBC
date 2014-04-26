@@ -65,6 +65,17 @@
 
 }
 
+-(void)modifyPWD_oldPwd:(NSString*)oldpwd andNextPwd:(NSString*)nextpwd andConfirmPwd:(NSString*)confirmpwd andSELF:(id)selfy{
+    
+    //shared instance from memory!!!!
+    User *user = [User sharedInstance];
+    NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:user.Uid, @"uid",oldpwd, @"old_upwd", nextpwd, @"new_upwd", confirmpwd, @"new_upwd_retype", nil];
+    NSURL *url = [NSURL URLWithString:changePASSWORD];
+    
+    [self performAsyncTask:selfy andDictionary:dict andURL:url];
+
+    
+}
 
 /************************
 

@@ -11,9 +11,21 @@
 @interface FormValidator : NSObject <UITextFieldDelegate>{
 }
 
-//validate login or register form
+/*******************************************
+ 
+ validate login or register form (Hao added)
+ 
+ *******************************************/
 - (void) Email:(UITextField *) email andUsername: (UITextField *) username andPwd: (UITextField *)pwd;
 
+- (void) OldPwd:(UITextField *) oldpwd andNextPwd: (UITextField *) nextpwd andConfirmPwd: (UITextField *)confirmpwd;
+
+
+/*******************************************
+ 
+ validating components
+ 
+ *******************************************/
 //check email
 - (void) Email : (UITextField *) emailAddress FieldName: (NSString *) textFieldName;
 
@@ -38,16 +50,19 @@
 
 @property(nonatomic) BOOL emailError;
 @property(nonatomic) BOOL requiredError;
+@property(nonatomic) BOOL samePwdError;
 @property(nonatomic) BOOL minLengthError;
 @property(nonatomic) BOOL lettersNumbersOnly;
 @property(nonatomic) BOOL maxLengthError;
 
 @property(nonatomic, strong) NSMutableArray * emailErrorMsg;
 @property(nonatomic, strong) NSMutableArray * requiredErrorMsg;
+@property(nonatomic, strong) NSMutableArray * samePwdErrorMsg;
 @property(nonatomic, strong) NSMutableArray *minLengthErrorMsg;
 @property(nonatomic, strong) NSMutableArray *lettersNumbersOnlyMsg;
 @property(nonatomic, strong) NSMutableArray *maxLengthErrorMsg;
 @property(nonatomic, strong) NSString *errorStr;
+
 @property(nonatomic) BOOL textFieldIsValid;
 
 @property(nonatomic, strong) UITextField *textField;

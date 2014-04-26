@@ -155,8 +155,8 @@
     
     FormValidator *validate=[[FormValidator alloc] init];
     [validate Email:self.myActionSheet.emailTextField andUsername:self.myActionSheet.usernameTextField andPwd:self.myActionSheet.pwdTextField];
-    [validate isValid];
-    if([validate textFieldIsValid] == TRUE){    //success
+    
+    if([validate isValid]){    //success
         [self.myActionSheet dismissWithClickedButtonIndex:self.myActionSheet.cancelButtonIndex animated:YES];
         
         

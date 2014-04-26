@@ -15,5 +15,7 @@
 
 -(void)modifyUserName:(NSString*)username andSELF:(id)selfy;
 
+-(void)modifyPWD_oldPwd:(NSString*)oldpwd andNextPwd:(NSString*)nextpwd andConfirmPwd:(NSString*)confirmpwd andSELF:(id)selfy;
+
 
 @end

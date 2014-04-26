@@ -58,6 +58,8 @@
 -(void)validateAndSave{
     NSLog(@"validating!");
     
+    //validate
+    
     //send request
     AsyncRequest *async = [[AsyncRequest alloc]init];
     [async modifyUserName:self.myTextBox.text andSELF:self];

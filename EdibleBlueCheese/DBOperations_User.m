@@ -74,6 +74,7 @@
     {
         NSAssert1(0, @"Error: failed to execute table with message '%s'.", sqlite3_errmsg([self.sqlc database]));
     }
+    NSLog(@"******** SQL executed successfully ********");
 }
 
 -(User *)FetchAUser:(NSString *)sql

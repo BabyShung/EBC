@@ -15,6 +15,7 @@
     if (self) {
         self.errorMsg = [[NSMutableArray alloc]init];
         self.requiredErrorMsg = [[NSMutableArray alloc]init];
+        self.samePwdErrorMsg = [[NSMutableArray alloc]init];
         self.emailErrorMsg = [[NSMutableArray alloc]init];
         self.lettersNumbersOnlyMsg = [[NSMutableArray alloc]init];
         self.maxLengthErrorMsg = [[NSMutableArray alloc]init];
@@ -41,7 +42,7 @@
     //----register case
     if(username){
         
-        [self MinLength:4 textField:pwd FieldName:@"Password"];
+        [self MinLength:6 textField:pwd FieldName:@"Password"];
         [self LettersNumbersOnly:username FieldName:@"Username"];
         
         [self MaxLength:20 textField:username FieldName:@"Username"];
@@ -51,7 +52,16 @@
     
 }
 
-
+- (void) OldPwd:(UITextField *) oldpwd andNextPwd: (UITextField *) nextpwd andConfirmPwd: (UITextField *)confirmpwd{
+    [self Required:oldpwd FieldName:@"Old password"];
+    [self Required:nextpwd FieldName:@"New password"];
+    [self Required:confirmpwd FieldName:@"Confirm New Password"];
+    
+    [self MinLength:6 textField:nextpwd FieldName:@"New password"];
+    [self MaxLength:20 textField:nextpwd FieldName:@"New password"];
+    
+    [self SameCheck:nextpwd andConfirm:confirmpwd];
+}
 
 /***************
  
@@ -110,6 +120,23 @@
     }
 }
 
+/*************************************
+ 
+ New pwd and confirm pwd same-check
+ 
+ ***********************************/
+-(void) SameCheck: (UITextField *) textField1 andConfirm:(UITextField *) textField2 {
+    
+    if (![textField1.text isEqualToString:textField2.text]) {//not equal
+        self.samePwdError = YES;
+        NSString *msg = [NSString stringWithFormat:@"Passwords not the same."];
+        [self.samePwdErrorMsg addObject:msg];
+        return ;
+    }else{
+        return ;
+    }
+}
+
 /*******************
  
  MinLength
@@ -121,7 +148,7 @@
         return ;
     }else{//not match
         self.minLengthError = YES;
-        NSString *msg = [NSString stringWithFormat:@"%@ should longer than %d.",textFieldName, length];
+        NSString *msg = [NSString stringWithFormat:@"%@ at least %d.",textFieldName, length];
         [self.minLengthErrorMsg addObject:msg];
         return ;
     }
@@ -138,7 +165,7 @@
         return ;
     }else{
         self.maxLengthError = YES;
-        NSString *msg = [NSString stringWithFormat:@"%@ should less than %d.",textFieldName, length];
+        NSString *msg = [NSString stringWithFormat:@"%@ at most %d.",textFieldName, length];
         [self.maxLengthErrorMsg addObject:msg];
         return ;
     }
@@ -193,6 +220,14 @@
         }
         return NO;
     }
+    
+    if(self.samePwdError){
+        for(NSString *msg in self.samePwdErrorMsg){
+            [self.errorMsg addObject:msg];
+        }
+        return NO;
+    }
+    
     //add passed, valid it true
     self.textFieldIsValid = TRUE;
     return self.textFieldIsValid;
