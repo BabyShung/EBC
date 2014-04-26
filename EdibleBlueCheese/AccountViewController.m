@@ -9,6 +9,8 @@
 #import "AccountViewController.h"
 #import "BadgeTableCell.h"
 #import "ModifyViewController.h"
+#import "FontSettings.h"
+#import "PasswordViewController.h"
 
 @interface AccountViewController ()
 
@@ -28,7 +30,7 @@
     self.section2 = [NSArray arrayWithObjects:@"User Name",@"Password",  nil];
     self.menu = [NSArray arrayWithObjects:self.section1, self.section2, nil];
     
-    self.title = @"My Account";
+    self.title = @"Account";
     self.tabBarController.tabBar.hidden = YES;
 }
 
@@ -56,10 +58,19 @@
     BadgeTableCell *cell = [[BadgeTableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     
     // Configure the cell...
+    FontSettings* cs = [[FontSettings alloc]init];
+    [cs BadgeCellSetting_BadgeString_Arrow:cell];
+    
     
     if (indexPath.section == 0) {
         cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.section1 objectAtIndex:indexPath.row]];
         cell.badgeString = self.loggedInUser.Uid;
+        
+        //.....
+        cell.userInteractionEnabled = NO;//disable this cell
+        //over write the cell setting
+        [cs BadgeCellSetting_BadgeString:cell];
+        
     }else if (indexPath.section == 1) {
         cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.section2 objectAtIndex:indexPath.row]];
         if(indexPath.row ==0){
@@ -67,32 +78,51 @@
         }
     }
     
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
-    cell.badgeTextColor = [UIColor grayColor];
-    cell.badgeColor = [UIColor clearColor];
-    cell.badge.fontSize = 16;
+    
+    
     return cell;
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == 0){//click email
+    if(indexPath.section == 0){//click email (currently cell is disabled
         ModifyViewController *mvc = [self.storyboard instantiateViewControllerWithIdentifier:@"Modify"];
         mvc.modifyString = self.loggedInUser.Uid;
+       
         [self.navigationController pushViewController:mvc animated:YES];
         
         
         
         
-    }else if(indexPath.section == 1){
+    }else if(indexPath.section == 1 && indexPath.row == 0){//click username
         
-    }else if(indexPath.section == 2){
+        ModifyViewController *mvc = [self.storyboard instantiateViewControllerWithIdentifier:@"Modify"];
+        mvc.modifyString = self.loggedInUser.Uname;
+        //mvc.labelString = @"Button Haha";
+        mvc.viewTitle = @"User Name";
+         mvc.labelString = @"User name should not be more than 20 characters.";
         
+        [self.navigationController pushViewController:mvc animated:YES];
+        
+        
+    }else if(indexPath.section == 1 && indexPath.row == 1){//click pwd
+        PasswordViewController *pvc = [self.storyboard instantiateViewControllerWithIdentifier:@"Password"];
+
+        
+        pvc.viewTitle = @"Password";
+        [self.navigationController pushViewController:pvc animated:YES];
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-
+/****************
+ 
+ Row height
+ 
+ ***************/
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 52;
+}
 @end

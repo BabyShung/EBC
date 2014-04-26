@@ -29,6 +29,13 @@
     }
 }
 
+
+/********************
+ 
+ set in appDelegate
+
+ ********************/
+
 -(void)setNavBarTheme{
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
 	
@@ -41,6 +48,13 @@
 		[[UINavigationBar appearance] setTitleTextAttributes:attributes];
         
 	}
+    
+
+    [[UIBarButtonItem appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIFont fontWithName:@"Heiti TC" size:14.0], NSFontAttributeName,nil]
+                              forState:UIControlStateNormal];
+    
 }
 
 @end

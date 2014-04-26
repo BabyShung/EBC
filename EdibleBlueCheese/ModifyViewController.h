@@ -11,5 +11,8 @@
 @interface ModifyViewController : UIViewController
 
 @property (nonatomic,strong) NSString* modifyString;
+@property (nonatomic,strong) NSString* labelString;
+
+@property (nonatomic,strong) NSString* viewTitle;
 
 @end

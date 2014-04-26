@@ -7,12 +7,15 @@
 //
 
 #import "ModifyViewController.h"
+#import "UIButton+Bootstrap.h"
+#import "FontSettings.h"
 
 @interface ModifyViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *myTextBox;
 @property (weak, nonatomic) IBOutlet UILabel *bottomLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *submitBTN;
 @end
 
 @implementation ModifyViewController
@@ -20,15 +23,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
     
     self.myTextBox.text = self.modifyString;
+    self.bottomLabel.text = self.labelString;
     
-
+    FontSettings* fs = [[FontSettings alloc]init];
+    [fs TextFieldSetting:self.myTextBox];
+    
+    [self.submitBTN primaryStyle];
+    
+    
+    self.title = self.viewTitle;
     
 }
 
@@ -36,6 +42,23 @@
     [self.myTextBox becomeFirstResponder];
 }
 
+- (IBAction)save:(id)sender {
+    
+    [self validateAndSave];
+    
+}
 
+-(void)validateAndSave{
+    NSLog(@"validating!");
+    
+    //send request
+    
+    //perform delegate
+    
+    //update DB
+    
+    //dismiss view
+    
+}
 
 @end

@@ -11,7 +11,7 @@
 #import "FormValidator.h"
 #import "UIAlertView+Blocks.h"
 
-#import "LoginRegister.h"
+#import "AsyncRequest.h"
 #import "LoadingAnimation.h"
 
 #import "User.h"
@@ -177,7 +177,7 @@
             self.pwd = self.myActionSheet.pwdTextField.text;
             
             //passing the parameters
-            LoginRegister *lr = [[LoginRegister alloc]init];
+            AsyncRequest *lr = [[AsyncRequest alloc]init];
             [lr loginRegisterAccount:self.myActionSheet.emailTextField.text andUsernam:self.myActionSheet.usernameTextField.text andPwd:self.pwd andSELF:self];
             
             

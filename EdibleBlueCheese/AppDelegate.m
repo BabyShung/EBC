@@ -24,7 +24,9 @@
     NavBarSetting *nbsetting = [[NavBarSetting alloc]init];
     [nbsetting setNavBarTheme];
 
+     //[[UILabel appearance] setFont:[UIFont fontWithName:@"Heiti TC" size:17.0]];
     
+    //[[UILabel appearance] setTextColor:[UIColor colorWithRed:(73/255.0) green:(79/255.0) blue:(80/255.0) alpha:1]];
     
     //DB:: tables
     SQLConnector *sqlh=[SQLConnector sharedInstance];//singleton

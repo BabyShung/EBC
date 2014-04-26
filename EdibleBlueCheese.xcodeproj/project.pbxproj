@@ -56,12 +56,16 @@
 		B8BC421A19031F6C00485705 /* CardScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8BC421319031F6C00485705 /* CardScrollView.m */; };
 		B8BC421D19031F8400485705 /* CardCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8BC421C19031F8400485705 /* CardCollectionViewController.m */; };
 		B8BC423419034E0700485705 /* UIViewController+ScrollingNavbar.m in Sources */ = {isa = PBXBuildFile; fileRef = B8BC423319034E0700485705 /* UIViewController+ScrollingNavbar.m */; };
-		B8D1CAB518FE0326001AFA11 /* LoginRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D1CAB418FE0326001AFA11 /* LoginRegister.m */; };
+		B8D1CAB518FE0326001AFA11 /* AsyncRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D1CAB418FE0326001AFA11 /* AsyncRequest.m */; };
 		B8E1D5341909899A00CB8C1C /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E1D5331909899A00CB8C1C /* MeViewController.m */; };
 		B8E1D53719099F8C00CB8C1C /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E1D53619099F8C00CB8C1C /* SettingsViewController.m */; };
 		B8E1D5431909ABCF00CB8C1C /* BadgeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E1D5421909ABCF00CB8C1C /* BadgeTableCell.m */; };
 		B8E1D549190A1C0E00CB8C1C /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E1D548190A1C0E00CB8C1C /* AccountViewController.m */; };
 		B8E1D54F190A293D00CB8C1C /* ModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E1D54E190A293D00CB8C1C /* ModifyViewController.m */; };
+		B8E1D599190AF7FE00CB8C1C /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E1D596190AF7FE00CB8C1C /* NSString+FontAwesome.m */; };
+		B8E1D59A190AF7FE00CB8C1C /* UIButton+Bootstrap.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E1D598190AF7FE00CB8C1C /* UIButton+Bootstrap.m */; };
+		B8E1D59D190AFF9E00CB8C1C /* FontSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E1D59C190AFF9E00CB8C1C /* FontSettings.m */; };
+		B8E1D5A0190B723100CB8C1C /* PasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E1D59F190B723100CB8C1C /* PasswordViewController.m */; };
 		B8E6099F1908A56000DBD4C1 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E6099E1908A56000DBD4C1 /* UIAlertView+Blocks.m */; };
 		B8E609A21908CD7C00DBD4C1 /* Manual_Auto_Login.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E609A11908CD7C00DBD4C1 /* Manual_Auto_Login.m */; };
 		B8FA45B718F5CA78007DA680 /* FormValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA45B618F5CA78007DA680 /* FormValidator.m */; };
@@ -154,8 +158,8 @@
 		B8BC421C19031F8400485705 /* CardCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardCollectionViewController.m; sourceTree = "<group>"; };
 		B8BC423219034E0700485705 /* UIViewController+ScrollingNavbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ScrollingNavbar.h"; sourceTree = "<group>"; };
 		B8BC423319034E0700485705 /* UIViewController+ScrollingNavbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ScrollingNavbar.m"; sourceTree = "<group>"; };
-		B8D1CAB318FE0326001AFA11 /* LoginRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRegister.h; sourceTree = "<group>"; };
-		B8D1CAB418FE0326001AFA11 /* LoginRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRegister.m; sourceTree = "<group>"; };
+		B8D1CAB318FE0326001AFA11 /* AsyncRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncRequest.h; sourceTree = "<group>"; };
+		B8D1CAB418FE0326001AFA11 /* AsyncRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncRequest.m; sourceTree = "<group>"; };
 		B8E1D5321909899A00CB8C1C /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
 		B8E1D5331909899A00CB8C1C /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		B8E1D53519099F8C00CB8C1C /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -166,6 +170,14 @@
 		B8E1D548190A1C0E00CB8C1C /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		B8E1D54D190A293D00CB8C1C /* ModifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyViewController.h; sourceTree = "<group>"; };
 		B8E1D54E190A293D00CB8C1C /* ModifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyViewController.m; sourceTree = "<group>"; };
+		B8E1D595190AF7FE00CB8C1C /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
+		B8E1D596190AF7FE00CB8C1C /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
+		B8E1D597190AF7FE00CB8C1C /* UIButton+Bootstrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Bootstrap.h"; sourceTree = "<group>"; };
+		B8E1D598190AF7FE00CB8C1C /* UIButton+Bootstrap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Bootstrap.m"; sourceTree = "<group>"; };
+		B8E1D59B190AFF9E00CB8C1C /* FontSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontSettings.h; sourceTree = "<group>"; };
+		B8E1D59C190AFF9E00CB8C1C /* FontSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontSettings.m; sourceTree = "<group>"; };
+		B8E1D59E190B723100CB8C1C /* PasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordViewController.h; sourceTree = "<group>"; };
+		B8E1D59F190B723100CB8C1C /* PasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordViewController.m; sourceTree = "<group>"; };
 		B8E6099D1908A56000DBD4C1 /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
 		B8E6099E1908A56000DBD4C1 /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
 		B8E609A01908CD7C00DBD4C1 /* Manual_Auto_Login.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manual_Auto_Login.h; sourceTree = "<group>"; };
@@ -217,6 +229,8 @@
 				B8738BA11906CEA60044FD42 /* UILayers.m */,
 				B8E609A01908CD7C00DBD4C1 /* Manual_Auto_Login.h */,
 				B8E609A11908CD7C00DBD4C1 /* Manual_Auto_Login.m */,
+				B8E1D59B190AFF9E00CB8C1C /* FontSettings.h */,
+				B8E1D59C190AFF9E00CB8C1C /* FontSettings.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -318,8 +332,8 @@
 				B8FA45B818F5D8C5007DA680 /* AlertView */,
 				B8AAF36C18F488E500D287A3 /* AnimateLabel.h */,
 				B8AAF36D18F488E500D287A3 /* AnimateLabel.m */,
-				B8D1CAB318FE0326001AFA11 /* LoginRegister.h */,
-				B8D1CAB418FE0326001AFA11 /* LoginRegister.m */,
+				B8D1CAB318FE0326001AFA11 /* AsyncRequest.h */,
+				B8D1CAB418FE0326001AFA11 /* AsyncRequest.m */,
 				B8AAF31818F47F5B00D287A3 /* LoginRegisterForm.h */,
 				B8AAF31918F47F5B00D287A3 /* LoginRegisterForm.m */,
 				B8AAF31A18F47F5B00D287A3 /* UIImage+ImageEffects.h */,
@@ -434,6 +448,17 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
+		B8E1D594190AF7F500CB8C1C /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				B8E1D595190AF7FE00CB8C1C /* NSString+FontAwesome.h */,
+				B8E1D596190AF7FE00CB8C1C /* NSString+FontAwesome.m */,
+				B8E1D597190AF7FE00CB8C1C /* UIButton+Bootstrap.h */,
+				B8E1D598190AF7FE00CB8C1C /* UIButton+Bootstrap.m */,
+			);
+			name = Buttons;
+			sourceTree = "<group>";
+		};
 		B8FA45B818F5D8C5007DA680 /* AlertView */ = {
 			isa = PBXGroup;
 			children = (
@@ -456,6 +481,8 @@
 				B8E1D548190A1C0E00CB8C1C /* AccountViewController.m */,
 				B8E1D54D190A293D00CB8C1C /* ModifyViewController.h */,
 				B8E1D54E190A293D00CB8C1C /* ModifyViewController.m */,
+				B8E1D59E190B723100CB8C1C /* PasswordViewController.h */,
+				B8E1D59F190B723100CB8C1C /* PasswordViewController.m */,
 			);
 			name = Profile;
 			path = EdibleBlueCheese;
@@ -464,6 +491,7 @@
 		B8FA45C618F72E3E007DA680 /* HelperClasses_Pf */ = {
 			isa = PBXGroup;
 			children = (
+				B8E1D594190AF7F500CB8C1C /* Buttons */,
 				B8FA45C718F72E55007DA680 /* ImagePlaceholderHelper.h */,
 				B8FA45C818F72E56007DA680 /* ImagePlaceholderHelper.m */,
 				B8FA45C918F72E56007DA680 /* UIImageView+Placeholder.h */,
@@ -591,22 +619,25 @@
 			files = (
 				B8BC421D19031F8400485705 /* CardCollectionViewController.m in Sources */,
 				B8AAF37318F48CC400D287A3 /* User.m in Sources */,
+				B8E1D59A190AF7FE00CB8C1C /* UIButton+Bootstrap.m in Sources */,
 				B8FA45B718F5CA78007DA680 /* FormValidator.m in Sources */,
 				B8E6099F1908A56000DBD4C1 /* UIAlertView+Blocks.m in Sources */,
 				B8E1D5431909ABCF00CB8C1C /* BadgeTableCell.m in Sources */,
 				B8BC423419034E0700485705 /* UIViewController+ScrollingNavbar.m in Sources */,
 				B8738BA51906D8B80044FD42 /* UIImage+operation.m in Sources */,
 				B8AAF32018F4803000D287A3 /* LoginRegisterViewController.m in Sources */,
+				B8E1D5A0190B723100CB8C1C /* PasswordViewController.m in Sources */,
 				B8FA45BF18F5D8E7007DA680 /* EdibleAlertView.m in Sources */,
 				B8FA45CB18F72E56007DA680 /* ImagePlaceholderHelper.m in Sources */,
 				B8AAF36E18F488E500D287A3 /* AnimateLabel.m in Sources */,
 				B8FA45CC18F72E56007DA680 /* UIImageView+Placeholder.m in Sources */,
 				B8738B7619046C740044FD42 /* ScrollViewController.m in Sources */,
 				B8E609A21908CD7C00DBD4C1 /* Manual_Auto_Login.m in Sources */,
+				B8E1D599190AF7FE00CB8C1C /* NSString+FontAwesome.m in Sources */,
 				B8AAF31D18F47F5B00D287A3 /* UIImage+ImageEffects.m in Sources */,
 				B8738BA21906CEA60044FD42 /* UILayers.m in Sources */,
 				B8E1D5341909899A00CB8C1C /* MeViewController.m in Sources */,
-				B8D1CAB518FE0326001AFA11 /* LoginRegister.m in Sources */,
+				B8D1CAB518FE0326001AFA11 /* AsyncRequest.m in Sources */,
 				B8AAF2F018F4547900D287A3 /* AppDelegate.m in Sources */,
 				B8AAF2EC18F4547900D287A3 /* main.m in Sources */,
 				B8738B7719046C740044FD42 /* NavBarSetting.m in Sources */,
@@ -621,6 +652,7 @@
 				B8E1D53719099F8C00CB8C1C /* SettingsViewController.m in Sources */,
 				B8738BA8190705550044FD42 /* DBOperations_User.m in Sources */,
 				B8E1D549190A1C0E00CB8C1C /* AccountViewController.m in Sources */,
+				B8E1D59D190AFF9E00CB8C1C /* FontSettings.m in Sources */,
 				B8738B9E190634730044FD42 /* LoadingAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,6 +11,7 @@
 #import "ProfileViewController.h"
 #import "BadgeTableCell.h"
 #import "SettingsViewController.h"
+#import "FontSettings.h"
 
 @interface MeViewController ()
 
@@ -83,11 +84,25 @@
         cell.detailTextLabel.text = @"Account, Feedback, Logout..";
         
     }
-    cell.detailTextLabel.textColor = [UIColor grayColor];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
+    
+    FontSettings* cs = [[FontSettings alloc]init];
+    [cs BadgeCellSetting_Arrow:cell];
     return cell;
 }
 
+/****************
+ 
+    Row height
+ 
+ ***************/
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        return 80;
+    }
+    return 52;
+}
 
 /*
 // Override to support conditional editing of the table view.
