@@ -111,24 +111,72 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
     
     NSLog(@"finished taking photo");
     
     //put the image
     CGRect croppedRect=[[info objectForKey:UIImagePickerControllerCropRect] CGRectValue];
+    //get original image
     UIImage *original=[info objectForKey:UIImagePickerControllerOriginalImage];
+ 
+    //rotate the image if needed
     UIImage *rotatedCorrectly;
-    
     if (original.imageOrientation!=UIImageOrientationUp)
         rotatedCorrectly = [original rotate:original.imageOrientation];
     else
         rotatedCorrectly = original;
     
+
+    
     CGImageRef ref= CGImageCreateWithImageInRect(rotatedCorrectly.CGImage, croppedRect);
-    //takenImage= [UIImage imageWithCGImage:ref];
-    [self.Selfie setImage:[UIImage imageWithCGImage:ref]];
+    UIImage *tmpImage = [UIImage imageWithCGImage:ref];
+    
+    //resolution for iphone5
+    UIImage *finalImage = [self scaleImage:tmpImage toSize:CGSizeMake(640,1136)];
+    
+    NSData *imgData = UIImageJPEGRepresentation(finalImage, 0);
+    NSLog(@"*****Size of Image(bytes):  %d",[imgData length]);
+    NSLog(@"*****Size of Image(width):  %f",finalImage.size.width);
+    NSLog(@"*****Size of Image(width):  %f",finalImage.size.height);
+
+    
+    
+    UIImage *compressedImage = [self scaleImage:finalImage toSize:CGSizeMake(140,140)];
+    
+    [self.Selfie setImage:compressedImage];
+    
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    //ip5 320 568,,,,ip4 320 480
+    
+    //different devices
+//    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+//    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+//        if (screenSize.height > 480.0f) {
+//            /*Do iPhone 5 stuff here.*/
+//        } else {
+//            /*Do iPhone Classic stuff here.*/
+//
+//        }
+//    } else {
+//        /*Do iPad stuff here.*/
+//    }
+
+    
 }
+
+
+-(UIImage *)scaleImage:(UIImage *)image toSize:(CGSize)newSize
+{
+    UIGraphicsBeginImageContext(newSize);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
 
 - (IBAction)demoNotify:(id)sender {
     EdibleAlertView *popin = [[EdibleAlertView alloc] init];
