@@ -89,7 +89,7 @@
     //you can't refer to self or properties on self from within a block that will be strongly retained by self, so use a weakself
     __weak typeof(self) weakSelf = self;
     
-    self.myActionSheet = [[LoginRegisterForm alloc] initWithDelegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles: nil];
+    self.myActionSheet = [[LoginRegisterForm alloc] initWithDelegate:self andShowFromBottom:NO cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles: nil];
     //P.S: you can change placeholder name but can't change componentName (fixed in .m file)
     [self.myActionSheet addTextBoxWithPlaceHolder:@"Email" andComponentName:EmailPlaceHolder];
     
@@ -206,7 +206,6 @@
     NSLog(@"clicked cancel.");
 }
 - (void)actionSheet:(LoginRegisterForm *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex {
-
 }
 - (void)actionSheet:(LoginRegisterForm *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if(self.isLogging){
@@ -285,15 +284,19 @@
             //NSString *ucreate_time = [returnJSONtoNSdict objectForKey:@"ucreate_time"];
             
             //init the sharedInstance
-            User *tmp = [User sharedInstanceWithUid:uid andUname:uname andUpwd:nil andUtype:[utype integerValue]   andUselfie:nil];
-
+            User *user = [User sharedInstanceWithUid:uid andUname:uname andUpwd:nil andUtype:[utype integerValue]   andUselfie:nil];
+            if(!user){//no sharedInstance
+                user = [User cheatingWithUid:uid andUname:uname andUpwd:nil andUtype:[utype integerValue]   andUselfie:nil];
+            }
+            
+            NSLog(@"winwinwin  %@",user);
 
             [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-            NSLog(@"dismissed");
+            
             
             //write primary to account
             DBOperations_User *dbo = [[DBOperations_User alloc]init];
-            [dbo execute:[NSString stringWithFormat:@"INSERT OR REPLACE INTO User (uid,uname,upwd,primaryUser,last_ts) VALUES ('%@','%@','%@',1,datetime('now','localtime'))",tmp.Uid,tmp.Uname,self.pwd]];
+            [dbo execute:[NSString stringWithFormat:@"INSERT OR REPLACE INTO User (uid,uname,upwd,primaryUser,last_ts) VALUES ('%@','%@','%@',1,datetime('now','localtime'))",user.Uid,user.Uname,self.pwd]];
             
             
             

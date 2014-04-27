@@ -6,6 +6,19 @@
 //  Copyright (c) 2014 Wojciech Czekalski. All rights reserved.
 //
 
+
+
+/******************
+
+ from top or from bottom, I modified this below three functions and added the BOOL fromBottom
+ 
+ 1.dismissTransition
+ 2.show
+ 3.subviewLayout
+
+ ******************/
+ 
+ 
 #import "LoginRegisterForm.h"
 #import "UIImage+ImageEffects.h"
 
@@ -38,6 +51,7 @@
 @property (nonatomic, strong) UIButton *cancelButton;
 
 
+@property (nonatomic) BOOL fromBottom;
 
 @property (nonatomic, strong) UIImageView *blurView;
 
@@ -108,10 +122,14 @@ static UIWindow *__sheetWindow = nil;
 }
 
 //used in loginRegister
-- (instancetype)initWithDelegate:(id<WCActionSheetDelegate>)delegate cancelButtonTitle:(NSString *)cancelButtonTitle destructiveButtonTitle:(NSString *)destructiveButtonTitle otherButtonTitles:(NSString *)otherButtonTitles,... {
+- (instancetype)initWithDelegate:(id<WCActionSheetDelegate>)delegate andShowFromBottom:(BOOL)bottom cancelButtonTitle:(NSString *)cancelButtonTitle destructiveButtonTitle:(NSString *)destructiveButtonTitle otherButtonTitles:(NSString *)otherButtonTitles,... {
     self = [super initWithFrame:CGRectZero];
     if (self) {
         [self __commonInit];//set up colors and blur radius
+        
+        
+        //Hao added
+        self.fromBottom = bottom;
         
         _delegate = delegate;
         [self setCancelButtonWithTitle:cancelButtonTitle];
@@ -279,9 +297,13 @@ static UIWindow *__sheetWindow = nil;
     
     CGFloat sheetHeight = ([self.buttons count] * kButtonHeight) + kCancelButtonHeight;
     
-    //CGFloat contentOffset = screenSize.height - sheetHeight  - kBottomMargin;
-    
-    CGFloat contentOffset = kTopMargin;
+    //Hao modified
+    CGFloat contentOffset;
+    if(self.fromBottom){
+        contentOffset = screenSize.height - sheetHeight  - kBottomMargin;
+    }else{
+        contentOffset = kTopMargin;
+    }
     
     self.frame = CGRectMake(kMargin, contentOffset, contentWidth, sheetHeight);
     
@@ -331,7 +353,13 @@ static UIWindow *__sheetWindow = nil;
     
     
     //above the screen, from top to down, note '-'
-    self.frame = CGRectOffset(self.frame, 0.f,-(self.frame.size.height+kTopMargin));
+    //Hao modified
+    if(self.fromBottom){
+        self.frame = CGRectOffset(self.frame, 0.f, self.frame.size.height+kMargin);
+    }else{
+        self.frame = CGRectOffset(self.frame, 0.f, -(self.frame.size.height+30));
+    }
+  
 
     if ([self.delegate respondsToSelector:@selector(willPresentActionSheet:)]) {
         [self.delegate willPresentActionSheet:self];
@@ -356,6 +384,7 @@ static UIWindow *__sheetWindow = nil;
     __sheetWindow = window;
 }
 
+
 #pragma mark - Dismissal
 
 - (void)dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated {
@@ -377,7 +406,9 @@ static UIWindow *__sheetWindow = nil;
     } else if ([self.delegate respondsToSelector:@selector(actionSheet:clickedButtonAtIndex:)]) {
         [self.delegate actionSheet:self clickedButtonAtIndex:buttonIndex];
     }
-    //[self dismissWithClickedButtonIndex:buttonIndex animated:YES];
+    //Hao modified
+    if(self.fromBottom)
+        [self dismissWithClickedButtonIndex:buttonIndex animated:YES];
 }
 
 - (void)dismissWithCancelButton:(UIButton *)cancelButton {
@@ -406,8 +437,14 @@ static UIWindow *__sheetWindow = nil;
 
 - (void)dismissTransition {
     self.blurView.alpha = 0.f;
-    //above the screen, from top to down, note '-'
-    self.frame = CGRectOffset(self.frame, 0.f, -(self.frame.size.height + kTopMargin));
+    
+    //Hao added
+    if(self.fromBottom){
+        self.frame = CGRectOffset(self.frame, 0.f, self.frame.size.height + kBottomMargin);
+    }else{
+        //above the screen, from top to down, note '-'
+        self.frame = CGRectOffset(self.frame, 0.f, -(self.frame.size.height + kTopMargin));
+    }
 }
 
 - (void)dismissCompletionWithButtonAtIndex:(NSInteger)index {

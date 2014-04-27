@@ -16,6 +16,10 @@
 #import "UIViewController+MaryPopin.h"
 #import "EdibleAlertView.h"
 
+#import "MeViewController.h"
+
+
+
 #import "User.h"
 
 @interface ProfileViewController ()
@@ -124,24 +128,6 @@
     CGImageRef ref= CGImageCreateWithImageInRect(rotatedCorrectly.CGImage, croppedRect);
     //takenImage= [UIImage imageWithCGImage:ref];
     [self.Selfie setImage:[UIImage imageWithCGImage:ref]];
-}
-
-
-- (IBAction)dismiss:(id)sender {
-    
-    //write primary to account
-    DBOperations_User *dbo = [[DBOperations_User alloc]init];
-    User *user = [User sharedInstance];
-    [dbo execute:[NSString stringWithFormat:@"UPDATE User SET primaryUser = 0 WHERE uid = '%@'",user.Uid]];
-    
-    
-    UIViewController *tv = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginRegister"];
-    tv.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:tv animated:YES completion:nil];
-    
-    
-    
-    
 }
 
 - (IBAction)demoNotify:(id)sender {

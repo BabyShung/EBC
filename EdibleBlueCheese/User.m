@@ -22,6 +22,17 @@ static User *_sharedInstance = nil;
     return _sharedInstance;
 }
 
++(User *)cheatingWithUid:(NSString*)uid andUname:(NSString*)uname andUpwd:(NSString*)upwd andUtype:(NSUInteger)utype andUselfie:(NSData*)uselfie{
+    _sharedInstance = [[User alloc] init];
+    
+    _sharedInstance.Uid = uid;
+    _sharedInstance.Uname = uname;
+    _sharedInstance.Upwd = upwd;
+    _sharedInstance.Utype = utype;
+    _sharedInstance.Uselfie = uselfie;
+    return _sharedInstance;
+}
+
 //static init
 + (User *)sharedInstanceWithUid:(NSString*)uid andUname:(NSString*)uname andUpwd:(NSString*)upwd andUtype:(NSUInteger)utype andUselfie:(NSData*)uselfie
 {

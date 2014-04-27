@@ -22,6 +22,8 @@
     cell.textLabel.font = [UIFont boldSystemFontOfSize:18];//using system bold size
     cell.textLabel.textColor = [UIColor colorWithRed:(48/255.0) green:(56/255.0) blue:(57/255.0) alpha:1];
     
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    
 }
 
 -(void)TextFieldSetting:(UITextField *)textfield{

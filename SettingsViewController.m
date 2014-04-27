@@ -11,8 +11,10 @@
 #import "AccountViewController.h"
 #import "FontSettings.h"
 #import "User.h"
+#import "DBOperations_User.h"
+#import "LoginRegisterForm.h"
 
-@interface SettingsViewController ()
+@interface SettingsViewController () <WCActionSheetDelegate>
 
 @property (strong, nonatomic) NSArray *menu;
 @property (strong, nonatomic) NSArray *section1;
@@ -64,20 +66,30 @@
     BadgeTableCell *cell = [[BadgeTableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     
     // Configure the cell...
+    FontSettings* cs = [[FontSettings alloc]init];
+    [cs BadgeCellSetting_Arrow:cell];
+    
     
     if (indexPath.section == 0) {
         cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.section1 objectAtIndex:indexPath.row]];
     }else if (indexPath.section == 1) {
         cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.section2 objectAtIndex:indexPath.row]];
-    }else if (indexPath.section == 2) {
-        cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.section3 objectAtIndex:indexPath.row]];
+    }else if (indexPath.section == 2) {//logout
+       // cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.section3 objectAtIndex:indexPath.row]];
         
+        //show the logout label
+        UILabel *myLabel = [[UILabel alloc]initWithFrame:CGRectMake(0.0, 3, cell.frame.size.width, cell.frame.size.height)];
+        myLabel.textAlignment = NSTextAlignmentCenter;
+        myLabel.font = [UIFont boldSystemFontOfSize:18];
+        myLabel.text = [NSString stringWithFormat:@"%@", [self.section3 objectAtIndex:indexPath.row]];
+        myLabel.textColor = [UIColor colorWithRed:(48/255.0) green:(56/255.0) blue:(57/255.0) alpha:1];
+        
+        [cell.contentView addSubview:myLabel];
+        
+        [cs BadgeCellSetting:cell];
+    
     }
 
-    
-    FontSettings* cs = [[FontSettings alloc]init];
-    [cs BadgeCellSetting_Arrow:cell];
-    
     return cell;
 }
 
@@ -93,8 +105,42 @@
         
     }else if(indexPath.section == 1){
         
-    }else if(indexPath.section == 2){
+    }else if(indexPath.section == 2){//logout
         
+        //show a confirm dialog
+        LoginRegisterForm *lrf =  [[LoginRegisterForm alloc] initWithDelegate:self andShowFromBottom:YES cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles: nil];
+        [lrf addButtonWithTitle:@"Log Out" actionBlock:^{
+            
+            /************************
+            
+             log out release things
+             
+             ************************/
+            
+            
+            //write primary to account
+            DBOperations_User *dbo = [[DBOperations_User alloc]init];
+            User *user = [User sharedInstance];
+            [dbo execute:[NSString stringWithFormat:@"UPDATE User SET primaryUser = 0 WHERE uid = '%@'",user.Uid]];
+   
+            UIViewController *tv = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginRegister"];
+            tv.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            [self presentViewController:tv animated:YES completion:nil];
+            
+            NSLog(@"==========Logging out, release resources==========");
+            
+            //set sharedInstance to nil
+            [User setTONil];
+            
+            for(UINavigationController *vc in self.tabBarController.viewControllers){
+                [vc popToRootViewControllerAnimated:NO];
+            }
+            
+            //select the 0 index tab
+        }];
+
+        [lrf show];
+
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
