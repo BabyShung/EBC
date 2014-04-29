@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8157CC4190EEB3900C3BE8C /* edi_md5.m in Sources */ = {isa = PBXBuildFile; fileRef = B8157CC3190EEB3900C3BE8C /* edi_md5.m */; };
 		B8738B7619046C740044FD42 /* ScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8738B6F19046C740044FD42 /* ScrollViewController.m */; };
 		B8738B7719046C740044FD42 /* NavBarSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = B8738B7119046C740044FD42 /* NavBarSetting.m */; };
 		B8738B7819046C740044FD42 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8738B7319046C740044FD42 /* TableViewController.m */; };
@@ -89,6 +90,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B8157CC2190EEB3900C3BE8C /* edi_md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = edi_md5.h; sourceTree = "<group>"; };
+		B8157CC3190EEB3900C3BE8C /* edi_md5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = edi_md5.m; sourceTree = "<group>"; };
 		B8738B6E19046C740044FD42 /* ScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollViewController.h; sourceTree = "<group>"; };
 		B8738B6F19046C740044FD42 /* ScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollViewController.m; sourceTree = "<group>"; };
 		B8738B7019046C740044FD42 /* NavBarSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavBarSetting.h; sourceTree = "<group>"; };
@@ -234,6 +237,8 @@
 				B8738BA11906CEA60044FD42 /* UILayers.m */,
 				B8E1D59B190AFF9E00CB8C1C /* FontSettings.h */,
 				B8E1D59C190AFF9E00CB8C1C /* FontSettings.m */,
+				B8157CC2190EEB3900C3BE8C /* edi_md5.h */,
+				B8157CC3190EEB3900C3BE8C /* edi_md5.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -664,6 +669,7 @@
 				B8D1CAB518FE0326001AFA11 /* AsyncRequest.m in Sources */,
 				B8AAF2F018F4547900D287A3 /* AppDelegate.m in Sources */,
 				B8AAF2EC18F4547900D287A3 /* main.m in Sources */,
+				B8157CC4190EEB3900C3BE8C /* edi_md5.m in Sources */,
 				B8738B7719046C740044FD42 /* NavBarSetting.m in Sources */,
 				B8FA45C318F5D8ED007DA680 /* UIViewController+MaryPopin.m in Sources */,
 				B8AAF32718F4846100D287A3 /* ProfileViewController.m in Sources */,

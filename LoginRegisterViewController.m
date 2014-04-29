@@ -18,9 +18,12 @@
 #import "MeViewController.h"
 #import "DBOperations_User.h"
 
+#import "edi_md5.h"
+
 #define EmailPlaceHolder @"Email"
 #define UserNamePlaceHolder @"Username"
 #define PwdPlaceHolder @"Password"
+
 
 
 
@@ -30,9 +33,17 @@
 }
 
 @property (nonatomic) BOOL isLogging;
-@property (nonatomic) BOOL clickedLogin;
 
-@property (nonatomic, strong) NSString* pwd;
+@property (nonatomic) BOOL clickedLogin;
+@property (nonatomic) BOOL clickedRegister;
+
+@property (nonatomic, strong) NSString* HashedPwd;
+
+@property (nonatomic,strong) NSString* lr_e;
+@property (nonatomic,strong) NSString* lr_p;
+@property (nonatomic,strong) NSString* cr_e;
+@property (nonatomic,strong) NSString* cr_n;
+@property (nonatomic,strong) NSString* cr_p;
 
 @property (nonatomic, strong) LoginRegisterForm *myActionSheet;
 @property (nonatomic,strong) LoadingAnimation *loadingImage;
@@ -70,13 +81,17 @@
  ****************************************/
 
 - (IBAction)showLoginForm:(id)sender {
-    [self formInitializeAndIfIsLogin:YES];
     self.clickedLogin = YES;
+    self.clickedRegister = NO;
+    [self formInitializeAndIfIsLogin:YES];
+    
 }
 
 - (IBAction)showRegisterForm:(id)sender {
-    [self formInitializeAndIfIsLogin:NO];
+    self.clickedRegister = YES;
     self.clickedLogin = NO;
+    [self formInitializeAndIfIsLogin:NO];
+    
 }
 
 /*****************************************
@@ -114,8 +129,23 @@
         self.myActionSheet.usernameTextField.delegate = self;
     }
     
+    //Hao added
+    if(self.clickedLogin){
+        self.myActionSheet.emailTextField.text = self.lr_e;
+        self.myActionSheet.pwdTextField.text = self.lr_p;
+    }else{
+        self.myActionSheet.emailTextField.text = self.cr_e;
+        self.myActionSheet.pwdTextField.text = self.cr_n;
+        self.myActionSheet.usernameTextField.text = self.cr_p;
+    }
+
+    
     self.myActionSheet.emailTextField.delegate = self;
     self.myActionSheet.pwdTextField.delegate = self;
+    
+    
+    
+    
     
     [self.myActionSheet show];
 }
@@ -141,6 +171,28 @@
         
     }
     return NO;
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    
+    if(self.clickedLogin){
+        if(textField == self.myActionSheet.emailTextField){
+            self.lr_e = self.myActionSheet.emailTextField.text;
+        }else if(textField == self.myActionSheet.pwdTextField){
+            self.lr_p = self.myActionSheet.pwdTextField.text;
+        }
+
+    }else{
+    
+    if(textField == self.myActionSheet.emailTextField){
+        self.cr_e = self.myActionSheet.emailTextField.text;
+    }else if(textField == self.myActionSheet.usernameTextField){
+       self.cr_n = self.myActionSheet.usernameTextField.text;
+    }
+    else if(textField == self.myActionSheet.pwdTextField)
+       self.cr_p = self.myActionSheet.pwdTextField.text;
+    }
+
 }
 
 /************************************
@@ -174,14 +226,15 @@
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^(void){
             
             
-            self.pwd = self.myActionSheet.pwdTextField.text;
+            //md5 the pwd
+            edi_md5 *edimd5 = [[edi_md5 alloc]init];
+            self.HashedPwd = [edimd5 md5:self.myActionSheet.pwdTextField.text];
             
-            //passing the parameters
+         
+            //passing the parameters, request should send hashedPWD***
             AsyncRequest *lr = [[AsyncRequest alloc]init];
-            [lr loginRegisterAccount:self.myActionSheet.emailTextField.text andUsernam:self.myActionSheet.usernameTextField.text andPwd:self.pwd andSELF:self];
-            
-            
-            
+            [lr loginRegisterAccount:self.myActionSheet.emailTextField.text andUsernam:self.myActionSheet.usernameTextField.text andPwd:self.HashedPwd andSELF:self];
+          
         });
         
     }else{  //failure
@@ -284,19 +337,18 @@
             //NSString *ucreate_time = [returnJSONtoNSdict objectForKey:@"ucreate_time"];
             
             //init the sharedInstance
-            User *user = [User sharedInstanceWithUid:uid andUname:uname andUpwd:nil andUtype:[utype integerValue]   andUselfie:nil];
+            User *user = [User sharedInstanceWithUid:uid andUname:uname andUpwd:self.HashedPwd andUtype:[utype integerValue]   andUselfie:nil];
             if(!user){//no sharedInstance
-                user = [User cheatingWithUid:uid andUname:uname andUpwd:nil andUtype:[utype integerValue]   andUselfie:nil];
+                user = [User cheatingWithUid:uid andUname:uname andUpwd:self.HashedPwd andUtype:[utype integerValue]   andUselfie:nil];
             }
             
-            NSLog(@"winwinwin  %@",user);
 
             [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
             
             
             //write primary to account
             DBOperations_User *dbo = [[DBOperations_User alloc]init];
-            [dbo execute:[NSString stringWithFormat:@"INSERT OR REPLACE INTO User (uid,uname,upwd,primaryUser,last_ts) VALUES ('%@','%@','%@',1,datetime('now','localtime'))",user.Uid,user.Uname,self.pwd]];
+            [dbo execute:[NSString stringWithFormat:@"INSERT OR REPLACE INTO User (uid,uname,upwd,primaryUser,last_ts) VALUES ('%@','%@','%@',1,datetime('now','localtime'))",user.Uid,user.Uname,self.HashedPwd]];
             
             
             
@@ -323,7 +375,7 @@
             if (buttonIndex == [alertView cancelButtonIndex]) {
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^(void){
                     
-                    [self formInitializeAndIfIsLogin:self.clickedLogin];
+                    [self formInitializeAndIfIsLogin:self.clickedLogin?YES:NO];
                     
                 });
             }

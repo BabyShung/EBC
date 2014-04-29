@@ -180,8 +180,8 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops.." message:log delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
         [alert show];
         self.oldPwd.text = @"";
-        self.nextPwd.text = @"";
-        self.confirmPwd.text = @"";
+//        self.nextPwd.text = @"";
+//        self.confirmPwd.text = @"";
         [self.oldPwd becomeFirstResponder];
         self.submitBTN.enabled = YES;
         

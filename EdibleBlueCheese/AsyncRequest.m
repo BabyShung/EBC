@@ -8,6 +8,7 @@
 
 #import "AsyncRequest.h"
 #import "User.h"
+#import "edi_md5.h"
 
 #define loginURL @"http://1-dot-edible-bluecheese-server.appspot.com/login"
 #define registerURL @"http://1-dot-edible-bluecheese-server.appspot.com/registration"
@@ -25,6 +26,8 @@
  request methods
  
  ************************/
+
+
 
 -(void)loginRegisterAccount:(NSString *)email andUsernam:(NSString *)uname andPwd:(NSString *) pwd andSELF:(id) selfy{
     
@@ -49,15 +52,6 @@
     //shared instance from memory!!!!
     User *user = [User sharedInstance];
     
-     NSLog(@"==========shared instance==========");
-    NSLog(@"%@",user.Uid);
-    NSLog(@"%@",user.Uname);
-    NSLog(@"%@",user.Upwd);
-    NSLog(@"%d",user.Utype);
-    NSLog(@"%@",user.Uselfie);
-    
-    
-    
     NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:user.Uid, @"uid",user.Uname, @"old_uname", username, @"new_uname", nil];
     NSURL *url = [NSURL URLWithString:updatePROFILE];
     
@@ -65,17 +59,59 @@
 
 }
 
+/******************
+
+ change PWD
+ 
+******************/
 -(void)modifyPWD_oldPwd:(NSString*)oldpwd andNextPwd:(NSString*)nextpwd andConfirmPwd:(NSString*)confirmpwd andSELF:(id)selfy{
+    
+    //ready to md5 all the passwords
+    edi_md5* edimd5 = [[edi_md5 alloc]init];
+    
+    
     
     //shared instance from memory!!!!
     User *user = [User sharedInstance];
-    NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:user.Uid, @"uid",oldpwd, @"old_upwd", nextpwd, @"new_upwd", confirmpwd, @"new_upwd_retype", nil];
+    NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:user.Uid, @"uid",[edimd5 md5:oldpwd], @"old_upwd", [edimd5 md5:nextpwd], @"new_upwd", [edimd5 md5:confirmpwd], @"new_upwd_retype", nil];
     NSURL *url = [NSURL URLWithString:changePASSWORD];
     
     [self performAsyncTask:selfy andDictionary:dict andURL:url];
 
     
 }
+
+-(void)changeSelfie_Selfie:(NSData *) imageData andSELF:(id)selfy{
+    //shared instance from memory!!!!
+    User *user = [User sharedInstance];
+    
+    NSLog(@"imageData ???  %@",imageData);
+    
+    NSMutableString *str = [NSMutableString string];
+    
+    
+    const unsigned char *bytes = [imageData bytes]; // no need to copy the data
+    NSUInteger length = [imageData length];
+    NSMutableArray *byteArray = [NSMutableArray array];
+    
+    [str appendString:@"["];
+    for (NSUInteger i = 0; i < length; i++) {
+        [byteArray addObject:[NSNumber numberWithUnsignedChar:bytes[i]]];
+        
+        [str appendString:[NSString stringWithFormat:@"%c", bytes[i]]];
+        [str appendString:@","];
+    }
+    NSRange lastComma = [str rangeOfString:@"," options:NSBackwardsSearch];
+    [str replaceCharactersInRange:lastComma withString:@"]"];
+    
+    
+    NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:user.Uid, @"uid",str, @"uselfie", nil];
+    NSURL *url = [NSURL URLWithString:changeSELFIE];
+    
+    [self performAsyncTask:selfy andDictionary:dict andURL:url];
+
+}
+
 
 /************************
 
@@ -87,7 +123,7 @@
     //convert dictionary to data
     NSData* jsonData = [NSJSONSerialization dataWithJSONObject:dict options:kNilOptions error:&error];
     
-    
+
     
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];

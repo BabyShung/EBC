@@ -28,7 +28,7 @@
 
 -(void)TextFieldSetting:(UITextField *)textfield{
     
-    textfield.font = [UIFont systemFontOfSize:18];//seems not working
+    textfield.font = [UIFont systemFontOfSize:18];
     textfield.textColor = [UIColor colorWithRed:(48/255.0) green:(56/255.0) blue:(57/255.0) alpha:1];
 }
 

@@ -16,13 +16,16 @@
 #import "UIViewController+MaryPopin.h"
 #import "EdibleAlertView.h"
 
-#import "MeViewController.h"
-
+#import "AsyncRequest.h"
 
 
 #import "User.h"
 
-@interface ProfileViewController ()
+@interface ProfileViewController () <NSURLConnectionDataDelegate>
+{
+    NSMutableData *webdata;
+}
+
 
 @property(nonatomic,strong) UIImagePickerController *imagePicker;
 
@@ -33,6 +36,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    webdata = [[NSMutableData alloc]init];
     
     
     NavBarSetting *navb = [[NavBarSetting alloc]init];
@@ -141,13 +147,24 @@
     NSLog(@"*****Size of Image(width):  %f",finalImage.size.height);
 
     
-    
+    //shrink size to 140*140 and show on our 70*70 imageView
     UIImage *compressedImage = [self scaleImage:finalImage toSize:CGSizeMake(140,140)];
-    
     [self.Selfie setImage:compressedImage];
     
     
+    
+    
+    //another thread to send image to server
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@"imgData??  %@",imgData);
+
+        AsyncRequest *async = [[AsyncRequest alloc]init];
+        [async changeSelfie_Selfie:imgData andSELF:self];
+        NSLog(@"Any luck?? --------");
+    });
+    
     [self dismissViewControllerAnimated:YES completion:nil];
+
     
     //ip5 320 568,,,,ip4 320 480
     
@@ -186,5 +203,39 @@
         NSLog(@"Popin presented !");
     }];
 }
+
+
+/****************************************
+ 
+ delegate methods for networkConnection
+ 
+ ****************************************/
+
+
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
+    [webdata setLength:0];
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
+    [webdata appendData:data];
+}
+
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops.." message:@"Network problem..please try again." delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+    [alert show];
+}
+
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection{    //async
+    NSDictionary *returnJSONtoNSdict = [NSJSONSerialization JSONObjectWithData:webdata options:0 error:nil];
+    
+    id status = [returnJSONtoNSdict objectForKey:@"status"];
+    NSString *log = [returnJSONtoNSdict objectForKey:@"log"];
+    NSLog(@"selfie status --- -- -   %d",[status boolValue]);
+    NSLog(@"selfie log --- -- -   %@",log);
+    
+}
+
+
 
 @end

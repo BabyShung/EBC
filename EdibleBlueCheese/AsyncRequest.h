@@ -10,12 +10,17 @@
 
 @interface AsyncRequest : NSObject 
 
-
+//login or register request
 -(void)loginRegisterAccount:(NSString *)email andUsernam:(NSString *)uname andPwd:(NSString *) pwd andSELF:(id) selfy;
 
+//update username
 -(void)modifyUserName:(NSString*)username andSELF:(id)selfy;
 
+//update pwd
 -(void)modifyPWD_oldPwd:(NSString*)oldpwd andNextPwd:(NSString*)nextpwd andConfirmPwd:(NSString*)confirmpwd andSELF:(id)selfy;
+
+//update selfie
+-(void)changeSelfie_Selfie:(NSData *) imageData andSELF:(id)selfy;
 
 
 @end

@@ -22,6 +22,7 @@
 #import "LoginRegisterForm.h"
 #import "UIImage+ImageEffects.h"
 
+
 #define kButtonHeight 60.f
 #define kCancelButtonHeight 50.f
 
@@ -35,8 +36,7 @@
 #define kBottomMargin 10.f
 #define kTopMargin 30.f
 
-#define kBlurRadius 7.f
-
+#define kBlurRadiusLoginRegister 7.f
 
 @interface LoginRegisterForm ()
 @property (nonatomic, readonly) CGSize screenSize;
@@ -151,7 +151,7 @@ static UIWindow *__sheetWindow = nil;
  
  **************************/
 - (void)__commonInit {
-    _blurRadius = kBlurRadius;
+    _blurRadius = kBlurRadiusLoginRegister;
     _blurView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.screenSize.width, self.screenSize.height)];
     
     _blurView.alpha = 0.f;
@@ -174,14 +174,15 @@ static UIWindow *__sheetWindow = nil;
     
     CGRect frame = CGRectMake(0, 0, self.screenSize.width, kButtonHeight);
     UITextField *textField = [[UITextField alloc] initWithFrame:frame];
-    textField.textColor = [UIColor blackColor];
+    textField.textColor = [UIColor colorWithRed:(48/255.0) green:(56/255.0) blue:(57/255.0) alpha:1];
     textField.font = [UIFont systemFontOfSize:19.f];
     textField.placeholder = PlaceHolder;
     textField.textAlignment = NSTextAlignmentCenter;
     textField.backgroundColor = [UIColor clearColor];
     textField.keyboardType = UIKeyboardTypeDefault;
     
-    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    textField.clearButtonMode = UITextFieldViewModeAlways;
+    //textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     
     
     
@@ -376,6 +377,8 @@ static UIWindow *__sheetWindow = nil;
         
         //Hao: focus keyboard
         if(self.emailTextField){
+            
+            [self.emailTextField setKeyboardType:UIKeyboardTypeEmailAddress];
             [self.emailTextField becomeFirstResponder];
         }
         

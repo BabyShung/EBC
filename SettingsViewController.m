@@ -109,6 +109,9 @@
         
         //show a confirm dialog
         LoginRegisterForm *lrf =  [[LoginRegisterForm alloc] initWithDelegate:self andShowFromBottom:YES cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles: nil];
+        
+        lrf.blurRadius = 50.f;
+        
         [lrf addButtonWithTitle:@"Log Out" actionBlock:^{
             
             /************************
