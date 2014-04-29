@@ -80,7 +80,7 @@
     self.UnameLabel.text = user.Uname;
     
     self.title =@"My Profile";
-    self.tabBarController.tabBar.hidden = YES;
+    //self.tabBarController.tabBar.hidden = YES;
     
 }
 
@@ -236,6 +236,12 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = YES;
+    
+}
 
-
+-(void)viewWillDisappear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = NO;
+}
 @end

@@ -123,7 +123,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
-    self.tabBarController.tabBar.hidden = NO;
+    //self.tabBarController.tabBar.hidden = NO;
     
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
@@ -140,5 +140,8 @@
     
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    //self.tabBarController.tabBar.hidden = YES;
+    }
 
 @end
