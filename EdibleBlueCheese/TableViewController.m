@@ -7,7 +7,6 @@
 
 #import "TableViewController.h"
 #import "UIViewController+ScrollingNavbar.h"
-#import "NavBarSetting.h"
 
 @interface TableViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
@@ -22,8 +21,6 @@
 {
 	[super viewDidLoad];
 	
-    NavBarSetting *navb = [[NavBarSetting alloc]init];
-    [navb setupNavBar:self.navigationController.navigationBar];
     
 	
 	self.data = @[@"Pea", @"Corn", @"NYSteak", @"Shake",@"Pea", @"Corn", @"NYSteak", @"Shake",@"Pea", @"Corn", @"NYSteak", @"Shake",@"Pea", @"Corn", @"NYSteak", @"Shake",@"Pea", @"Corn", @"NYSteak", @"Shake",@"Pea", @"Corn", @"NYSteak", @"Shake",@"Pea", @"Corn", @"NYSteak", @"Shake",@"Pea", @"Corn", @"NYSteak", @"Shake"];
@@ -34,7 +31,7 @@
 	self.edgesForExtendedLayout = UIRectEdgeNone;
     
 	// Just call this line to enable the scrolling navbar
-	[self followScrollView:self.tableView];
+	//[self followScrollView:self.tableView];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -77,6 +74,12 @@
 	cell.textLabel.text = self.data[indexPath.row];
 	
 	return cell;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    self.tabBarController.title = @"Table";
+    
 }
 
 @end

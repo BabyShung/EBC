@@ -42,7 +42,7 @@
 	[self.scrollView setContentSize:CGSizeMake(320, 1540)];
 	
 	// Just call this line to enable the scrolling navbar
-	[self followScrollView:self.scrollView withDelay:60];
+	//[self followScrollView:self.scrollView withDelay:60];
 	
     
     self.scrollView.delegate = self;
@@ -65,6 +65,8 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    
+    self.tabBarController.title = @"Scroll";
     
     //check second login based on the sharedInstance
     User *user = [User sharedInstance];

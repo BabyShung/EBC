@@ -42,7 +42,7 @@
     
     
     NavBarSetting *navb = [[NavBarSetting alloc]init];
-    [navb setupNavBar:self.navigationController.navigationBar];
+    //[navb setupNavBar:self.navigationController.navigationBar];
     
     self.Selfie.image = [[ImagePlaceholderHelper sharedInstance] placerholderAvatarWithSize:self.Selfie.frame.size];
     
@@ -80,7 +80,7 @@
     self.UnameLabel.text = user.Uname;
     
     self.title =@"My Profile";
-    //self.tabBarController.tabBar.hidden = YES;
+    
     
 }
 

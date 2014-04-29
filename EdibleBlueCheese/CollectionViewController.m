@@ -8,7 +8,6 @@
 
 #import "CollectionViewController.h"
 #import "UIViewController+ScrollingNavbar.h"
-#import "NavBarSetting.h"
 
 
 @interface CollectionViewController ()
@@ -21,15 +20,15 @@
 {
     [super viewDidLoad];
 	
-    NavBarSetting *navb = [[NavBarSetting alloc]init];
-    [navb setupNavBar:self.navigationController.navigationBar];
     
     
 	self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
 	// Just call this line to enable the scrolling navbar
-	[self followScrollView:self.collectionView];
+	//[self followScrollView:self.collectionView];
+    
+    
 
 }
 
@@ -60,6 +59,12 @@
 {
     UICollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"exampleCell" forIndexPath:indexPath];
     return cell;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    self.tabBarController.title = @"Collection";
+    
 }
 
 @end

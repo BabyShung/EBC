@@ -38,7 +38,7 @@
     self.section2 = [NSArray arrayWithObjects:@"Post", @"Like", @"XXX", nil];
     self.section3 = [NSArray arrayWithObjects:@"Settings", nil];
     self.menu = [NSArray arrayWithObjects:self.section1, self.section2,self.section3, nil];
-    
+
     
 }
 
@@ -123,7 +123,9 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
-    //self.tabBarController.tabBar.hidden = NO;
+  
+    self.tabBarController.title = @"Me";
+   
     
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
@@ -140,8 +142,5 @@
     
 }
 
--(void)viewWillDisappear:(BOOL)animated{
-    //self.tabBarController.tabBar.hidden = YES;
-    }
 
 @end
