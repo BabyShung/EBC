@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B8157CC4190EEB3900C3BE8C /* edi_md5.m in Sources */ = {isa = PBXBuildFile; fileRef = B8157CC3190EEB3900C3BE8C /* edi_md5.m */; };
+		B8157CCA191013C800C3BE8C /* FindContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8157CC9191013C800C3BE8C /* FindContactsViewController.m */; };
 		B8738B7619046C740044FD42 /* ScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8738B6F19046C740044FD42 /* ScrollViewController.m */; };
 		B8738B7719046C740044FD42 /* NavBarSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = B8738B7119046C740044FD42 /* NavBarSetting.m */; };
 		B8738B7819046C740044FD42 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8738B7319046C740044FD42 /* TableViewController.m */; };
@@ -47,6 +48,7 @@
 		B8AAF37618F48E4C00D287A3 /* SQLConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AAF37518F48E4C00D287A3 /* SQLConnector.m */; };
 		B8AAF37818F48E8D00D287A3 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AAF37718F48E8D00D287A3 /* libsqlite3.0.dylib */; };
 		B8AAF37E18F49F4100D287A3 /* LoginDemo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8AAF37D18F49F4100D287A3 /* LoginDemo.jpg */; };
+		B8B69D6619108E4700DEF80A /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B69D6519108E4700DEF80A /* SearchResultViewController.m */; };
 		B8BC421419031F6C00485705 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8BC420C19031F6C00485705 /* 1.jpg */; };
 		B8BC421519031F6C00485705 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8BC420D19031F6C00485705 /* 2.jpg */; };
 		B8BC421619031F6C00485705 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8BC420E19031F6C00485705 /* 3.jpg */; };
@@ -92,6 +94,8 @@
 /* Begin PBXFileReference section */
 		B8157CC2190EEB3900C3BE8C /* edi_md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = edi_md5.h; sourceTree = "<group>"; };
 		B8157CC3190EEB3900C3BE8C /* edi_md5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = edi_md5.m; sourceTree = "<group>"; };
+		B8157CC8191013C800C3BE8C /* FindContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindContactsViewController.h; sourceTree = "<group>"; };
+		B8157CC9191013C800C3BE8C /* FindContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindContactsViewController.m; sourceTree = "<group>"; };
 		B8738B6E19046C740044FD42 /* ScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollViewController.h; sourceTree = "<group>"; };
 		B8738B6F19046C740044FD42 /* ScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollViewController.m; sourceTree = "<group>"; };
 		B8738B7019046C740044FD42 /* NavBarSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavBarSetting.h; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 		B8AAF37518F48E4C00D287A3 /* SQLConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLConnector.m; sourceTree = "<group>"; };
 		B8AAF37718F48E8D00D287A3 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		B8AAF37D18F49F4100D287A3 /* LoginDemo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LoginDemo.jpg; sourceTree = "<group>"; };
+		B8B69D6419108E4700DEF80A /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
+		B8B69D6519108E4700DEF80A /* SearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultViewController.m; sourceTree = "<group>"; };
 		B8BC420C19031F6C00485705 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		B8BC420D19031F6C00485705 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		B8BC420E19031F6C00485705 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
@@ -422,6 +428,10 @@
 				B8738B7519046C740044FD42 /* CollectionViewController.m */,
 				B8BC423219034E0700485705 /* UIViewController+ScrollingNavbar.h */,
 				B8BC423319034E0700485705 /* UIViewController+ScrollingNavbar.m */,
+				B8157CC8191013C800C3BE8C /* FindContactsViewController.h */,
+				B8157CC9191013C800C3BE8C /* FindContactsViewController.m */,
+				B8B69D6419108E4700DEF80A /* SearchResultViewController.h */,
+				B8B69D6519108E4700DEF80A /* SearchResultViewController.m */,
 			);
 			name = Tmp;
 			sourceTree = "<group>";
@@ -673,6 +683,8 @@
 				B8738B7719046C740044FD42 /* NavBarSetting.m in Sources */,
 				B8FA45C318F5D8ED007DA680 /* UIViewController+MaryPopin.m in Sources */,
 				B8AAF32718F4846100D287A3 /* ProfileViewController.m in Sources */,
+				B8B69D6619108E4700DEF80A /* SearchResultViewController.m in Sources */,
+				B8157CCA191013C800C3BE8C /* FindContactsViewController.m in Sources */,
 				B8AAF37618F48E4C00D287A3 /* SQLConnector.m in Sources */,
 				B8AAF31C18F47F5B00D287A3 /* LoginRegisterForm.m in Sources */,
 				B8E1D54F190A293D00CB8C1C /* ModifyViewController.m in Sources */,

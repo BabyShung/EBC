@@ -28,16 +28,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B8AAF2FF18F4547900D287A3"
-               BuildableName = "EdibleBlueCheeseTests.xctest"
-               BlueprintName = "EdibleBlueCheeseTests"
-               ReferencedContainer = "container:EdibleBlueCheese.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

@@ -126,24 +126,31 @@
             User *user = [User sharedInstance];
             [dbo execute:[NSString stringWithFormat:@"UPDATE User SET primaryUser = 0 WHERE uid = '%@'",user.Uid]];
    
-            UIViewController *tv = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginRegister"];
-            tv.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            [self presentViewController:tv animated:YES completion:nil];
+            
             
             NSLog(@"==========Logging out, release resources==========");
             
             //set sharedInstance to nil
             [User setTONil];
             
-            for(UINavigationController *vc in self.tabBarController.viewControllers){
-                [vc popToRootViewControllerAnimated:NO];
-            }
             
-            //select the 0 index tab
+            /************************************
+             
+             PS: The below order matters!
+             
+             ***********************************/
+            [self.parentViewController.childViewControllers[0] setSelectedIndex:0];
+            
+            UIViewController *tv = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginRegister"];
+            tv.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            [self presentViewController:tv animated:YES completion:nil];
+            
+            [self.navigationController popToRootViewControllerAnimated:NO];
+            
         }];
 
         [lrf show];
-
+        
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -159,5 +166,14 @@
     return 52;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return 20;
+    }
+    return 10;
+}
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 10;
+}
 @end

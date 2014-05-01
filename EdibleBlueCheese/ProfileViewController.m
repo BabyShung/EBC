@@ -154,14 +154,27 @@
     
     
     
+   // NSLog(@"image bytes ---------   %@",[imgData bytes]);
+    
+//    const unsigned char *bytes = [imgData bytes];
+//    NSUInteger length = [imgData length];
+//    NSMutableArray *byteArray = [NSMutableArray array];
+//    for (NSUInteger i = 0; i < length; i++) {
+//        [byteArray addObject:[NSNumber numberWithUnsignedChar:bytes[i]]];
+//        
+//    }
+
+ //   NSLog(@" byte array----- %@",byteArray);
+    
+    
     //another thread to send image to server
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSLog(@"imgData??  %@",imgData);
 
         AsyncRequest *async = [[AsyncRequest alloc]init];
         [async changeSelfie_Selfie:imgData andSELF:self];
         NSLog(@"Any luck?? --------");
     });
+
     
     [self dismissViewControllerAnimated:YES completion:nil];
 

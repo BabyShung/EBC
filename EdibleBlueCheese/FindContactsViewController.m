@@ -1,0 +1,187 @@
+//
+//  FindContactsViewController.m
+//  EdibleBlueCheese
+//
+//  Created by Hao Zheng on 4/29/14.
+//  Copyright (c) 2014 Hao Zheng. All rights reserved.
+//
+
+#import "FindContactsViewController.h"
+#import "User.h"
+#import "BadgeTableCell.h"
+#import "FontSettings.h"
+
+@interface FindContactsViewController () <UITextFieldDelegate>
+
+@property (strong, nonatomic) NSArray *menu;
+@property (strong, nonatomic) NSArray *section1;
+@property (strong, nonatomic) NSArray *section2;
+@property (strong, nonatomic) NSArray *section3;
+
+
+@property (weak, nonatomic) UITextField *searchBox;
+
+@property (strong, nonatomic) User *user;
+
+@end
+
+@implementation FindContactsViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.user = [User sharedInstance];
+    
+    self.section1 = [NSArray arrayWithObjects:@"User Name/Email",nil];
+    self.section2 = [NSArray arrayWithObjects:@"XX Contacts",@"XX1 Contacts",nil];
+    self.section3 = [NSArray arrayWithObjects:@"XXX",@"Friend Nearby",  nil];
+    
+    self.menu = [NSArray arrayWithObjects:self.section1, self.section2, self.section3,nil];
+    
+    self.title = @"Add Contacts";
+    
+    self.searchBox.delegate = self;
+    
+}
+
+
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return [self.menu count];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if(section == 0){
+        return [self.section1 count];
+    }else if(section == 1){
+        return [self.section2 count];
+    }else
+        return [self.section3 count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    
+    BadgeTableCell *cell = [[BadgeTableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    
+    // Configure the cell...
+    FontSettings* cs = [[FontSettings alloc]init];
+    [cs BadgeCellSetting_BadgeString_Arrow:cell];
+    
+    
+    if (indexPath.section == 0) {
+        //cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.section1 objectAtIndex:indexPath.row]];
+
+        
+
+        
+        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0.0, 3, cell.frame.size.width, cell.frame.size.height)];
+        textField.textColor = [UIColor colorWithRed:(48/255.0) green:(56/255.0) blue:(57/255.0) alpha:1];
+        textField.font = [UIFont systemFontOfSize:19.f];
+        textField.placeholder = [NSString stringWithFormat:@"%@", [self.section1 objectAtIndex:indexPath.row]];
+        textField.textAlignment = NSTextAlignmentCenter;
+        textField.backgroundColor = [UIColor clearColor];
+        textField.keyboardType = UIKeyboardTypeDefault;
+        
+        textField.clearButtonMode = UITextFieldViewModeAlways;
+        
+        [cell.contentView addSubview:textField];
+        
+        self.searchBox = textField;
+        
+        self.searchBox.delegate = self;
+        
+        [cs BadgeCellSetting:cell];
+        
+
+        
+    }else if (indexPath.section == 1) {
+        cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.section2 objectAtIndex:indexPath.row]];
+
+    }else if (indexPath.section == 2){
+        cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.section3 objectAtIndex:indexPath.row]];
+    }
+    
+    return cell;
+}
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+/****************
+ 
+ Row height
+ 
+ ***************/
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 52;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return 20;
+    }
+    return 10;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 10;
+}
+
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    
+    if(self.searchBox)
+       [self.searchBox resignFirstResponder];
+}
+
+
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+   
+    
+    [self searchUsers:textField.text];
+    
+    
+    
+    return NO;
+}
+
+-(void)searchUsers:(NSString*)name{
+    
+    //perform async task
+    
+    
+    //success -> push to result view
+    
+    //failure -> show alert view
+    
+    
+}
+
+
+//- (void)singleTap:(UITapGestureRecognizer *)sender {
+//    
+//    CGPoint tapLocation = [sender locationInView:self.view];
+//    NSLog(@"Tap location X:%1.0f, Y:%1.0f", tapLocation.x, tapLocation.y);
+//    
+//    // If menu is open, and the tap is outside of the menu, close it.
+//    if (!CGRectContainsPoint(self.searchBox.frame, tapLocation)) {
+//        [self.searchBox resignFirstResponder];
+//    }
+//
+//}
+
+
+//UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
+//[self.view addGestureRecognizer:tap];
+
+
+@end

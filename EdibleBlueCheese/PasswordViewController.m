@@ -26,6 +26,9 @@
 {
     [super viewDidLoad];
     
+    
+    
+    
     webdata = [[NSMutableData alloc]init];
     
     FontSettings* fs = [[FontSettings alloc]init];
@@ -59,6 +62,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [self.oldPwd becomeFirstResponder];
+    
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
@@ -89,12 +93,20 @@
     if([validate isValid]){    //validation success
         self.submitBTN.enabled = NO;
         
+        self.navigationItem.hidesBackButton = YES;
+        
+        
         //show the progress view
         [SVProgressHUD show];
+      
         
-        //send request
-        AsyncRequest *async = [[AsyncRequest alloc]init];
-        [async modifyPWD_oldPwd:self.oldPwd.text andNextPwd:self.nextPwd.text andConfirmPwd:self.confirmPwd.text andSELF:self];
+            //send request
+            AsyncRequest *async = [[AsyncRequest alloc]init];
+            [async modifyPWD_oldPwd:self.oldPwd.text andNextPwd:self.nextPwd.text andConfirmPwd:self.confirmPwd.text andSELF:self];
+    
+        
+        
+
         
         
         
@@ -112,6 +124,8 @@
             self.confirmPwd.text = @"";
             [self.nextPwd becomeFirstResponder];
         }
+        
+        self.navigationItem.hidesBackButton = NO;
     }
 
 
@@ -187,5 +201,6 @@
         
     }
 }
+
 
 @end

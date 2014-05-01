@@ -25,7 +25,7 @@
 	
 	self.data = @[@"Pea", @"Corn", @"NYSteak", @"Shake",@"Pea", @"Corn", @"NYSteak", @"Shake",@"Pea", @"Corn", @"NYSteak", @"Shake",@"Pea", @"Corn", @"NYSteak", @"Shake",@"Pea", @"Corn", @"NYSteak", @"Shake",@"Pea", @"Corn", @"NYSteak", @"Shake",@"Pea", @"Corn", @"NYSteak", @"Shake",@"Pea", @"Corn", @"NYSteak", @"Shake"];
 	
-
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
 	self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -34,11 +34,7 @@
 	//[self followScrollView:self.tableView];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-	[self showNavBarAnimated:NO];
-}
+
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
 {
@@ -80,6 +76,22 @@
     
     self.tabBarController.title = @"Table";
     
+    UIBarButtonItem *barAddButton = [[UIBarButtonItem alloc] initWithTitle:@"Add Friends" style:UIBarButtonItemStylePlain target:self action:@selector(addFriends)];
+    self.tabBarController.navigationItem.rightBarButtonItem = barAddButton;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+	[super viewWillDisappear:animated];
+	//[self showNavBarAnimated:NO];
+    
+    //
+    self.tabBarController.navigationItem.rightBarButtonItem = nil;
+}
+
+-(void)addFriends{
+    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FindContacts"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

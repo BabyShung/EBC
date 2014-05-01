@@ -36,7 +36,6 @@
     self.menu = [NSArray arrayWithObjects:self.section1, self.section2, nil];
     
     self.title = @"Account";
-    self.tabBarController.tabBar.hidden = YES;
 }
 
 #pragma mark - Table view data source
@@ -145,5 +144,14 @@
     
 
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return 20;
+    }
+    return 10;
+}
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 10;
+}
 @end

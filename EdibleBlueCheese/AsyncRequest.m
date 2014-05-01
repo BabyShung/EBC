@@ -10,6 +10,7 @@
 #import "User.h"
 #import "edi_md5.h"
 
+
 #define loginURL @"http://1-dot-edible-bluecheese-server.appspot.com/login"
 #define registerURL @"http://1-dot-edible-bluecheese-server.appspot.com/registration"
 #define changeSELFIE @"http://1-dot-edible-bluecheese-server.appspot.com/changeselfie"
@@ -60,6 +61,28 @@
 }
 
 /******************
+ 
+ search user
+ 
+ ******************/
+-(void)searchUser:(NSString*)oldpwd andNextPwd:(NSString*)nextpwd andConfirmPwd:(NSString*)confirmpwd andSELF:(id)selfy{
+    
+    //ready to md5 all the passwords
+//    edi_md5* edimd5 = [[edi_md5 alloc]init];
+//    
+//    
+//    
+//    //shared instance from memory!!!!
+//    User *user = [User sharedInstance];
+//    NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:user.Uid, @"uid",[edimd5 md5:oldpwd], @"old_upwd", [edimd5 md5:nextpwd], @"new_upwd", [edimd5 md5:confirmpwd], @"new_upwd_retype", nil];
+//    NSURL *url = [NSURL URLWithString:changePASSWORD];
+//    
+//    [self performAsyncTask:selfy andDictionary:dict andURL:url];
+//    
+    
+}
+
+/******************
 
  change PWD
  
@@ -86,26 +109,33 @@
     User *user = [User sharedInstance];
     
     NSLog(@"imageData ???  %@",imageData);
+
+    ///
+//    NSString *eg = @"373";
+//    NSData *egdata = [eg dataUsingEncoding:NSUTF8StringEncoding];
+//    const unsigned char *egbyte = [egdata bytes];
+//    NSUInteger length222 = [egdata length];
+//    NSMutableArray *byteArray222 = [NSMutableArray array];
+//    
+//    for (NSUInteger i = 0; i < length222; i++) {
+//        [byteArray222 addObject:[NSNumber numberWithUnsignedChar:egbyte[i]]];
+//        
+//    }
+//    ///
+//    NSLog(@"egdata ???  %@",egdata);
     
-    NSMutableString *str = [NSMutableString string];
-    
-    
-    const unsigned char *bytes = [imageData bytes]; // no need to copy the data
+    const unsigned char *bytess = [[imageData base64EncodedDataWithOptions:NSUTF8StringEncoding] bytes]; // no need to copy the data
     NSUInteger length = [imageData length];
     NSMutableArray *byteArray = [NSMutableArray array];
-    
-    [str appendString:@"["];
+
     for (NSUInteger i = 0; i < length; i++) {
-        [byteArray addObject:[NSNumber numberWithUnsignedChar:bytes[i]]];
-        
-        [str appendString:[NSString stringWithFormat:@"%c", bytes[i]]];
-        [str appendString:@","];
+        [byteArray addObject:[NSNumber numberWithUnsignedChar:bytess[i]]];
+     
     }
-    NSRange lastComma = [str rangeOfString:@"," options:NSBackwardsSearch];
-    [str replaceCharactersInRange:lastComma withString:@"]"];
+
     
     
-    NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:user.Uid, @"uid",str, @"uselfie", nil];
+    NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:user.Uid, @"uid",byteArray, @"uselfie", nil];
     NSURL *url = [NSURL URLWithString:changeSELFIE];
     
     [self performAsyncTask:selfy andDictionary:dict andURL:url];
@@ -136,6 +166,8 @@
     // print json:
     NSLog(@"JSON summary: %@", [[NSString alloc] initWithData:jsonData
                                                      encoding:NSUTF8StringEncoding]);
+    
+    
     
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:selfy];
     [conn start];
