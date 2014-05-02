@@ -177,6 +177,7 @@ static ImagePlaceholderHelper *sharedObject = nil;
 
 - (void)cacheImage:(UIImage *)image isAvatar:(BOOL)isAvatar fillColor:(UIColor *)color text:(NSString *)text
 {
+    
     const CGFloat *components = CGColorGetComponents(color.CGColor);
     NSString *colorAsString = [NSString stringWithFormat:@"%f,%f,%f,%f", components[0], components[1], components[2], components[3]];
     

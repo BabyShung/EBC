@@ -42,7 +42,6 @@
     
     
     NavBarSetting *navb = [[NavBarSetting alloc]init];
-    //[navb setupNavBar:self.navigationController.navigationBar];
     
     self.Selfie.image = [[ImagePlaceholderHelper sharedInstance] placerholderAvatarWithSize:self.Selfie.frame.size];
     
@@ -52,6 +51,7 @@
     
     //add layers to the image frame
     UILayers *uil = [[UILayers alloc]init];
+    
     CALayer * calayer = [uil borderLayerWidth:self.Selfie.frame.size.width andHeight:self.Selfie.frame.size.height andBorderWidth:2.5 andColor:[UIColor whiteColor]];
     [self.Selfie.layer addSublayer:calayer];
     calayer = [uil borderLayerWidth:self.Selfie.frame.size.width andHeight:self.Selfie.frame.size.height andBorderWidth:0.3 andColor:[UIColor grayColor]];
@@ -63,6 +63,16 @@
     selfieTap.numberOfTapsRequired = 1;
     self.Selfie.userInteractionEnabled = YES;
     [self.Selfie addGestureRecognizer:selfieTap];
+    
+    
+    //User *tmp = [User sharedInstance];
+    
+    
+    //NSLog(@"**adasdasdasd**** %@",tmp.Uselfie);
+    
+     //[self.Selfie setImage:[UIImage imageWithData:tmp.Uselfie]];
+    //self.Selfie.image = [UIImage imageWithData:tmp.Uselfie];
+    
     
     
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -142,7 +152,7 @@
     UIImage *finalImage = [self scaleImage:tmpImage toSize:CGSizeMake(640,1136)];
     
     NSData *imgData = UIImageJPEGRepresentation(finalImage, 0);
-    NSLog(@"*****Size of Image(bytes):  %d",[imgData length]);
+    //NSLog(@"*****Size of Image(bytes):  %d",[imgData length]);
     NSLog(@"*****Size of Image(width):  %f",finalImage.size.width);
     NSLog(@"*****Size of Image(width):  %f",finalImage.size.height);
 
@@ -150,22 +160,7 @@
     //shrink size to 140*140 and show on our 70*70 imageView
     UIImage *compressedImage = [self scaleImage:finalImage toSize:CGSizeMake(140,140)];
     [self.Selfie setImage:compressedImage];
-    
-    
-    
-    
-   // NSLog(@"image bytes ---------   %@",[imgData bytes]);
-    
-//    const unsigned char *bytes = [imgData bytes];
-//    NSUInteger length = [imgData length];
-//    NSMutableArray *byteArray = [NSMutableArray array];
-//    for (NSUInteger i = 0; i < length; i++) {
-//        [byteArray addObject:[NSNumber numberWithUnsignedChar:bytes[i]]];
-//        
-//    }
-
- //   NSLog(@" byte array----- %@",byteArray);
-    
+   
     
     //another thread to send image to server
     dispatch_async(dispatch_get_main_queue(), ^{

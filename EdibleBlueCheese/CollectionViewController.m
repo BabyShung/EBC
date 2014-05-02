@@ -22,8 +22,8 @@
 	
     
     
-	self.collectionView.delegate = self;
-    self.collectionView.dataSource = self;
+	//self.collectionView.delegate = self;
+    //self.collectionView.dataSource = self;
     
 	// Just call this line to enable the scrolling navbar
 	//[self followScrollView:self.collectionView];

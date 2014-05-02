@@ -333,13 +333,33 @@
             NSString *uid = [returnJSONtoNSdict objectForKey:@"uid"];
             NSString *uname = [returnJSONtoNSdict objectForKey:@"uname"];
             NSString *utype = [returnJSONtoNSdict objectForKey:@"utype"];
-            //NSString *uselfie = [returnJSONtoNSdict objectForKey:@"uselfie"];
+            NSMutableArray *uselfie = [returnJSONtoNSdict objectForKey:@"uselfie"];
             //NSString *ucreate_time = [returnJSONtoNSdict objectForKey:@"ucreate_time"];
             
+            NSLog(@"Uselfie-------  %@",uselfie);
+            
+            
+            unsigned c = uselfie.count;
+            uint8_t *bytes = malloc(sizeof(*bytes) * c);
+            
+            unsigned i;
+            for (i = 0; i < c; i++)
+            {
+                NSString *str = [uselfie objectAtIndex:i];
+                int byte = [str intValue];
+                bytes[i] = byte;
+            }
+            
+            NSData *imageData = [NSData dataWithBytesNoCopy:bytes length:c freeWhenDone:YES];
+            UIImage *image = [UIImage imageWithData:imageData];
+            
+            
+            
+            
             //init the sharedInstance
-            User *user = [User sharedInstanceWithUid:uid andUname:uname andUpwd:self.HashedPwd andUtype:[utype integerValue]   andUselfie:nil];
+            User *user = [User sharedInstanceWithUid:uid andUname:uname andUpwd:self.HashedPwd andUtype:[utype integerValue]   andUselfie:imageData];
             if(!user){//no sharedInstance
-                user = [User cheatingWithUid:uid andUname:uname andUpwd:self.HashedPwd andUtype:[utype integerValue]   andUselfie:nil];
+                user = [User cheatingWithUid:uid andUname:uname andUpwd:self.HashedPwd andUtype:[utype integerValue]   andUselfie:imageData];
             }
             
 

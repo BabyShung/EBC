@@ -13,6 +13,8 @@
 #import "SettingsViewController.h"
 #import "FontSettings.h"
 #import "User.h"
+#import "ImagePlaceholderHelper.h"
+#import "UILayers.h"
 
 @interface MeViewController ()
 
@@ -20,6 +22,9 @@
 @property (strong, nonatomic) NSArray *section1;
 @property (strong, nonatomic) NSArray *section2;
 @property (strong, nonatomic) NSArray *section3;
+
+@property (strong, nonatomic) UIImage *Selfie;
+
 
 @end
 
@@ -40,6 +45,11 @@
     self.menu = [NSArray arrayWithObjects:self.section1, self.section2,self.section3, nil];
 
     
+    
+    self.Selfie =  [[ImagePlaceholderHelper sharedInstance] placerholderAvatarWithSize:CGSizeMake(70, 70)];
+    
+
+
 }
 
 
@@ -72,11 +82,30 @@
     
     if (indexPath.section == 0) {   //Me
         cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.section1 objectAtIndex:indexPath.row]];
+        
+        [cell.imageView setImage:self.Selfie];
+        [cell.imageView.layer setMasksToBounds:YES];
+        [cell.imageView.layer setCornerRadius:5];
+
+        
+        
     }else if (indexPath.section == 1) {
+        
+        NSString *imageName = nil;
+        if(indexPath.row == 0){
+            imageName = @"setting_tomato.png";
+        }else if(indexPath.row == 1){
+            imageName = @"setting_orange.png";
+        }else{
+            imageName = @"setting_carrot.png";
+        }
+        
+        [cell.imageView setImage:[UIImage imageNamed:imageName]];
         cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.section2 objectAtIndex:indexPath.row]];
     }else if (indexPath.section == 2) {//settings
         cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.section3 objectAtIndex:indexPath.row]];
         cell.detailTextLabel.text = @"Account, Feedback, Logout..";
+        [cell.imageView setImage:[UIImage imageNamed:@"setting_setting.png"]];
         
     }
 
@@ -94,7 +123,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        return 80;
+        return 94;
     }
     return 52;
 }

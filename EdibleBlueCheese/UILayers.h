@@ -13,5 +13,5 @@
 
 -(CALayer *)borderLayerWidth:(CGFloat) width andHeight:(CGFloat) height andBorderWidth:(CGFloat) bw andColor:(UIColor *) color;
 
-
+-(CAShapeLayer *)innerShadow:(CGRect)bounds andTopOffset:(CGFloat)top andBottomOffset:(CGFloat)bottom andLeftOffset:(CGFloat)left andRightOffset:(CGFloat)right;
 @end

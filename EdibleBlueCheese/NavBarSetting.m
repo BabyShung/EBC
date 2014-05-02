@@ -8,6 +8,9 @@
 
 #import "NavBarSetting.h"
 
+#define EDIBLE_BLUE [UIColor colorWithRed:(46/255.0) green:(181/255.0) blue:(231/255.0) alpha:1]
+#define EDIBLE_BLUE_DEEP [UIColor colorWithRed:(0/255.0) green:(149/255.0) blue:(198/255.0) alpha:1]
+#define EDIBLE_GRAY [UIColor colorWithRed:(248/255.0) green:(248/255.0) blue:(248/255.0) alpha:1]
 @implementation NavBarSetting
 
 
@@ -16,7 +19,9 @@
 	[tmp setTranslucent:NO];
 	
 	if ([tmp respondsToSelector:@selector(setBarTintColor:)]) {
-        [tmp setBarTintColor:[UIColor colorWithRed:(46/255.0) green:(181/255.0) blue:(231/255.0) alpha:1]];
+        [tmp setBarTintColor:EDIBLE_BLUE];
+        [[UITabBar appearance] setTintColor:EDIBLE_BLUE_DEEP];
+        //[[UITabBar appearance] setBarTintColor:EDIBLE_GRAY];
     }
 	
     // For better behavior set statusbar style to opaque on iOS < 7.0

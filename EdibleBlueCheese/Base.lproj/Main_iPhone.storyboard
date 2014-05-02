@@ -163,7 +163,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="dr1-cP-D1m">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="dr1-cP-D1m">
                                 <rect key="frame" x="0.0" y="55" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dr1-cP-D1m" id="XW9-fq-rGi">
@@ -292,10 +292,10 @@
             </objects>
             <point key="canvasLocation" x="2218" y="-1341"/>
         </scene>
-        <!--Collection View Controller - Collection-->
+        <!--Collection View Controller - Dicover-->
         <scene sceneID="2iv-Kh-8mb">
             <objects>
-                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="szg-vg-gAz" customClass="CollectionViewController" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="Nearby" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="szg-vg-gAz" customClass="CollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="O45-Ll-2Zn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -308,7 +308,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="exampleCell" id="Q4T-rT-hvs">
-                                <rect key="frame" x="4" y="68" width="154" height="154"/>
+                                <rect key="frame" x="4" y="4" width="154" height="154"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="154" height="154"/>
@@ -334,11 +334,11 @@
                             <outlet property="delegate" destination="szg-vg-gAz" id="hDY-Om-8Z1"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Collection" image="cafe.png" id="1oe-ap-Xd0"/>
+                    <tabBarItem key="tabBarItem" title="Dicover" image="cafe.png" id="1oe-ap-Xd0"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="omp-UT-xbK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="818" y="1587"/>
+            <point key="canvasLocation" x="1212" y="1597"/>
         </scene>
         <!--Table View Controller - Table-->
         <scene sceneID="nhx-xG-XkR">
@@ -372,7 +372,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Table" image="drink.png" id="O2N-j6-Gcb"/>
+                    <tabBarItem key="tabBarItem" title="Table" image="cafe.png" id="O2N-j6-Gcb"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="Edu-ke-xaR" id="hw1-Rc-ooE"/>
                         <outlet property="tableView" destination="Xpg-jY-ycY" id="x07-An-nRI"/>
@@ -433,7 +433,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Scroll" image="eat.png" id="z3y-iy-evF"/>
+                    <tabBarItem key="tabBarItem" title="Scroll" image="tabbar_eat.png" id="z3y-iy-evF"/>
                     <connections>
                         <outlet property="scrollView" destination="eXf-GS-2J3" id="8I4-BL-2c3"/>
                     </connections>
@@ -465,7 +465,7 @@
                             <outlet property="delegate" destination="WXd-nd-lEL" id="t4e-MJ-wKk"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Me" image="home.png" id="h5D-8W-QC5"/>
+                    <tabBarItem key="tabBarItem" title="Me" image="tabbar_me.png" id="h5D-8W-QC5"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EYY-5Z-763" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -486,13 +486,13 @@
                     <connections>
                         <segue destination="SGh-eD-MI5" kind="relationship" relationship="viewControllers" id="tlF-RD-fC2"/>
                         <segue destination="DGC-ao-nci" kind="relationship" relationship="viewControllers" id="2VH-Bc-VHQ"/>
-                        <segue destination="szg-vg-gAz" kind="relationship" relationship="viewControllers" id="MGH-jm-1US"/>
+                        <segue destination="5lb-fE-7vX" kind="relationship" relationship="viewControllers" id="X4J-Ht-lhD"/>
                         <segue destination="WXd-nd-lEL" kind="relationship" relationship="viewControllers" id="uGw-9e-FDg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cOx-1M-oG7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="203" y="880"/>
+            <point key="canvasLocation" x="245" y="874"/>
         </scene>
         <!--Password View Controller-->
         <scene sceneID="D2d-1T-h1s">
@@ -563,7 +563,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="FQg-gW-TAI">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="FQg-gW-TAI">
                                 <rect key="frame" x="0.0" y="55" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FQg-gW-TAI" id="6mM-je-c6F">
@@ -591,7 +591,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="4ev-1e-G34">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="4ev-1e-G34">
                                 <rect key="frame" x="0.0" y="55" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4ev-1e-G34" id="6yY-mo-WKQ">
@@ -610,13 +610,49 @@
             </objects>
             <point key="canvasLocation" x="1637" y="137"/>
         </scene>
+        <!--Discovery View Controller - Discover-->
+        <scene sceneID="fj2-gU-FiR">
+            <objects>
+                <collectionViewController storyboardIdentifier="Discover" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5lb-fE-7vX" customClass="DiscoveryViewController" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="WhX-ZS-XlZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.1463500707" green="0.163991686" blue="0.16764987240000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xec-o0-g2L">
+                            <size key="itemSize" width="314" height="80"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="LhD-SX-zFg" customClass="EdibleCollectionCell">
+                                <rect key="frame" x="3" y="64" width="314" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="314" height="80"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="5lb-fE-7vX" id="Fms-lT-1yR"/>
+                            <outlet property="delegate" destination="5lb-fE-7vX" id="eW0-Rf-g7Q"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Discover" image="discover.png" id="KJV-LS-RzB"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VqN-IR-Zi7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="803" y="1597"/>
+        </scene>
     </scenes>
     <resources>
         <image name="LoginDemo.jpg" width="542" height="960"/>
         <image name="cafe.png" width="35" height="35"/>
-        <image name="drink.png" width="35" height="35"/>
-        <image name="eat.png" width="35" height="35"/>
-        <image name="home.png" width="35" height="35"/>
+        <image name="discover.png" width="35" height="35"/>
+        <image name="tabbar_eat.png" width="35" height="35"/>
+        <image name="tabbar_me.png" width="35" height="35"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

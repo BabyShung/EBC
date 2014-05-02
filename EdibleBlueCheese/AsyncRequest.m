@@ -110,27 +110,16 @@
     
     NSLog(@"imageData ???  %@",imageData);
 
-    ///
-//    NSString *eg = @"373";
-//    NSData *egdata = [eg dataUsingEncoding:NSUTF8StringEncoding];
-//    const unsigned char *egbyte = [egdata bytes];
-//    NSUInteger length222 = [egdata length];
-//    NSMutableArray *byteArray222 = [NSMutableArray array];
-//    
-//    for (NSUInteger i = 0; i < length222; i++) {
-//        [byteArray222 addObject:[NSNumber numberWithUnsignedChar:egbyte[i]]];
-//        
-//    }
-//    ///
-//    NSLog(@"egdata ???  %@",egdata);
     
     const unsigned char *bytess = [[imageData base64EncodedDataWithOptions:NSUTF8StringEncoding] bytes]; // no need to copy the data
     NSUInteger length = [imageData length];
     NSMutableArray *byteArray = [NSMutableArray array];
 
     for (NSUInteger i = 0; i < length; i++) {
-        [byteArray addObject:[NSNumber numberWithUnsignedChar:bytess[i]]];
-     
+        
+        //[byteArray addObject:[NSNumber numberWithUnsignedChar:bytess[i]]];
+        [byteArray addObject:[NSString stringWithFormat:@"%d",bytess[i]]];
+        //[NSString stringWithFormat:@"%c",bytess[i]]
     }
 
     
