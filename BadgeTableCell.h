@@ -68,4 +68,7 @@
 @property (nonatomic, assign)       CGFloat badgeRightOffset;
 @property (nonatomic, TD_STRONG)    NSMutableArray *resizeableLabels;
 
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andisImageCell:(BOOL) isImageCell;
+
 @end

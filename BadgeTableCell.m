@@ -188,6 +188,17 @@
 
 @end
 
+/***************************
+ 
+ BadgeTableCell
+ 
+ ************************/
+@interface BadgeTableCell()
+
+@property (nonatomic) BOOL isImageCell;
+
+@end
+
 
 @implementation BadgeTableCell
 
@@ -204,11 +215,14 @@
 	return self;
 }
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andisImageCell:(BOOL) isImageCell
 {
 	if ((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]))
 	{
+        self.isImageCell = isImageCell;
 		[self configureSelf];
+        
+        
 	}
 	return self;
 }
@@ -324,7 +338,11 @@
 	{
 		[self.badge removeFromSuperview];
 	}
-	
+    
+	//!!!!!!!!!!!!!!!!! Hao
+    if(self.isImageCell)
+        self.imageView.frame = CGRectMake(self.imageView.frame.origin.x,10,70,70);
+   //
 }
 
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated

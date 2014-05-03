@@ -21,6 +21,8 @@
 #import "StorageFile.h"
 #import "User.h"
 
+#import "ImageProcessing.h"
+
 @interface ProfileViewController () <NSURLConnectionDataDelegate>
 {
     NSMutableData *webdata;
@@ -44,16 +46,22 @@
     
     NavBarSetting *navb = [[NavBarSetting alloc]init];
     
-    
+    //if no selfie, show the default one
     if(!user.Uselfie){
         self.Selfie.image = [[ImagePlaceholderHelper sharedInstance] placerholderAvatarWithSize:self.Selfie.frame.size];
     }else{
-        self.Selfie.image = [UIImage imageWithData:user.Uselfie];
+        ImageProcessing *ip = [[ImageProcessing alloc]init];
+        UIImage* fitImage = [ip scaleImage:[UIImage imageWithData:user.Uselfie] toSize:CGSizeMake(140, 140)];
+        self.Selfie.image = fitImage;
     }
     
     // [self.Cover fillWithPlaceholderImageAndText:@"Click to change cover" fillColor:[UIColor colorWithRed:0.861f green:0.791f blue:0.467f alpha:1.00f]];
     
+    
+    
     [self.Cover setImage:[UIImage imageNamed:@"mycover.jpg"]];
+    
+    
     
     //add layers to the image frame
     UILayers *uil = [[UILayers alloc]init];
@@ -62,8 +70,7 @@
     [self.Selfie.layer addSublayer:calayer];
     calayer = [uil borderLayerWidth:self.Selfie.frame.size.width andHeight:self.Selfie.frame.size.height andBorderWidth:0.3 andColor:[UIColor grayColor]];
     [self.Selfie.layer addSublayer:calayer];
-    
-    
+
     
     UITapGestureRecognizer *selfieTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selfieTapDetected)];
     selfieTap.numberOfTapsRequired = 1;
@@ -71,16 +78,8 @@
     [self.Selfie addGestureRecognizer:selfieTap];
     
     
-    //User *tmp = [User sharedInstance];
     
-    
-    //NSLog(@"**adasdasdasd**** %@",tmp.Uselfie);
-    
-     //[self.Selfie setImage:[UIImage imageWithData:tmp.Uselfie]];
-    //self.Selfie.image = [UIImage imageWithData:tmp.Uselfie];
-    
-    
-    
+    //new thread to init image picker
     dispatch_async(dispatch_get_main_queue(), ^{
         //init imageController
         self.imagePicker = [UIImagePickerController new];
@@ -90,8 +89,6 @@
         [navb setupNavBar:self.imagePicker.navigationBar];
         
     });
-    
-    
     
     self.UnameLabel.text = user.Uname;
     
@@ -133,8 +130,6 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    
-    
     NSLog(@"finished taking photo");
     
     //put the image
@@ -154,8 +149,12 @@
     CGImageRef ref= CGImageCreateWithImageInRect(rotatedCorrectly.CGImage, croppedRect);
     UIImage *tmpImage = [UIImage imageWithCGImage:ref];
     
+    
+    
+    ImageProcessing *ip = [[ImageProcessing alloc]init];
+    
     //resolution for iphone5
-    UIImage *finalImage = [self scaleImage:tmpImage toSize:CGSizeMake(640,1136)];
+    UIImage *finalImage = [ip scaleImage:tmpImage toSize:CGSizeMake(640,1136)];
     
     NSData *imgData = UIImageJPEGRepresentation(finalImage, 0);
     //NSLog(@"*****Size of Image(bytes):  %d",[imgData length]);
@@ -164,7 +163,7 @@
 
     
     //shrink size to 140*140 and show on our 70*70 imageView
-    UIImage *compressedImage = [self scaleImage:finalImage toSize:CGSizeMake(140,140)];
+    UIImage *compressedImage = [ip scaleImage:finalImage toSize:CGSizeMake(140,140)];
     [self.Selfie setImage:compressedImage];
    
     
@@ -183,36 +182,11 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
 
-    
-    //ip5 320 568,,,,ip4 320 480
-    
-    //different devices
-//    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
-//    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-//        if (screenSize.height > 480.0f) {
-//            /*Do iPhone 5 stuff here.*/
-//        } else {
-//            /*Do iPhone Classic stuff here.*/
-//
-//        }
-//    } else {
-//        /*Do iPad stuff here.*/
-//    }
-
-    
 }
 
 
--(UIImage *)scaleImage:(UIImage *)image toSize:(CGSize)newSize
-{
-    UIGraphicsBeginImageContext(newSize);
-    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return newImage;
-}
 
-
+//pop noti view
 - (IBAction)demoNotify:(id)sender {
     EdibleAlertView *popin = [[EdibleAlertView alloc] init];
     [popin setPopinTransitionStyle:BKTPopinTransitionStyleCrossDissolve];
@@ -255,22 +229,10 @@
     
     if([status boolValue]){
         //
-        
         User *user = [User sharedInstance];
         StorageFile *file = [[StorageFile alloc]init];
         [file storeAsLocalFile:user.Uselfie andFileName:@"user_selfie.jpg"];
     }
-    
 }
 
-
-
--(void)viewWillAppear:(BOOL)animated{
-    self.tabBarController.tabBar.hidden = YES;
-    
-}
-
--(void)viewWillDisappear:(BOOL)animated{
-    self.tabBarController.tabBar.hidden = NO;
-}
 @end

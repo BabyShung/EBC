@@ -15,6 +15,7 @@
 #import "User.h"
 #import "ImagePlaceholderHelper.h"
 #import "UILayers.h"
+#import "ImageProcessing.h"
 
 @interface MeViewController ()
 
@@ -48,13 +49,16 @@
     if(!user.Uselfie){
     self.Selfie =  [[ImagePlaceholderHelper sharedInstance] placerholderAvatarWithSize:CGSizeMake(70, 70)];
     }else{
-        self.Selfie = [UIImage imageWithData:user.Uselfie];
+        ImageProcessing *ip = [[ImageProcessing alloc]init];
+        UIImage *fitImage = [ip scaleImage:[UIImage imageWithData:user.Uselfie] toSize:CGSizeMake(140, 140)];
+        self.Selfie = fitImage;
     }
     
     
 
 
 }
+
 
 
 #pragma mark - Table view data source
@@ -85,7 +89,17 @@
     // Configure the cell...
     
     if (indexPath.section == 0) {   //Me
+        
+        //bad code, fix that later
+        cell = [[BadgeTableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier andisImageCell:YES];
+        
         cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.section1 objectAtIndex:indexPath.row]];
+        
+        
+        
+
+        
+        
         
         [cell.imageView setImage:self.Selfie];
         [cell.imageView.layer setMasksToBounds:YES];
@@ -127,6 +141,9 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
+
+
+        
         return 94;
     }
     return 52;
@@ -164,18 +181,30 @@
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     BadgeTableCell *cell = (BadgeTableCell*)[self.tableView cellForRowAtIndexPath:indexPath];
     
+
+    
+    
     
     User *user = [User sharedInstance];
     
-    UIImage *uselfie = [UIImage imageWithData:user.Uselfie];
+    UIImage *fitImage = nil;
+    if(user.Uselfie){
+        ImageProcessing *ip = [[ImageProcessing alloc]init];
+        fitImage = [ip scaleImage:[UIImage imageWithData:user.Uselfie] toSize:CGSizeMake(140, 140)];
+        
+    }
+    
+    
     
     if(![cell.textLabel.text isEqualToString:user.Uname]){
         cell.textLabel.text = user.Uname;
         [cell.textLabel sizeToFit];
     }
-    if(cell.imageView.image != uselfie){
-        [cell.imageView setImage:uselfie];
-        self.Selfie = uselfie;
+    if(cell.imageView.image != fitImage){
+        
+        
+        [cell.imageView setImage:fitImage];
+        self.Selfie = fitImage;
     }
     
     
