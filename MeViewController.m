@@ -45,8 +45,12 @@
     self.menu = [NSArray arrayWithObjects:self.section1, self.section2,self.section3, nil];
 
     
-    
+    if(!user.Uselfie){
     self.Selfie =  [[ImagePlaceholderHelper sharedInstance] placerholderAvatarWithSize:CGSizeMake(70, 70)];
+    }else{
+        self.Selfie = [UIImage imageWithData:user.Uselfie];
+    }
+    
     
 
 
@@ -163,9 +167,15 @@
     
     User *user = [User sharedInstance];
     
+    UIImage *uselfie = [UIImage imageWithData:user.Uselfie];
+    
     if(![cell.textLabel.text isEqualToString:user.Uname]){
         cell.textLabel.text = user.Uname;
         [cell.textLabel sizeToFit];
+    }
+    if(cell.imageView.image != uselfie){
+        [cell.imageView setImage:uselfie];
+        self.Selfie = uselfie;
     }
     
     

@@ -71,7 +71,7 @@ static User *_sharedInstance = nil;
 
 - (NSString *)description   //toString description
 {
-	NSString *desc  = [NSString stringWithFormat:@"Uid: %@,Uname: %@,Utype: %lu,Uselfie: %@", self.Uid, self.Uname, (unsigned long)self.Utype, self.Uselfie];
+	NSString *desc  = [NSString stringWithFormat:@"Uid: %@, Uname: %@, Utype: %lu, Uselfie: %@", self.Uid, self.Uname, (unsigned long)self.Utype, self.Uselfie];
 	
 	return desc;
 }

@@ -339,27 +339,27 @@
             NSLog(@"Uselfie-------  %@",uselfie);
             
             
-            unsigned c = uselfie.count;
-            uint8_t *bytes = malloc(sizeof(*bytes) * c);
-            
-            unsigned i;
-            for (i = 0; i < c; i++)
-            {
-                NSString *str = [uselfie objectAtIndex:i];
-                int byte = [str intValue];
-                bytes[i] = byte;
-            }
-            
-            NSData *imageData = [NSData dataWithBytesNoCopy:bytes length:c freeWhenDone:YES];
-            UIImage *image = [UIImage imageWithData:imageData];
+//            unsigned c = uselfie.count;
+//            uint8_t *bytes = malloc(sizeof(*bytes) * c);
+//            
+//            unsigned i;
+//            for (i = 0; i < c; i++)
+//            {
+//                NSString *str = [uselfie objectAtIndex:i];
+//                int byte = [str intValue];
+//                bytes[i] = byte;
+//            }
+//            
+//            NSData *imageData = [NSData dataWithBytesNoCopy:bytes length:c freeWhenDone:YES];
+//            UIImage *image = [UIImage imageWithData:imageData];
             
             
             
             
             //init the sharedInstance
-            User *user = [User sharedInstanceWithUid:uid andUname:uname andUpwd:self.HashedPwd andUtype:[utype integerValue]   andUselfie:imageData];
+            User *user = [User sharedInstanceWithUid:uid andUname:uname andUpwd:self.HashedPwd andUtype:[utype integerValue]   andUselfie:nil];
             if(!user){//no sharedInstance
-                user = [User cheatingWithUid:uid andUname:uname andUpwd:self.HashedPwd andUtype:[utype integerValue]   andUselfie:imageData];
+                user = [User cheatingWithUid:uid andUname:uname andUpwd:self.HashedPwd andUtype:[utype integerValue]   andUselfie:nil];
             }
             
 

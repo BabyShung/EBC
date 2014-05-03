@@ -8,6 +8,7 @@
 
 #import "DBOperations_User.h"
 
+#import "StorageFile.h"
 
 @implementation DBOperations_User
 
@@ -95,12 +96,19 @@
         NSString* uid = [NSString stringWithUTF8String:(char *)sqlite3_column_text(stm, 0)];
         NSString* uname = [NSString stringWithUTF8String:(char *)sqlite3_column_text(stm, 1)];
         NSString* upwd = [NSString stringWithUTF8String:(char *)sqlite3_column_text(stm, 2)];
-        NSUInteger utype = sqlite3_column_int(stm, 3);
-        //NSString* uselfie = [NSString stringWithUTF8String:(char *)sqlite3_column_text(stm, 4)];
         
+        
+        
+        NSString* imageName = sqlite3_column_text(stm, 3)?[NSString stringWithUTF8String:(char *)sqlite3_column_text(stm, 3)]:nil;
+        NSUInteger utype = sqlite3_column_int(stm, 4);
+       
+        NSLog(@"image name------------- %@",imageName);
+        
+        StorageFile *sf = [[StorageFile alloc]init];
+        NSData* uselfieData = [sf readDataFromLocalDocument:imageName];
+
         //*** important, init first time for singleton
-        tmp = [User sharedInstanceWithUid:uid andUname:uname andUpwd:upwd andUtype:utype andUselfie:nil];
-        
+        tmp = [User sharedInstanceWithUid:uid andUname:uname andUpwd:upwd andUtype:utype andUselfie:uselfieData];
     }
     return tmp;
 }

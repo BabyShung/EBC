@@ -18,7 +18,7 @@
 
 #import "AsyncRequest.h"
 
-
+#import "StorageFile.h"
 #import "User.h"
 
 @interface ProfileViewController () <NSURLConnectionDataDelegate>
@@ -40,10 +40,16 @@
     
     webdata = [[NSMutableData alloc]init];
     
+    User *user = [User sharedInstance];
     
     NavBarSetting *navb = [[NavBarSetting alloc]init];
     
-    self.Selfie.image = [[ImagePlaceholderHelper sharedInstance] placerholderAvatarWithSize:self.Selfie.frame.size];
+    
+    if(!user.Uselfie){
+        self.Selfie.image = [[ImagePlaceholderHelper sharedInstance] placerholderAvatarWithSize:self.Selfie.frame.size];
+    }else{
+        self.Selfie.image = [UIImage imageWithData:user.Uselfie];
+    }
     
     // [self.Cover fillWithPlaceholderImageAndText:@"Click to change cover" fillColor:[UIColor colorWithRed:0.861f green:0.791f blue:0.467f alpha:1.00f]];
     
@@ -85,7 +91,7 @@
         
     });
     
-    User *user = [User sharedInstance];
+    
     
     self.UnameLabel.text = user.Uname;
     
@@ -161,6 +167,10 @@
     UIImage *compressedImage = [self scaleImage:finalImage toSize:CGSizeMake(140,140)];
     [self.Selfie setImage:compressedImage];
    
+    
+    User *user = [User sharedInstance];
+    user.Uselfie = imgData;
+    
     
     //another thread to send image to server
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -242,7 +252,18 @@
     NSLog(@"selfie status --- -- -   %d",[status boolValue]);
     NSLog(@"selfie log --- -- -   %@",log);
     
+    
+    if([status boolValue]){
+        //
+        
+        User *user = [User sharedInstance];
+        StorageFile *file = [[StorageFile alloc]init];
+        [file storeAsLocalFile:user.Uselfie andFileName:@"user_selfie.jpg"];
+    }
+    
 }
+
+
 
 -(void)viewWillAppear:(BOOL)animated{
     self.tabBarController.tabBar.hidden = YES;

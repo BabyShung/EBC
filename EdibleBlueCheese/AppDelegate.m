@@ -38,7 +38,7 @@
     DBOperations_User *dbo = [[DBOperations_User alloc]init];
     
     //init the static shared instance in memory
-    User *user = [dbo FetchAUser:@"SELECT uid,uname,upwd from User where primaryUser = 1"];
+    User *user = [dbo FetchAUser:@"SELECT uid,uname,upwd,uselfie,utype from User where primaryUser = 1"];
     NSLog(@"user exist?  %@",user);
 
     

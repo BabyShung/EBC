@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B80129EB191437DE007D2F6B /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B80129EA191437DE007D2F6B /* NavigationViewController.m */; };
+		B8012A351914B09F007D2F6B /* StorageFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B8012A341914B09F007D2F6B /* StorageFile.m */; };
 		B8157CC4190EEB3900C3BE8C /* edi_md5.m in Sources */ = {isa = PBXBuildFile; fileRef = B8157CC3190EEB3900C3BE8C /* edi_md5.m */; };
 		B8157CCA191013C800C3BE8C /* FindContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8157CC9191013C800C3BE8C /* FindContactsViewController.m */; };
 		B8738B7619046C740044FD42 /* ScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8738B6F19046C740044FD42 /* ScrollViewController.m */; };
@@ -134,6 +135,8 @@
 /* Begin PBXFileReference section */
 		B80129E9191437DE007D2F6B /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
 		B80129EA191437DE007D2F6B /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
+		B8012A331914B09F007D2F6B /* StorageFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorageFile.h; sourceTree = "<group>"; };
+		B8012A341914B09F007D2F6B /* StorageFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorageFile.m; sourceTree = "<group>"; };
 		B8157CC2190EEB3900C3BE8C /* edi_md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = edi_md5.h; sourceTree = "<group>"; };
 		B8157CC3190EEB3900C3BE8C /* edi_md5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = edi_md5.m; sourceTree = "<group>"; };
 		B8157CC8191013C800C3BE8C /* FindContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindContactsViewController.h; sourceTree = "<group>"; };
@@ -524,6 +527,8 @@
 			children = (
 				B8E1D5FF190C68C600CB8C1C /* User.h */,
 				B8E1D600190C68C600CB8C1C /* User.m */,
+				B8012A331914B09F007D2F6B /* StorageFile.h */,
+				B8012A341914B09F007D2F6B /* StorageFile.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -848,6 +853,7 @@
 				B8FA45C318F5D8ED007DA680 /* UIViewController+MaryPopin.m in Sources */,
 				B8AAF32718F4846100D287A3 /* ProfileViewController.m in Sources */,
 				B8B69D6619108E4700DEF80A /* SearchResultViewController.m in Sources */,
+				B8012A351914B09F007D2F6B /* StorageFile.m in Sources */,
 				B8157CCA191013C800C3BE8C /* FindContactsViewController.m in Sources */,
 				B8AAF37618F48E4C00D287A3 /* SQLConnector.m in Sources */,
 				B8AAF31C18F47F5B00D287A3 /* LoginRegisterForm.m in Sources */,
