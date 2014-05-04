@@ -60,7 +60,7 @@
     
     if (indexPath.row == 0) {
         
-        titleName = @"Nearby Restaurant";
+        titleName = @"Nearby Restaurants";
         imageName = @"discover_restaurant.jpg";
     }else if (indexPath.row == 1){
         titleName = @"My Cards";

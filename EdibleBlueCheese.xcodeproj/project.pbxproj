@@ -11,6 +11,8 @@
 		B8012A3B191580D5007D2F6B /* ImageProcessing.m in Sources */ = {isa = PBXBuildFile; fileRef = B8012A3A191580D5007D2F6B /* ImageProcessing.m */; };
 		B8012AAF1916CA61007D2F6B /* OtherProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8012AAE1916CA61007D2F6B /* OtherProfileViewController.m */; };
 		B8012AB51916D897007D2F6B /* Profiler.m in Sources */ = {isa = PBXBuildFile; fileRef = B8012AB41916D897007D2F6B /* Profiler.m */; };
+		B8012AB91916E40C007D2F6B /* XYZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8012AB81916E40C007D2F6B /* XYZViewController.m */; };
+		B8012ABB1916E41E007D2F6B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8012ABA1916E41E007D2F6B /* AVFoundation.framework */; };
 		B8157CC4190EEB3900C3BE8C /* edi_md5.m in Sources */ = {isa = PBXBuildFile; fileRef = B8157CC3190EEB3900C3BE8C /* edi_md5.m */; };
 		B8157CCA191013C800C3BE8C /* FindContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8157CC9191013C800C3BE8C /* FindContactsViewController.m */; };
 		B8738B7619046C740044FD42 /* ScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8738B6F19046C740044FD42 /* ScrollViewController.m */; };
@@ -143,6 +145,9 @@
 		B8012AAE1916CA61007D2F6B /* OtherProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherProfileViewController.m; sourceTree = "<group>"; };
 		B8012AB31916D897007D2F6B /* Profiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profiler.h; sourceTree = "<group>"; };
 		B8012AB41916D897007D2F6B /* Profiler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profiler.m; sourceTree = "<group>"; };
+		B8012AB71916E40C007D2F6B /* XYZViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZViewController.h; sourceTree = "<group>"; };
+		B8012AB81916E40C007D2F6B /* XYZViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZViewController.m; sourceTree = "<group>"; };
+		B8012ABA1916E41E007D2F6B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B8157CC2190EEB3900C3BE8C /* edi_md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = edi_md5.h; sourceTree = "<group>"; };
 		B8157CC3190EEB3900C3BE8C /* edi_md5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = edi_md5.m; sourceTree = "<group>"; };
 		B8157CC8191013C800C3BE8C /* FindContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindContactsViewController.h; sourceTree = "<group>"; };
@@ -305,6 +310,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8012ABB1916E41E007D2F6B /* AVFoundation.framework in Frameworks */,
 				B8E1D5EB190C1C7300CB8C1C /* QuartzCore.framework in Frameworks */,
 				B8AAF37818F48E8D00D287A3 /* libsqlite3.0.dylib in Frameworks */,
 				B8AAF2E218F4547900D287A3 /* CoreGraphics.framework in Frameworks */,
@@ -363,6 +369,7 @@
 		B8AAF2DE18F4547900D287A3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B8012ABA1916E41E007D2F6B /* AVFoundation.framework */,
 				B8E1D5EA190C1C7300CB8C1C /* QuartzCore.framework */,
 				B8AAF37718F48E8D00D287A3 /* libsqlite3.0.dylib */,
 				B8AAF2DF18F4547900D287A3 /* Foundation.framework */,
@@ -379,6 +386,8 @@
 				B8738B9F1906CE730044FD42 /* Settings */,
 				B8BC422219034DEC00485705 /* Tmp */,
 				B8AAF2F118F4547900D287A3 /* Main_iPhone.storyboard */,
+				B8012AB71916E40C007D2F6B /* XYZViewController.h */,
+				B8012AB81916E40C007D2F6B /* XYZViewController.m */,
 				B8012AAD1916CA61007D2F6B /* OtherProfileViewController.h */,
 				B8012AAE1916CA61007D2F6B /* OtherProfileViewController.m */,
 				B8D1CAB318FE0326001AFA11 /* AsyncRequest.h */,
@@ -863,6 +872,7 @@
 				B8738B7719046C740044FD42 /* NavBarSetting.m in Sources */,
 				B8FA45C318F5D8ED007DA680 /* UIViewController+MaryPopin.m in Sources */,
 				B8AAF32718F4846100D287A3 /* ProfileViewController.m in Sources */,
+				B8012AB91916E40C007D2F6B /* XYZViewController.m in Sources */,
 				B8B69D6619108E4700DEF80A /* SearchResultViewController.m in Sources */,
 				B8012A351914B09F007D2F6B /* StorageFile.m in Sources */,
 				B8157CCA191013C800C3BE8C /* FindContactsViewController.m in Sources */,

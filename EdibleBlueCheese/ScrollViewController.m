@@ -25,7 +25,7 @@
 	
     
     UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 160, 320, 40)];
-	[label setText:@"Hello"];
+	[label setText:[NSString stringWithFormat:@"Hello"]];
 	[label setTextAlignment:NSTextAlignmentCenter];
 	[label setFont:[UIFont fontWithName:@"Heiti TC" size:24]];
 	[label setTextColor:[UIColor blackColor]];

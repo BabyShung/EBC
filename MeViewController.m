@@ -25,7 +25,7 @@
 @property (strong, nonatomic) NSArray *section3;
 
 @property (strong, nonatomic) UIImage *Selfie;
-
+@property (strong, nonatomic) NSData *SelfieData;
 
 @end
 
@@ -48,10 +48,14 @@
     
     if(!user.Uselfie){
     self.Selfie =  [[ImagePlaceholderHelper sharedInstance] placerholderAvatarWithSize:CGSizeMake(70, 70)];
+    
+        self.SelfieData = UIImageJPEGRepresentation(self.Selfie, 0.0);
+    
     }else{
         ImageProcessing *ip = [[ImageProcessing alloc]init];
         UIImage *fitImage = [ip scaleImage:[UIImage imageWithData:user.Uselfie] toSize:CGSizeMake(140, 140)];
         self.Selfie = fitImage;
+        self.SelfieData = user.Uselfie;
     }
     
     
@@ -180,10 +184,32 @@
     User *user = [User sharedInstance];
     
     UIImage *fitImage = nil;
-    if(user.Uselfie){
-        ImageProcessing *ip = [[ImageProcessing alloc]init];
-        fitImage = [ip scaleImage:[UIImage imageWithData:user.Uselfie] toSize:CGSizeMake(140, 140)];
+    if(user.Uselfie){//if selfie exists,might just take a photo from profile VC, it will be new
         
+
+        
+        
+        
+        
+        
+        if(self.SelfieData != user.Uselfie){
+            NSLog(@"not equal --- - --- -- ");
+            
+            ImageProcessing *ip = [[ImageProcessing alloc]init];
+            fitImage = [ip scaleImage:[UIImage imageWithData:user.Uselfie] toSize:CGSizeMake(140, 140)];
+            
+            [cell.imageView setImage:fitImage];
+            self.Selfie = fitImage;
+            self.SelfieData = user.Uselfie;
+        }else
+            NSLog(@" equal --- - --- -- ");
+        
+    }else{//for logout and login again
+        self.Selfie = [[ImagePlaceholderHelper sharedInstance] placerholderAvatarWithSize:CGSizeMake(70, 70)];
+        
+        self.SelfieData = UIImageJPEGRepresentation(self.Selfie, 0.0);
+        
+        [cell.imageView setImage:self.Selfie];
     }
     
     
@@ -192,12 +218,7 @@
         cell.textLabel.text = user.Uname;
         [cell.textLabel sizeToFit];
     }
-    if(cell.imageView.image != fitImage){
-        
-        
-        [cell.imageView setImage:fitImage];
-        self.Selfie = fitImage;
-    }
+
     
     
 }
