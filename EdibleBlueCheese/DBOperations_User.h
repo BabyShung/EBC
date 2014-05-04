@@ -22,4 +22,6 @@
 
 -(User *)FetchAUser:(NSString *)sql;
 
+-(NSString *)FetchOneField:(NSString *)sql;
+
 @end

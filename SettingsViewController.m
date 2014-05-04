@@ -120,18 +120,26 @@
              
              ************************/
             
+           
             
             //write primary to account
             DBOperations_User *dbo = [[DBOperations_User alloc]init];
             User *user = [User sharedInstance];
+            
+            NSLog(@"==========Logging out, release resources==========");
+            
+            NSLog(@"%@",dbo.sqlc);
+            
+            NSLog(@"before: user  %@ ",user);
+            
             [dbo execute:[NSString stringWithFormat:@"UPDATE User SET primaryUser = 0 WHERE uid = '%@'",user.Uid]];
    
             
             
-            NSLog(@"==========Logging out, release resources==========");
-            
             //set sharedInstance to nil
-            [User setTONil];
+            user = [User setTONil];
+            NSLog(@"==========Logging out, release resources==========");
+            NSLog(@"after: user  %@ ",user);
             
             
             /************************************

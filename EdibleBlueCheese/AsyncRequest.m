@@ -108,7 +108,6 @@
     //shared instance from memory!!!!
     User *user = [User sharedInstance];
     
-    NSLog(@"imageData ???  %@",imageData);
 
     
     const unsigned char *bytess = [[imageData base64EncodedDataWithOptions:NSUTF8StringEncoding] bytes]; // no need to copy the data

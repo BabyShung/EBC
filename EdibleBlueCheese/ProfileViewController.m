@@ -231,7 +231,7 @@
         //
         User *user = [User sharedInstance];
         StorageFile *file = [[StorageFile alloc]init];
-        [file storeAsLocalFile:user.Uselfie andFileName:@"user_selfie.jpg"];
+        [file storeAsLocalFile:user.Uselfie andFileName:[NSString stringWithFormat:@"%@_uselfie.jpg",user.Uid]];
     }
 }
 

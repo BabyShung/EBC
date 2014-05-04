@@ -399,10 +399,10 @@
             </objects>
             <point key="canvasLocation" x="818" y="880"/>
         </scene>
-        <!--Navigation View Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="rK3-Ne-UDk">
             <objects>
-                <navigationController storyboardIdentifier="Navigation" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Saf-fJ-qBe" customClass="NavigationViewController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Navigation" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Saf-fJ-qBe" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ajy-gN-tn1">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

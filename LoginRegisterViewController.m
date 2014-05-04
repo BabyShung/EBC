@@ -19,6 +19,8 @@
 #import "DBOperations_User.h"
 
 #import "edi_md5.h"
+#import "StorageFile.h"
+
 
 #define EmailPlaceHolder @"Email"
 #define UserNamePlaceHolder @"Username"
@@ -70,7 +72,7 @@
     
     webdata = [[NSMutableData alloc]init];
     
-
+    
     
 }
 
@@ -138,7 +140,7 @@
         self.myActionSheet.pwdTextField.text = self.cr_n;
         self.myActionSheet.usernameTextField.text = self.cr_p;
     }
-
+    
     
     self.myActionSheet.emailTextField.delegate = self;
     self.myActionSheet.pwdTextField.delegate = self;
@@ -181,18 +183,18 @@
         }else if(textField == self.myActionSheet.pwdTextField){
             self.lr_p = self.myActionSheet.pwdTextField.text;
         }
-
+        
     }else{
+        
+        if(textField == self.myActionSheet.emailTextField){
+            self.cr_e = self.myActionSheet.emailTextField.text;
+        }else if(textField == self.myActionSheet.usernameTextField){
+            self.cr_n = self.myActionSheet.usernameTextField.text;
+        }
+        else if(textField == self.myActionSheet.pwdTextField)
+            self.cr_p = self.myActionSheet.pwdTextField.text;
+    }
     
-    if(textField == self.myActionSheet.emailTextField){
-        self.cr_e = self.myActionSheet.emailTextField.text;
-    }else if(textField == self.myActionSheet.usernameTextField){
-       self.cr_n = self.myActionSheet.usernameTextField.text;
-    }
-    else if(textField == self.myActionSheet.pwdTextField)
-       self.cr_p = self.myActionSheet.pwdTextField.text;
-    }
-
 }
 
 /************************************
@@ -230,11 +232,11 @@
             edi_md5 *edimd5 = [[edi_md5 alloc]init];
             self.HashedPwd = [edimd5 md5:self.myActionSheet.pwdTextField.text];
             
-         
+            
             //passing the parameters, request should send hashedPWD***
             AsyncRequest *lr = [[AsyncRequest alloc]init];
             [lr loginRegisterAccount:self.myActionSheet.emailTextField.text andUsernam:self.myActionSheet.usernameTextField.text andPwd:self.HashedPwd andSELF:self];
-          
+            
         });
         
     }else{  //failure
@@ -333,44 +335,46 @@
             NSString *uid = [returnJSONtoNSdict objectForKey:@"uid"];
             NSString *uname = [returnJSONtoNSdict objectForKey:@"uname"];
             NSString *utype = [returnJSONtoNSdict objectForKey:@"utype"];
-            NSMutableArray *uselfie = [returnJSONtoNSdict objectForKey:@"uselfie"];
+            
+            //NSMutableArray *uselfie = [returnJSONtoNSdict objectForKey:@"uselfie"];
+            
             //NSString *ucreate_time = [returnJSONtoNSdict objectForKey:@"ucreate_time"];
-            
-            NSLog(@"Uselfie-------  %@",uselfie);
-            
-            
-//            unsigned c = uselfie.count;
-//            uint8_t *bytes = malloc(sizeof(*bytes) * c);
-//            
-//            unsigned i;
-//            for (i = 0; i < c; i++)
-//            {
-//                NSString *str = [uselfie objectAtIndex:i];
-//                int byte = [str intValue];
-//                bytes[i] = byte;
-//            }
-//            
-//            NSData *imageData = [NSData dataWithBytesNoCopy:bytes length:c freeWhenDone:YES];
-//            UIImage *image = [UIImage imageWithData:imageData];
-            
-            
-            
-            
-            //init the sharedInstance
-            User *user = [User sharedInstanceWithUid:uid andUname:uname andUpwd:self.HashedPwd andUtype:[utype integerValue]   andUselfie:nil];
-            if(!user){//no sharedInstance
-                user = [User cheatingWithUid:uid andUname:uname andUpwd:self.HashedPwd andUtype:[utype integerValue]   andUselfie:nil];
-            }
+   
             
 
+            
             [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
             
             
             //write primary to account
             DBOperations_User *dbo = [[DBOperations_User alloc]init];
-            [dbo execute:[NSString stringWithFormat:@"INSERT OR REPLACE INTO User (uid,uname,upwd,primaryUser,last_ts) VALUES ('%@','%@','%@',1,datetime('now','localtime'))",user.Uid,user.Uname,self.HashedPwd]];
+            BOOL exists = [dbo HelperReturnBool:[NSString stringWithFormat:@"SELECT uid from User WHERE uid = '%@'",uid]];
+            if(!exists){
+                [dbo execute:[NSString stringWithFormat:@"INSERT INTO User (uid,uname,upwd,primaryUser,last_ts) VALUES ('%@','%@','%@',1,datetime('now','localtime'))",uid,uname,self.HashedPwd]];
+                NSLog(@"Register into DB!!!!!");
+                
+            }
+            else{
+                [dbo execute:[NSString stringWithFormat:@"UPDATE User SET uname= '%@', primaryUser = 1,last_ts = datetime('now','localtime') WHERE uid = '%@'",uname,uid]];
+                NSLog(@"Login into DB!!!!!");
+                
+            }
             
+            NSLog(@"********77");
+            NSString *field = [dbo FetchOneField:[NSString stringWithFormat:@"SELECT uselfie from User WHERE uid = '%@'",uid]];
+            NSData* uselfieData = nil;
+            if(field){
+                StorageFile *sf = [[StorageFile alloc]init];
+                uselfieData = [sf readDataFromLocalDocument:field];
+            }
+            NSLog(@"********88");
+            //init shared instance (first time,can be reg/login)
+            User* user = [User sharedInstanceWithUid:uid andUname:uname andUpwd:self.HashedPwd andUtype:[utype integerValue]   andUselfie:uselfieData];
+            if(!user){//logout and reg/login again
+                user = [User cheatingWithUid:uid andUname:uname andUpwd:self.HashedPwd andUtype:[utype integerValue]   andUselfie:uselfieData];
+            }
             
+            NSLog(@"User in: %@",user);
             
             //stop the animation
             if(self.loadingImage)

@@ -110,8 +110,33 @@
         //*** important, init first time for singleton
         tmp = [User sharedInstanceWithUid:uid andUname:uname andUpwd:upwd andUtype:utype andUselfie:uselfieData];
     }
+    
+
     return tmp;
 }
+
+
+-(NSString *)FetchOneField:(NSString *)sql
+{
+    sqlite3_stmt *stm = nil;
+    
+    if (stm == nil)
+    {
+		if (sqlite3_prepare_v2([self.sqlc database], [sql UTF8String], -1, &stm, NULL) != SQLITE_OK)
+        {
+			NSAssert1(0, @"!Error: failed to prepare statement with message '%s'.", sqlite3_errmsg([self.sqlc database]));
+		}
+	}
+    
+    NSString* field = nil;
+    while (sqlite3_step(stm) == SQLITE_ROW)
+	{
+        field = sqlite3_column_text(stm, 0)?[NSString stringWithUTF8String:(char *)sqlite3_column_text(stm, 0)]:nil;
+
+    }
+    return field;
+}
+
 
 -(void)dealloc
 {
