@@ -68,7 +68,7 @@
     if (indexPath.section == 0) {
         cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.section1 objectAtIndex:indexPath.row]];
         cell.badgeString = self.user.Uid;
-        
+        cell.badgeColor = [UIColor blackColor];
         
         NSLog(@"^^^^^ %@", self.user);
          NSLog(@"^^^^^ %@", self.user.Uid);

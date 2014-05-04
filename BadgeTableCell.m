@@ -215,6 +215,16 @@
 	return self;
 }
 
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+	if ((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]))
+	{
+		[self configureSelf];
+	}
+	return self;
+}
+
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andisImageCell:(BOOL) isImageCell
 {
 	if ((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]))
