@@ -65,20 +65,13 @@
  search user
  
  ******************/
--(void)searchUser:(NSString*)oldpwd andNextPwd:(NSString*)nextpwd andConfirmPwd:(NSString*)confirmpwd andSELF:(id)selfy{
+-(void)searchUser:(NSString*)nameORid andSELF:(id)selfy{
     
-    //ready to md5 all the passwords
-//    edi_md5* edimd5 = [[edi_md5 alloc]init];
-//    
-//    
-//    
-//    //shared instance from memory!!!!
-//    User *user = [User sharedInstance];
-//    NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:user.Uid, @"uid",[edimd5 md5:oldpwd], @"old_upwd", [edimd5 md5:nextpwd], @"new_upwd", [edimd5 md5:confirmpwd], @"new_upwd_retype", nil];
-//    NSURL *url = [NSURL URLWithString:changePASSWORD];
-//    
-//    [self performAsyncTask:selfy andDictionary:dict andURL:url];
-//    
+    NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:nameORid, @"request", nil];
+    NSURL *url = [NSURL URLWithString:searchUSER];
+    
+    [self performAsyncTask:selfy andDictionary:dict andURL:url];
+    
     
 }
 

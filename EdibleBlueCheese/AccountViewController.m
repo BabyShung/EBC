@@ -57,9 +57,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    
-    BadgeTableCell *cell = [[BadgeTableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+
+    BadgeTableCell *cell = [[BadgeTableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
     
     // Configure the cell...
     FontSettings* cs = [[FontSettings alloc]init];
@@ -69,6 +68,11 @@
     if (indexPath.section == 0) {
         cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.section1 objectAtIndex:indexPath.row]];
         cell.badgeString = self.user.Uid;
+        
+        
+        NSLog(@"^^^^^ %@", self.user);
+         NSLog(@"^^^^^ %@", self.user.Uid);
+        NSLog(@"^^^^^ %@", [User sharedInstance]);
         
         //.....
         cell.userInteractionEnabled = NO;//disable this cell

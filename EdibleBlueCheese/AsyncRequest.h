@@ -22,5 +22,9 @@
 //update selfie
 -(void)changeSelfie_Selfie:(NSData *) imageData andSELF:(id)selfy;
 
+//search user
+-(void)searchUser:(NSString*)nameORid andSELF:(id)selfy;
+
+
 
 @end

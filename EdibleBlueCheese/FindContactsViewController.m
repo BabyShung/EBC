@@ -10,9 +10,16 @@
 #import "User.h"
 #import "BadgeTableCell.h"
 #import "FontSettings.h"
+#import "UIAlertView+Blocks.h"
+#import "SearchResultViewController.h"
 
-@interface FindContactsViewController () <UITextFieldDelegate>
+#import "AsyncRequest.h"
 
+
+@interface FindContactsViewController () <UITextFieldDelegate, NSURLConnectionDataDelegate>
+{
+    NSMutableData *webdata;
+}
 @property (strong, nonatomic) NSArray *menu;
 @property (strong, nonatomic) NSArray *section1;
 @property (strong, nonatomic) NSArray *section2;
@@ -30,6 +37,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    webdata = [[NSMutableData alloc]init];
+
     
     self.user = [User sharedInstance];
     
@@ -149,7 +159,7 @@
     
     [self searchUsers:textField.text];
     
-    
+    [textField resignFirstResponder];
     
     return NO;
 }
@@ -157,7 +167,9 @@
 -(void)searchUsers:(NSString*)name{
     
     //perform async task
+    AsyncRequest *async = [[AsyncRequest alloc]init];
     
+    [async searchUser:name andSELF:self];
     
     //success -> push to result view
     
@@ -167,21 +179,58 @@
 }
 
 
-//- (void)singleTap:(UITapGestureRecognizer *)sender {
-//    
-//    CGPoint tapLocation = [sender locationInView:self.view];
-//    NSLog(@"Tap location X:%1.0f, Y:%1.0f", tapLocation.x, tapLocation.y);
-//    
-//    // If menu is open, and the tap is outside of the menu, close it.
-//    if (!CGRectContainsPoint(self.searchBox.frame, tapLocation)) {
-//        [self.searchBox resignFirstResponder];
-//    }
-//
-//}
+/****************************************
+ 
+ delegate methods for networkConnection
+ 
+ ****************************************/
 
 
-//UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
-//[self.view addGestureRecognizer:tap];
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
+    [webdata setLength:0];
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
+    [webdata appendData:data];
+}
+
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops.." message:@"Network problem..please try again." delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+    [alert show];
+}
+
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection{
+    NSDictionary *returnJSONtoNSdict = [NSJSONSerialization JSONObjectWithData:webdata options:0 error:nil];
+    
+    
+    id status = [returnJSONtoNSdict objectForKey:@"status"];
+    NSString *log = [returnJSONtoNSdict objectForKey:@"log"];
+    NSMutableArray *users = [returnJSONtoNSdict objectForKey:@"results"];
+    NSLog(@"find contacts status --- -- -   %d",[status boolValue]);
+    NSLog(@"log --- -- -   %@",log);
+    NSLog(@"results --- -- -   %@",users);
+
+    if([status boolValue]){
+    
+        SearchResultViewController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchResult"];
+        [self.navigationController pushViewController:svc animated:YES];
+        
+        
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"User not exists" message:@"User not found. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+
+        
+        [alert showWithHandler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+            
+            [self.searchBox becomeFirstResponder];
+        }];
+        
+
+    }
+}
+
+
 
 
 @end
