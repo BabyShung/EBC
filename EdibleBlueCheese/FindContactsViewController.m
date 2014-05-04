@@ -209,11 +209,12 @@
     NSMutableArray *users = [returnJSONtoNSdict objectForKey:@"results"];
     NSLog(@"find contacts status --- -- -   %d",[status boolValue]);
     NSLog(@"log --- -- -   %@",log);
-    NSLog(@"results --- -- -   %@",users);
+
 
     if([status boolValue]){
-    
+
         SearchResultViewController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchResult"];
+        svc.users = users;
         [self.navigationController pushViewController:svc animated:YES];
         
         

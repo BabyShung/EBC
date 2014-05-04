@@ -9,8 +9,11 @@
 #import "SearchResultViewController.h"
 #import "BadgeTableCell.h"
 #import "FontSettings.h"
-
+#import "ImagePlaceholderHelper.h"
+#import "FontSettings.h"
 @interface SearchResultViewController ()
+
+@property (nonatomic,strong) UIImage *Selfie;
 
 @end
 
@@ -20,6 +23,13 @@
 {
     [super viewDidLoad];
 
+    self.title = @"Results";
+    
+    self.Selfie =  [[ImagePlaceholderHelper sharedInstance] placerholderAvatarWithSize:CGSizeMake(45, 45)];
+    
+    //prevent empty case crash
+    if(!self.users)
+        self.users = [NSMutableArray array];
 }
 
 
@@ -32,7 +42,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return [self.users count];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -40,24 +50,23 @@
     
     BadgeTableCell *cell = [[BadgeTableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     
+    
+    
     // Configure the cell...
     FontSettings* cs = [[FontSettings alloc]init];
-    [cs BadgeCellSetting:cell];
+    [cs BadgeCellSetting_Arrow:cell];
     
-    cell.textLabel.text = @"11";
-//    if (indexPath.section == 0) {
-//        //cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.section1 objectAtIndex:indexPath.row]];
-//        
-//   
-//        
-//        
-//    }else if (indexPath.section == 1) {
-//        cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.section2 objectAtIndex:indexPath.row]];
-//        
-//    }else if (indexPath.section == 2){
-//        cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.section3 objectAtIndex:indexPath.row]];
-//    }
-//    
+    
+    
+    NSDictionary *user_instance = self.users[indexPath.row];
+
+    
+    cell.textLabel.text = [user_instance objectForKey:@"uname"];
+    
+    [cell.imageView setImage:self.Selfie];
+    
+    cell.badgeString = @"123";
+
     return cell;
 }
 
@@ -65,4 +74,26 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
+/****************
+ 
+ Row height
+ 
+ ***************/
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 65;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return 20;
+    }
+    return 10;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 10;
+}
+
 @end

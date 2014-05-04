@@ -10,4 +10,6 @@
 
 @interface SearchResultViewController : UITableViewController
 
+@property (nonatomic,strong) NSMutableArray *users;
+
 @end
