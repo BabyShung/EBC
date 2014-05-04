@@ -30,6 +30,7 @@
     
     
 
+    self.title = @"Collection";
 }
 
 - (void)viewWillDisappear:(BOOL)animated

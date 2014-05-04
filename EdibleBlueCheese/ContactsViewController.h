@@ -7,6 +7,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TableViewController : UIViewController
+@interface ContactsViewController : UIViewController
 
 @end

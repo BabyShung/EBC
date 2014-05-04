@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		B8012A351914B09F007D2F6B /* StorageFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B8012A341914B09F007D2F6B /* StorageFile.m */; };
 		B8012A3B191580D5007D2F6B /* ImageProcessing.m in Sources */ = {isa = PBXBuildFile; fileRef = B8012A3A191580D5007D2F6B /* ImageProcessing.m */; };
+		B8012AAF1916CA61007D2F6B /* OtherProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8012AAE1916CA61007D2F6B /* OtherProfileViewController.m */; };
+		B8012AB51916D897007D2F6B /* Profiler.m in Sources */ = {isa = PBXBuildFile; fileRef = B8012AB41916D897007D2F6B /* Profiler.m */; };
 		B8157CC4190EEB3900C3BE8C /* edi_md5.m in Sources */ = {isa = PBXBuildFile; fileRef = B8157CC3190EEB3900C3BE8C /* edi_md5.m */; };
 		B8157CCA191013C800C3BE8C /* FindContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8157CC9191013C800C3BE8C /* FindContactsViewController.m */; };
 		B8738B7619046C740044FD42 /* ScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8738B6F19046C740044FD42 /* ScrollViewController.m */; };
 		B8738B7719046C740044FD42 /* NavBarSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = B8738B7119046C740044FD42 /* NavBarSetting.m */; };
-		B8738B7819046C740044FD42 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8738B7319046C740044FD42 /* TableViewController.m */; };
+		B8738B7819046C740044FD42 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8738B7319046C740044FD42 /* ContactsViewController.m */; };
 		B8738B7919046C740044FD42 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8738B7519046C740044FD42 /* CollectionViewController.m */; };
 		B8738B8B190473790044FD42 /* mycover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8738B8A190473790044FD42 /* mycover.jpg */; };
 		B8738B94190479470044FD42 /* cafe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B8738B8C190479470044FD42 /* cafe@2x.png */; };
@@ -137,6 +139,10 @@
 		B8012A341914B09F007D2F6B /* StorageFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorageFile.m; sourceTree = "<group>"; };
 		B8012A39191580D5007D2F6B /* ImageProcessing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageProcessing.h; sourceTree = "<group>"; };
 		B8012A3A191580D5007D2F6B /* ImageProcessing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageProcessing.m; sourceTree = "<group>"; };
+		B8012AAD1916CA61007D2F6B /* OtherProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherProfileViewController.h; sourceTree = "<group>"; };
+		B8012AAE1916CA61007D2F6B /* OtherProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherProfileViewController.m; sourceTree = "<group>"; };
+		B8012AB31916D897007D2F6B /* Profiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profiler.h; sourceTree = "<group>"; };
+		B8012AB41916D897007D2F6B /* Profiler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profiler.m; sourceTree = "<group>"; };
 		B8157CC2190EEB3900C3BE8C /* edi_md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = edi_md5.h; sourceTree = "<group>"; };
 		B8157CC3190EEB3900C3BE8C /* edi_md5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = edi_md5.m; sourceTree = "<group>"; };
 		B8157CC8191013C800C3BE8C /* FindContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindContactsViewController.h; sourceTree = "<group>"; };
@@ -145,8 +151,8 @@
 		B8738B6F19046C740044FD42 /* ScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollViewController.m; sourceTree = "<group>"; };
 		B8738B7019046C740044FD42 /* NavBarSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavBarSetting.h; sourceTree = "<group>"; };
 		B8738B7119046C740044FD42 /* NavBarSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavBarSetting.m; sourceTree = "<group>"; };
-		B8738B7219046C740044FD42 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
-		B8738B7319046C740044FD42 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		B8738B7219046C740044FD42 /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
+		B8738B7319046C740044FD42 /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
 		B8738B7419046C740044FD42 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		B8738B7519046C740044FD42 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		B8738B8A190473790044FD42 /* mycover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mycover.jpg; sourceTree = "<group>"; };
@@ -373,6 +379,8 @@
 				B8738B9F1906CE730044FD42 /* Settings */,
 				B8BC422219034DEC00485705 /* Tmp */,
 				B8AAF2F118F4547900D287A3 /* Main_iPhone.storyboard */,
+				B8012AAD1916CA61007D2F6B /* OtherProfileViewController.h */,
+				B8012AAE1916CA61007D2F6B /* OtherProfileViewController.m */,
 				B8D1CAB318FE0326001AFA11 /* AsyncRequest.h */,
 				B8D1CAB418FE0326001AFA11 /* AsyncRequest.m */,
 				B8AAF31718F47F3200D287A3 /* LoginRegister */,
@@ -525,6 +533,8 @@
 			children = (
 				B8E1D5FF190C68C600CB8C1C /* User.h */,
 				B8E1D600190C68C600CB8C1C /* User.m */,
+				B8012AB31916D897007D2F6B /* Profiler.h */,
+				B8012AB41916D897007D2F6B /* Profiler.m */,
 				B8012A331914B09F007D2F6B /* StorageFile.h */,
 				B8012A341914B09F007D2F6B /* StorageFile.m */,
 				B8012A39191580D5007D2F6B /* ImageProcessing.h */,
@@ -549,8 +559,8 @@
 			children = (
 				B8738B6E19046C740044FD42 /* ScrollViewController.h */,
 				B8738B6F19046C740044FD42 /* ScrollViewController.m */,
-				B8738B7219046C740044FD42 /* TableViewController.h */,
-				B8738B7319046C740044FD42 /* TableViewController.m */,
+				B8738B7219046C740044FD42 /* ContactsViewController.h */,
+				B8738B7319046C740044FD42 /* ContactsViewController.m */,
 				B8738B7419046C740044FD42 /* CollectionViewController.h */,
 				B8738B7519046C740044FD42 /* CollectionViewController.m */,
 				B8BC423219034E0700485705 /* UIViewController+ScrollingNavbar.h */,
@@ -840,6 +850,7 @@
 				B8AAF36E18F488E500D287A3 /* AnimateLabel.m in Sources */,
 				B8FA45CC18F72E56007DA680 /* UIImageView+Placeholder.m in Sources */,
 				B8012A3B191580D5007D2F6B /* ImageProcessing.m in Sources */,
+				B8012AB51916D897007D2F6B /* Profiler.m in Sources */,
 				B8738B7619046C740044FD42 /* ScrollViewController.m in Sources */,
 				B8E1D599190AF7FE00CB8C1C /* NSString+FontAwesome.m in Sources */,
 				B8AAF31D18F47F5B00D287A3 /* UIImage+ImageEffects.m in Sources */,
@@ -859,7 +870,7 @@
 				B8AAF31C18F47F5B00D287A3 /* LoginRegisterForm.m in Sources */,
 				B8E1D54F190A293D00CB8C1C /* ModifyViewController.m in Sources */,
 				B8B69D7B1912D07E00DEF80A /* EdibleCollectionCell.m in Sources */,
-				B8738B7819046C740044FD42 /* TableViewController.m in Sources */,
+				B8738B7819046C740044FD42 /* ContactsViewController.m in Sources */,
 				B8B69D7A1912D07E00DEF80A /* DiscoveryViewController.m in Sources */,
 				B8738B7919046C740044FD42 /* CollectionViewController.m in Sources */,
 				B8BC421A19031F6C00485705 /* CardScrollView.m in Sources */,
@@ -868,6 +879,7 @@
 				B8E1D549190A1C0E00CB8C1C /* AccountViewController.m in Sources */,
 				B8E1D59D190AFF9E00CB8C1C /* FontSettings.m in Sources */,
 				B8738B9E190634730044FD42 /* LoadingAnimation.m in Sources */,
+				B8012AAF1916CA61007D2F6B /* OtherProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

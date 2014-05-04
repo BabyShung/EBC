@@ -38,9 +38,9 @@
     
     // Standard shadow stuff
     [shadowLayer setShadowColor:[[UIColor colorWithWhite:0 alpha:1] CGColor]];
-    [shadowLayer setShadowOffset:CGSizeMake(0.0f, 55.0f)];//55 is height of shadow offset
+    [shadowLayer setShadowOffset:CGSizeMake(0.0f, 15.0f)];//55 is height of shadow offset
     [shadowLayer setShadowOpacity:1.0f];
-    [shadowLayer setShadowRadius:40];
+    [shadowLayer setShadowRadius:20];
     
     // Causes the inner region in this example to NOT be filled.
     [shadowLayer setFillRule:kCAFillRuleEvenOdd];

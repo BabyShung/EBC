@@ -12,9 +12,12 @@
 
 #import "UILayers.h"
 
+#import "ImageProcessing.h"
+
 @interface DiscoveryViewController ()
 
 @property (nonatomic,strong) CAShapeLayer *shadowLayer;
+
 
 @end
 
@@ -27,6 +30,8 @@
     
     UICollectionViewFlowLayout *collectionViewLayout = (UICollectionViewFlowLayout*)self.collectionView.collectionViewLayout;
     collectionViewLayout.sectionInset = UIEdgeInsetsMake(10, 0, 60, 0);
+    
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -35,8 +40,11 @@
     
 }
 
+#pragma mark - Table view data source
 
-#pragma mark - UICollectionViewDatasource Methods
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return 5;
 }
@@ -46,35 +54,40 @@
     EdibleCollectionCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     
 
+    NSString *imageName = nil;
+    
+    NSString *titleName = nil;
+    
     if (indexPath.row == 0) {
         
-        cell.titleLabel.text = @"Hao";
-        cell.image = [UIImage imageNamed:@"discover_restaurant.jpg"];
+        titleName = @"Nearby Restaurant";
+        imageName = @"discover_restaurant.jpg";
     }else if (indexPath.row == 1){
-        //cell.titleLabel.text = @"Collection";
-        cell.image = [UIImage imageNamed:@"discover_oldbuilding.jpg"];
+        titleName = @"My Cards";
+        imageName = @"discover_oldbuilding.jpg";
     }else if (indexPath.row == 2){
-        //cell.titleLabel.text = @"Collection";
-        cell.image = [UIImage imageNamed:@"discover_walking.jpg"];
+        titleName = @"Hotels";
+        imageName = @"discover_walking.jpg";
     }else if (indexPath.row == 3){
-        //cell.titleLabel.text = @"Collection";
-        cell.image = [UIImage imageNamed:@"discover_bridge.jpg"];
+        titleName = @"Parties";
+        imageName = @"discover_bridge.jpg";
     }else {
-        //cell.titleLabel.text = @"Collection";
-        cell.image = [UIImage imageNamed:@"discover_river.jpg"];
+        titleName = @"Travel";
+        imageName = @"discover_river.jpg";
     }
-    
+    cell.titleLabel.text = titleName;
+    cell.image = [UIImage imageNamed:imageName] ;
     
     return cell;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row == 0){
+    //if(indexPath.row == 0){
         
         UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"Nearby"];
         [self.navigationController pushViewController:vc animated:YES];
-    }
+    //}
     
     
     NSLog(@"didselect %ld",(long)indexPath.row);

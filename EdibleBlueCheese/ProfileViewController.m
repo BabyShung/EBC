@@ -179,6 +179,9 @@
         NSLog(@"Any luck?? --------");
     });
 
+    //store at local disk
+    StorageFile *file = [[StorageFile alloc]init];
+    [file storeAsLocalFile:user.Uselfie andFileName:[NSString stringWithFormat:@"%@_uselfie.jpg",user.Uid]];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 
@@ -229,9 +232,7 @@
     
     if([status boolValue]){
         //
-        User *user = [User sharedInstance];
-        StorageFile *file = [[StorageFile alloc]init];
-        [file storeAsLocalFile:user.Uselfie andFileName:[NSString stringWithFormat:@"%@_uselfie.jpg",user.Uid]];
+       
     }
 }
 

@@ -43,7 +43,7 @@
 -(void)setupCell{
     
     UILayers *uil = [[UILayers alloc]init];
-    CAShapeLayer *layer =  [uil innerShadow:self.frame andTopOffset:100 andBottomOffset:0 andLeftOffset:0 andRightOffset:0];
+    CAShapeLayer *layer =  [uil innerShadow:self.frame andTopOffset:15 andBottomOffset:0 andLeftOffset:0 andRightOffset:0];
 
     
     
@@ -61,36 +61,23 @@
     
     [self addSubview:self.BackgroundImageView];
     
-    
-    // Add arrow image subview
-    self.ArrowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.bounds.size.width-50, self.bounds.size.height/2-15, 30, 30)];
-
-    self.ArrowImageView.backgroundColor = [UIColor clearColor];
-    self.ArrowImageView.contentMode = UIViewContentModeScaleAspectFill;
-    self.ArrowImageView.clipsToBounds = NO;
-    self.ArrowImageView.image = [UIImage imageNamed:@"right_arrow.png"];
-    
-    
-    [self addSubview:self.ArrowImageView];
-    
 
     
     //show the logout label
     UILabel *myLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.bounds.origin.x+LEFT_MARGIN, self.bounds.origin.y+TOP_MARGIN, self.bounds.size.width, LABEL_HEIGHT)];
     myLabel.font = [UIFont systemFontOfSize:18];
-    myLabel.text = [NSString stringWithFormat:@"aaa"];
     myLabel.textColor = [UIColor whiteColor];
     
     self.titleLabel = myLabel;
     [self addSubview:self.titleLabel];
 
     
-    UILabel *myLabel2 = [[UILabel alloc]initWithFrame:CGRectMake(self.bounds.origin.x, self.bounds.origin.y+LABEL_HEIGHT, self.bounds.size.width, LABEL_HEIGHT)];
-    myLabel2.font = [UIFont systemFontOfSize:18];
-    myLabel2.text = [NSString stringWithFormat:@"aaa"];
-    myLabel2.textColor = [UIColor whiteColor];
-    self.subtitleLabel = myLabel2;
-    [self addSubview:self.subtitleLabel];
+//    UILabel *myLabel2 = [[UILabel alloc]initWithFrame:CGRectMake(self.bounds.origin.x, self.bounds.origin.y+LABEL_HEIGHT, self.bounds.size.width, LABEL_HEIGHT)];
+//    myLabel2.font = [UIFont systemFontOfSize:18];
+//    myLabel2.text = [NSString stringWithFormat:@"aaa"];
+//    myLabel2.textColor = [UIColor whiteColor];
+//    self.subtitleLabel = myLabel2;
+//    [self addSubview:self.subtitleLabel];
 
     
     

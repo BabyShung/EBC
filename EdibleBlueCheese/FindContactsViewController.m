@@ -14,7 +14,7 @@
 #import "SearchResultViewController.h"
 
 #import "AsyncRequest.h"
-
+#import "SVProgressHUD.h"
 
 @interface FindContactsViewController () <UITextFieldDelegate, NSURLConnectionDataDelegate>
 {
@@ -155,16 +155,26 @@
 
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
-   
+
+    if(textField.text.length != 0){
     
-    [self searchUsers:textField.text];
+        [self searchUsers:textField.text];
     
-    [textField resignFirstResponder];
+        [textField resignFirstResponder];
+    }
     
     return NO;
 }
 
 -(void)searchUsers:(NSString*)name{
+    
+    self.navigationItem.hidesBackButton = YES;
+    //show the progress view
+
+        [SVProgressHUD show];
+    
+    
+    
     
     //perform async task
     AsyncRequest *async = [[AsyncRequest alloc]init];
@@ -210,6 +220,9 @@
     NSLog(@"find contacts status --- -- -   %d",[status boolValue]);
     NSLog(@"log --- -- -   %@",log);
 
+    
+    [SVProgressHUD dismiss];
+    self.navigationItem.hidesBackButton = NO;
 
     if([status boolValue]){
 
@@ -221,6 +234,7 @@
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"User not exists" message:@"User not found. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
 
+        
         
         [alert showWithHandler:^(UIAlertView *alertView, NSInteger buttonIndex) {
             

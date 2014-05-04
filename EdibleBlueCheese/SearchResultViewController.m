@@ -11,6 +11,9 @@
 #import "FontSettings.h"
 #import "ImagePlaceholderHelper.h"
 #import "FontSettings.h"
+#import "OtherProfileViewController.h"
+#import "Profiler.h"
+
 @interface SearchResultViewController ()
 
 @property (nonatomic,strong) UIImage *Selfie;
@@ -65,7 +68,7 @@
     
     [cell.imageView setImage:self.Selfie];
     
-    cell.badgeString = @"123";
+    cell.badgeString = @"XX Info";
 
     return cell;
 }
@@ -73,6 +76,21 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSDictionary *dict = self.users[indexPath.row];
+    
+    OtherProfileViewController *opvc = [self.storyboard instantiateViewControllerWithIdentifier:@"OtherProfile"];
+    
+    NSString* uid = [dict objectForKey:@"uid"];
+    NSString* uname = [dict objectForKey:@"uname"];
+    NSUInteger utype = [[dict objectForKey:@"utype"] integerValue];
+    //NSData* uselfie = [dict objectForKey:@"uselfie"];
+    
+    Profiler *pf = [[Profiler alloc]initWithUid:uid andUname:uname andUtype:utype andUselfie:nil];
+    opvc.profiler = pf;
+    
+    [self.navigationController pushViewController:opvc animated:YES];
+    
 }
 
 /****************
@@ -95,5 +113,6 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 10;
 }
+
 
 @end

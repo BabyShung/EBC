@@ -98,16 +98,11 @@
         
         //show the progress view
         [SVProgressHUD show];
-      
-        
-            //send request
-            AsyncRequest *async = [[AsyncRequest alloc]init];
-            [async modifyPWD_oldPwd:self.oldPwd.text andNextPwd:self.nextPwd.text andConfirmPwd:self.confirmPwd.text andSELF:self];
-    
         
         
-
-        
+        //send request
+        AsyncRequest *async = [[AsyncRequest alloc]init];
+        [async modifyPWD_oldPwd:self.oldPwd.text andNextPwd:self.nextPwd.text andConfirmPwd:self.confirmPwd.text andSELF:self];
         
         
         
@@ -127,8 +122,8 @@
         
         self.navigationItem.hidesBackButton = NO;
     }
-
-
+    
+    
     
 }
 
@@ -179,14 +174,14 @@
         //**** update DB
         DBOperations_User *dbu = [[DBOperations_User alloc]init];
         User *user = [User sharedInstance];
-
+        
         user.Upwd = self.nextPwd.text; //****** late change to hash value
-
+        
         [dbu execute:[NSString stringWithFormat:@"UPDATE User SET upwd = '%@' where uid = '%@'",user.Upwd,user.Uid]];
         
         
         //**** perform delegate back to prev vc
-        //no need to do that ! since we are using singleton! 
+        //no need to do that ! since we are using singleton!
         
     }else{
         [SVProgressHUD dismiss];
@@ -194,8 +189,8 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops.." message:log delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
         [alert show];
         self.oldPwd.text = @"";
-//        self.nextPwd.text = @"";
-//        self.confirmPwd.text = @"";
+        //        self.nextPwd.text = @"";
+        //        self.confirmPwd.text = @"";
         [self.oldPwd becomeFirstResponder];
         self.submitBTN.enabled = YES;
         

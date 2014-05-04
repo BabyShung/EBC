@@ -5,17 +5,17 @@
 //  Created by Hao Zheng on 4/20/14.
 //  Copyright (c) 2014 Hao Zheng. All rights reserved.
 
-#import "TableViewController.h"
+#import "ContactsViewController.h"
 #import "UIViewController+ScrollingNavbar.h"
 
-@interface TableViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
+@interface ContactsViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray* data;
 
 @end
 
-@implementation TableViewController
+@implementation ContactsViewController
 
 - (void)viewDidLoad
 {
@@ -74,9 +74,9 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
-    self.tabBarController.title = @"Table";
+    self.tabBarController.title = @"Contacts";
     
-    UIBarButtonItem *barAddButton = [[UIBarButtonItem alloc] initWithTitle:@"Add Friends" style:UIBarButtonItemStylePlain target:self action:@selector(addFriends)];
+    UIBarButtonItem *barAddButton = [[UIBarButtonItem alloc] initWithTitle:@"Add Contacts" style:UIBarButtonItemStylePlain target:self action:@selector(addFriends)];
     self.tabBarController.navigationItem.rightBarButtonItem = barAddButton;
 }
 

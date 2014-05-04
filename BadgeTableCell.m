@@ -350,8 +350,10 @@
 	}
     
 	//!!!!!!!!!!!!!!!!! Hao
-    if(self.isImageCell)
+    if(self.isImageCell){
         self.imageView.frame = CGRectMake(self.imageView.frame.origin.x,10,70,70);
+        
+    }
    //
 }
 
