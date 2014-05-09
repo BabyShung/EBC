@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FormValidator : NSObject <UITextFieldDelegate>{
+@interface FormValidator : NSObject {
 }
 
 /*******************************************
@@ -16,11 +16,11 @@
  validate login or register form (Hao added)
  
  *******************************************/
-- (void) Email:(UITextField *) email andUsername: (UITextField *) username andPwd: (UITextField *)pwd;
+- (void) Email:(NSString *) email andUsername: (NSString *) username andPwd: (NSString *)pwd;
 
-- (void) OldPwd:(UITextField *) oldpwd andNextPwd: (UITextField *) nextpwd andConfirmPwd: (UITextField *)confirmpwd;
+- (void) OldPwd:(NSString *) oldpwd andNextPwd: (NSString *) nextpwd andConfirmPwd: (NSString *)confirmpwd;
 
-- (void) updateOneField:(UITextField *) textfield andFieldName:(NSString*)fieldname;
+- (void) updateOneField:(NSString *) textfield andFieldName:(NSString*)fieldname;
 
 /*******************************************
  
@@ -28,19 +28,19 @@
  
  *******************************************/
 //check email
-- (void) Email : (UITextField *) emailAddress FieldName: (NSString *) textFieldName;
+- (void) Email : (NSString *) emailAddress FieldName: (NSString *) textFieldName;
 
 //check required
-- (void) Required : (UITextField *) textField FieldName: (NSString *) textFieldName;
+- (void) Required : (NSString *) textField FieldName: (NSString *) textFieldName;
 
 //check minlength
-- (void) MinLength: (int) length  textField: (UITextField *) textField FieldName: (NSString *) textFieldName;
+- (void) MinLength: (int) length  textField: (NSString *) textField FieldName: (NSString *) textFieldName;
 
 //
-- (void) LettersNumbersOnly: (UITextField *) textField FieldName: (NSString *) textFieldName;
+- (void) LettersNumbersOnly: (NSString *) textField FieldName: (NSString *) textFieldName;
 
 //check maxlength
-- (void) MaxLength: (int) length textField: (UITextField *)textField FieldName: (NSString *) textFieldName;
+- (void) MaxLength: (int) length textField: (NSString *)textField FieldName: (NSString *) textFieldName;
 
 
 - (BOOL) isValid;
@@ -66,7 +66,7 @@
 
 @property(nonatomic) BOOL textFieldIsValid;
 
-@property(nonatomic, strong) UITextField *textField;
+@property(nonatomic, strong) NSString *textField;
 
 
 @end

@@ -205,10 +205,12 @@
 
 -(void) validateAllInputs{
     
+    //trim
     
+    NSString *trimmedUserName = [self.myActionSheet.usernameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
     FormValidator *validate=[[FormValidator alloc] init];
-    [validate Email:self.myActionSheet.emailTextField andUsername:self.myActionSheet.usernameTextField andPwd:self.myActionSheet.pwdTextField];
+    [validate Email:self.myActionSheet.emailTextField.text andUsername:trimmedUserName andPwd:self.myActionSheet.pwdTextField.text];
     
     if([validate isValid]){    //success
         [self.myActionSheet dismissWithClickedButtonIndex:self.myActionSheet.cancelButtonIndex animated:YES];
@@ -235,7 +237,7 @@
             
             //passing the parameters, request should send hashedPWD***
             AsyncRequest *lr = [[AsyncRequest alloc]init];
-            [lr loginRegisterAccount:self.myActionSheet.emailTextField.text andUsernam:self.myActionSheet.usernameTextField.text andPwd:self.HashedPwd andSELF:self];
+            [lr loginRegisterAccount:self.myActionSheet.emailTextField.text andUsernam:trimmedUserName andPwd:self.HashedPwd andSELF:self];
             
         });
         
