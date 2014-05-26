@@ -27,7 +27,7 @@
     //[[UILabel appearance] setTextColor:[UIColor colorWithRed:(73/255.0) green:(79/255.0) blue:(80/255.0) alpha:1]];
     
     //DB:: tables
-    SQLConnector *sqlh=[SQLConnector sharedInstance];//singleton
+    SQLConnector *sqlh= [SQLConnector sharedInstance];//singleton
     [sqlh openDB];  //open sql connection
     //Tables
     [sqlh createUserTable:@"User" withUid:@"uid" withUsername:@"uname" withPassword:@"upwd" withUtype:@"utype" withSelfIE:@"uselfie" withPrimary:@"primaryUser" withExecuteDateTime:@"create_ts" withLastLoginTime:@"last_ts"];

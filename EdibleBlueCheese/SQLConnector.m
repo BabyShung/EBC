@@ -10,34 +10,25 @@
 
 static NSString *kSQLiteFileName = @"EdibleBlueCheeseDB.sqlite3";
 
-static SQLConnector *_sharedInstance = nil;
-
 @implementation SQLConnector
 
 @synthesize database;
 
 
-+ (SQLConnector *)sharedInstance
++ (instancetype)sharedInstance
 {
     // 1
-    
+    static SQLConnector *_sharedInstance = nil;
     
     // 2
     static dispatch_once_t oncePredicate;
     
     // 3
     dispatch_once(&oncePredicate, ^{
-        _sharedInstance = [[SQLConnector alloc] init];
-        
+        _sharedInstance = [[self alloc] init];
+        NSLog(@"DB connector sharedInstance get called only once");
     });
     return _sharedInstance;
-}
-
-- (instancetype)init {
-    if (self = [super init]) {
-        NSLog(@"DB connector sharedInstance get called");
-    }
-    return self;
 }
 
 /*******************************
@@ -55,7 +46,6 @@ static SQLConnector *_sharedInstance = nil;
 	
 	return path;
 }
-
 
 - (void) openDB // open a db connection
 {
@@ -136,10 +126,6 @@ static SQLConnector *_sharedInstance = nil;
     }
     
 }
-
-
-
-
 
 
 
